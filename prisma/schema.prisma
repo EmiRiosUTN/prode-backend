@@ -1,0 +1,410 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ============================================
+// ENTIDADES GLOBALES
+// ============================================
+
+model User {
+  id            String   @id @default(uuid())
+  email         String   @unique
+  password_hash String   @map("password_hash")
+  role          UserRole
+  is_active     Boolean  @default(true) @map("is_active")
+  created_at    DateTime @default(now()) @map("created_at")
+  updated_at    DateTime @updatedAt @map("updated_at")
+
+  employee          Employee?
+  admin_companies   Company[]
+  audit_logs        AuditLog[]
+
+  @@index([email])
+  @@map("users")
+}
+
+enum UserRole {
+  admin_global
+  empresa_admin
+  empleado
+}
+
+model Competition {
+  id         String   @id @default(uuid())
+  name       String
+  slug       String   @unique
+  start_date DateTime @map("start_date")
+  end_date   DateTime @map("end_date")
+  sport_type String   @default("futbol") @map("sport_type")
+  is_active  Boolean  @default(true) @map("is_active")
+  created_at DateTime @default(now()) @map("created_at")
+  updated_at DateTime @updatedAt @map("updated_at")
+
+  matches Match[]
+  prodes  Prode[]
+
+  @@index([slug])
+  @@index([is_active])
+  @@map("competitions")
+}
+
+model Team {
+  id         String   @id @default(uuid())
+  name       String
+  code       String   @unique
+  flag_url   String?  @map("flag_url")
+  created_at DateTime @default(now()) @map("created_at")
+  updated_at DateTime @updatedAt @map("updated_at")
+
+  matches_as_team_a Match[]             @relation("TeamA")
+  matches_as_team_b Match[]             @relation("TeamB")
+  match_scorers     MatchScorer[]
+  predicted_scorers PredictedScorer[]
+
+  @@index([code])
+  @@map("teams")
+}
+
+model Match {
+  id             String      @id @default(uuid())
+  competition_id String      @map("competition_id")
+  team_a_id      String      @map("team_a_id")
+  team_b_id      String      @map("team_b_id")
+  match_date     DateTime    @map("match_date")
+  stage          String?
+  location       String?
+  status         MatchStatus @default(scheduled)
+  created_at     DateTime    @default(now()) @map("created_at")
+  updated_at     DateTime    @updatedAt @map("updated_at")
+
+  competition  Competition  @relation(fields: [competition_id], references: [id], onDelete: Cascade)
+  team_a       Team         @relation("TeamA", fields: [team_a_id], references: [id])
+  team_b       Team         @relation("TeamB", fields: [team_b_id], references: [id])
+  match_result MatchResult?
+  predictions  Prediction[]
+
+  @@index([competition_id, match_date])
+  @@index([status])
+  @@index([match_date])
+  @@map("matches")
+}
+
+enum MatchStatus {
+  scheduled
+  in_progress
+  finished
+  cancelled
+}
+
+model MatchResult {
+  id                  String    @id @default(uuid())
+  match_id            String    @unique @map("match_id")
+  goals_team_a        Int       @default(0) @map("goals_team_a")
+  goals_team_b        Int       @default(0) @map("goals_team_b")
+  yellow_cards_team_a Int       @default(0) @map("yellow_cards_team_a")
+  yellow_cards_team_b Int       @default(0) @map("yellow_cards_team_b")
+  red_cards_team_a    Int       @default(0) @map("red_cards_team_a")
+  red_cards_team_b    Int       @default(0) @map("red_cards_team_b")
+  updated_at          DateTime  @updatedAt @map("updated_at")
+  finalized_at        DateTime? @map("finalized_at")
+
+  match         Match         @relation(fields: [match_id], references: [id], onDelete: Cascade)
+  match_scorers MatchScorer[]
+
+  @@map("match_results")
+}
+
+model MatchScorer {
+  id               String   @id @default(uuid())
+  match_result_id  String   @map("match_result_id")
+  player_full_name String   @map("player_full_name")
+  team_id          String   @map("team_id")
+  goals_count      Int      @map("goals_count")
+  created_at       DateTime @default(now()) @map("created_at")
+
+  match_result MatchResult @relation(fields: [match_result_id], references: [id], onDelete: Cascade)
+  team         Team        @relation(fields: [team_id], references: [id])
+
+  @@index([match_result_id])
+  @@index([player_full_name])
+  @@map("match_scorers")
+}
+
+model PredictionVariable {
+  id            String   @id @default(uuid())
+  code          String   @unique
+  name          String
+  description   String?
+  variable_type String   @map("variable_type")
+  is_active     Boolean  @default(true) @map("is_active")
+  created_at    DateTime @default(now()) @map("created_at")
+  updated_at    DateTime @updatedAt @map("updated_at")
+
+  prode_variable_configs ProdeVariableConfig[]
+
+  @@index([code])
+  @@index([is_active])
+  @@map("prediction_variables")
+}
+
+// ============================================
+// ENTIDADES TENANT-SPECIFIC
+// ============================================
+
+model Company {
+  id                      String   @id @default(uuid())
+  name                    String
+  slug                    String   @unique
+  corporate_domain        String?  @map("corporate_domain")
+  require_corporate_email Boolean  @default(false) @map("require_corporate_email")
+  logo_url                String?  @map("logo_url")
+  primary_color           String   @default("#1976d2") @map("primary_color")
+  secondary_color         String   @default("#424242") @map("secondary_color")
+  is_active               Boolean  @default(true) @map("is_active")
+  admin_user_id           String   @map("admin_user_id")
+  created_at              DateTime @default(now()) @map("created_at")
+  updated_at              DateTime @updatedAt @map("updated_at")
+
+  admin_user     User           @relation(fields: [admin_user_id], references: [id])
+  company_areas  CompanyArea[]
+  employees      Employee[]
+  prodes         Prode[]
+  audit_logs     AuditLog[]
+
+  @@index([slug])
+  @@index([is_active])
+  @@map("companies")
+}
+
+model CompanyArea {
+  id          String   @id @default(uuid())
+  company_id  String   @map("company_id")
+  name        String
+  description String?
+  is_active   Boolean  @default(true) @map("is_active")
+  created_at  DateTime @default(now()) @map("created_at")
+  updated_at  DateTime @updatedAt @map("updated_at")
+
+  company   Company    @relation(fields: [company_id], references: [id], onDelete: Cascade)
+  employees Employee[]
+
+  @@unique([company_id, name])
+  @@index([company_id])
+  @@map("company_areas")
+}
+
+model Employee {
+  id              String   @id @default(uuid())
+  user_id         String   @unique @map("user_id")
+  company_id      String   @map("company_id")
+  company_area_id String   @map("company_area_id")
+  first_name      String   @map("first_name")
+  last_name       String   @map("last_name")
+  phone           String?
+  is_blocked      Boolean  @default(false) @map("is_blocked")
+  created_at      DateTime @default(now()) @map("created_at")
+  updated_at      DateTime @updatedAt @map("updated_at")
+
+  user               User               @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  company            Company            @relation(fields: [company_id], references: [id], onDelete: Cascade)
+  company_area       CompanyArea        @relation(fields: [company_area_id], references: [id])
+  prode_participants ProdeParticipant[]
+
+  @@unique([user_id, company_id])
+  @@index([company_id])
+  @@index([company_area_id])
+  @@map("employees")
+}
+
+model Prode {
+  id                 String            @id @default(uuid())
+  company_id         String            @map("company_id")
+  competition_id     String            @map("competition_id")
+  name               String
+  description        String?
+  participation_mode ParticipationMode @map("participation_mode")
+  is_active          Boolean           @default(true) @map("is_active")
+  created_at         DateTime          @default(now()) @map("created_at")
+  updated_at         DateTime          @updatedAt @map("updated_at")
+
+  company                Company               @relation(fields: [company_id], references: [id], onDelete: Cascade)
+  competition            Competition           @relation(fields: [competition_id], references: [id])
+  prode_variable_configs ProdeVariableConfig[]
+  prode_ranking_config   ProdeRankingConfig?
+  prode_participants     ProdeParticipant[]
+  ranking_caches         RankingCache[]
+
+  @@index([company_id])
+  @@index([competition_id])
+  @@index([is_active])
+  @@map("prodes")
+}
+
+enum ParticipationMode {
+  general
+  by_area
+  both
+}
+
+model ProdeVariableConfig {
+  id                     String   @id @default(uuid())
+  prode_id               String   @map("prode_id")
+  prediction_variable_id String   @map("prediction_variable_id")
+  points                 Int
+  is_active              Boolean  @default(true) @map("is_active")
+
+  prode               Prode              @relation(fields: [prode_id], references: [id], onDelete: Cascade)
+  prediction_variable PredictionVariable @relation(fields: [prediction_variable_id], references: [id])
+
+  @@unique([prode_id, prediction_variable_id])
+  @@index([prode_id])
+  @@map("prode_variable_configs")
+}
+
+model ProdeRankingConfig {
+  id                       String                 @id @default(uuid())
+  prode_id                 String                 @unique @map("prode_id")
+  show_individual_general  Boolean                @default(true) @map("show_individual_general")
+  show_individual_by_area  Boolean                @default(false) @map("show_individual_by_area")
+  show_area_ranking        Boolean                @default(false) @map("show_area_ranking")
+  area_ranking_calculation AreaRankingCalculation @default(average) @map("area_ranking_calculation")
+  created_at               DateTime               @default(now()) @map("created_at")
+  updated_at               DateTime               @updatedAt @map("updated_at")
+
+  prode Prode @relation(fields: [prode_id], references: [id], onDelete: Cascade)
+
+  @@map("prode_ranking_configs")
+}
+
+enum AreaRankingCalculation {
+  average
+  sum
+}
+
+model ProdeParticipant {
+  id          String   @id @default(uuid())
+  prode_id    String   @map("prode_id")
+  employee_id String   @map("employee_id")
+  joined_at   DateTime @default(now()) @map("joined_at")
+
+  prode       Prode        @relation(fields: [prode_id], references: [id], onDelete: Cascade)
+  employee    Employee     @relation(fields: [employee_id], references: [id], onDelete: Cascade)
+  predictions Prediction[]
+
+  @@unique([prode_id, employee_id])
+  @@index([prode_id])
+  @@index([employee_id])
+  @@map("prode_participants")
+}
+
+// ============================================
+// PREDICCIONES Y PUNTUACIONES
+// ============================================
+
+model Prediction {
+  id                            String    @id @default(uuid())
+  prode_participant_id          String    @map("prode_participant_id")
+  match_id                      String    @map("match_id")
+  predicted_goals_team_a        Int?      @map("predicted_goals_team_a")
+  predicted_goals_team_b        Int?      @map("predicted_goals_team_b")
+  predicted_yellow_cards_team_a Int?      @map("predicted_yellow_cards_team_a")
+  predicted_yellow_cards_team_b Int?      @map("predicted_yellow_cards_team_b")
+  predicted_red_cards_team_a    Int?      @map("predicted_red_cards_team_a")
+  predicted_red_cards_team_b    Int?      @map("predicted_red_cards_team_b")
+  locked_at                     DateTime? @map("locked_at")
+  created_at                    DateTime  @default(now()) @map("created_at")
+  updated_at                    DateTime  @updatedAt @map("updated_at")
+
+  prode_participant ProdeParticipant  @relation(fields: [prode_participant_id], references: [id], onDelete: Cascade)
+  match             Match             @relation(fields: [match_id], references: [id], onDelete: Cascade)
+  predicted_scorers PredictedScorer[]
+  prediction_score  PredictionScore?
+
+  @@unique([prode_participant_id, match_id])
+  @@index([prode_participant_id])
+  @@index([match_id])
+  @@index([locked_at])
+  @@map("predictions")
+}
+
+model PredictedScorer {
+  id               String   @id @default(uuid())
+  prediction_id    String   @map("prediction_id")
+  player_full_name String   @map("player_full_name")
+  predicted_goals  Int      @map("predicted_goals")
+  team_id          String   @map("team_id")
+  created_at       DateTime @default(now()) @map("created_at")
+
+  prediction Prediction @relation(fields: [prediction_id], references: [id], onDelete: Cascade)
+  team       Team       @relation(fields: [team_id], references: [id])
+
+  @@index([prediction_id])
+  @@index([player_full_name])
+  @@map("predicted_scorers")
+}
+
+model PredictionScore {
+  id            String   @id @default(uuid())
+  prediction_id String   @unique @map("prediction_id")
+  total_points  Int      @default(0) @map("total_points")
+  details       Json?
+  calculated_at DateTime @default(now()) @map("calculated_at")
+
+  prediction Prediction @relation(fields: [prediction_id], references: [id], onDelete: Cascade)
+
+  @@index([prediction_id])
+  @@map("prediction_scores")
+}
+
+// ============================================
+// RANKINGS CACHE
+// ============================================
+
+model RankingCache {
+  id              String      @id @default(uuid())
+  prode_id        String      @map("prode_id")
+  ranking_type    RankingType @map("ranking_type")
+  company_area_id String?     @map("company_area_id")
+  ranked_data     Json        @map("ranked_data")
+  last_updated    DateTime    @default(now()) @map("last_updated")
+
+  prode Prode @relation(fields: [prode_id], references: [id], onDelete: Cascade)
+
+  @@unique([prode_id, ranking_type, company_area_id])
+  @@index([prode_id])
+  @@map("ranking_cache")
+}
+
+enum RankingType {
+  individual_general
+  individual_by_area
+  area
+}
+
+// ============================================
+// AUDITORÍA
+// ============================================
+
+model AuditLog {
+  id          String   @id @default(uuid())
+  user_id     String   @map("user_id")
+  company_id  String?  @map("company_id")
+  action      String
+  entity_type String   @map("entity_type")
+  entity_id   String   @map("entity_id")
+  metadata    Json?
+  created_at  DateTime @default(now()) @map("created_at")
+
+  user    User     @relation(fields: [user_id], references: [id])
+  company Company? @relation(fields: [company_id], references: [id])
+
+  @@index([user_id])
+  @@index([company_id])
+  @@index([created_at])
+  @@map("audit_logs")
+}

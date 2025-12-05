@@ -5,7 +5,7 @@ Sistema multi-tenant de prodes (predicción de resultados deportivos) para empre
 ## Stack Tecnológico
 
 - **Backend:** NestJS + TypeScript
-- **Base de Datos:** PostgreSQL 16
+- **Base de Datos:** PostgreSQL 16 (Docker en VPS)
 - **ORM:** Prisma
 - **Autenticación:** JWT
 - **Caché:** Redis
@@ -26,13 +26,10 @@ npm install
 
 # Configurar variables de entorno
 cp .env.example .env
-# Editar .env con tus credenciales de BD
+# Editar .env con las credenciales de la BD compartida (consultar al equipo)
 
-# Ejecutar migraciones (crea las tablas)
-npx prisma migrate dev
-
-# Cargar datos iniciales (solo primera vez)
-npm run prisma:seed
+# Generar Prisma Client
+npx prisma generate
 
 # Iniciar servidor de desarrollo
 npm run start:dev
@@ -40,12 +37,14 @@ npm run start:dev
 
 ## Base de Datos
 
+**Base de datos compartida en VPS** - No es necesario ejecutar migraciones ni seed localmente.
+
 ### Ver datos
 ```bash
 npx prisma studio
 ```
 
-### Crear nueva migración
+### Solo para administradores: Crear nueva migración
 ```bash
 npx prisma migrate dev --name descripcion_del_cambio
 ```
@@ -56,13 +55,20 @@ backend/
 ├── prisma/
 │   ├── schema.prisma       # Modelo de datos
 │   ├── migrations/         # Migraciones SQL
-│   └── seed.ts            # Datos iniciales
+│   └── seed.ts            # Datos iniciales (ya cargados en VPS)
 ├── src/
 │   ├── modules/           # Módulos de negocio
 │   ├── common/            # Utilidades compartidas
 │   └── main.ts
 └── .env                   # Variables de entorno (no commitear)
 ```
+
+## Credenciales
+
+Solicitar al equipo:
+- DATABASE_URL (conexión a PostgreSQL en VPS)
+- REDIS_HOST y REDIS_PASSWORD
+- JWT_SECRET
 
 ## Licencia
 

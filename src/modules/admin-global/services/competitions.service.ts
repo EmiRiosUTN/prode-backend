@@ -52,7 +52,7 @@ export class CompetitionsService {
     }
 
     async create(createCompetitionDto: CreateCompetitionDto) {
-        const { slug, ...competitionData } = createCompetitionDto;
+        const { slug } = createCompetitionDto;
 
         // Check if slug is already taken
         const existingCompetition = await this.prisma.competition.findUnique({
@@ -63,10 +63,11 @@ export class CompetitionsService {
             throw new ConflictException(`Competition with slug "${slug}" already exists`);
         }
 
+        // MAPEO CORREGIDO DE CAMPOS
         return this.prisma.competition.create({
             data: {
-                ...competitionData,
-                slug,
+                name: createCompetitionDto.name,
+                slug: createCompetitionDto.slug,
                 start_date: new Date(createCompetitionDto.startDate),
                 end_date: new Date(createCompetitionDto.endDate),
                 sport_type: createCompetitionDto.sportType || 'futbol',
@@ -85,6 +86,7 @@ export class CompetitionsService {
             throw new NotFoundException(`Competition with ID "${id}" not found`);
         }
 
+        // MAPEO CORREGIDO DE CAMPOS
         return this.prisma.competition.update({
             where: { id },
             data: {

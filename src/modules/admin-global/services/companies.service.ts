@@ -61,7 +61,7 @@ export class CompaniesService {
     }
 
     async create(createCompanyDto: CreateCompanyDto) {
-        const { adminEmail, adminPassword, slug, ...companyData } = createCompanyDto;
+        const { adminEmail, adminPassword, slug, ...dtoData } = createCompanyDto;
 
         // Check if slug is already taken
         const existingCompany = await this.prisma.company.findUnique({
@@ -96,11 +96,16 @@ export class CompaniesService {
                 },
             });
 
-            // Create company
+            // Create company - MAPEO CORREGIDO DE CAMPOS
             const company = await tx.company.create({
                 data: {
-                    ...companyData,
+                    name: dtoData.name,
                     slug,
+                    corporate_domain: dtoData.corporateDomain,
+                    require_corporate_email: dtoData.requireCorporateEmail ?? false,
+                    logo_url: dtoData.logoUrl,
+                    primary_color: dtoData.primaryColor ?? '#1976d2',
+                    secondary_color: dtoData.secondaryColor ?? '#424242',
                     admin_user_id: adminUser.id,
                 },
                 include: {
@@ -130,7 +135,7 @@ export class CompaniesService {
             throw new NotFoundException(`Company with ID "${id}" not found`);
         }
 
-        // Update company
+        // MAPEO CORREGIDO DE CAMPOS
         return this.prisma.company.update({
             where: { id },
             data: {
@@ -173,17 +178,20 @@ export class CompaniesService {
         }
 
         // Check if company has employees or prodes
-        if (company._count.employees > 0 || company._count.prodes > 0) {
+        if (company._count.employees > 0) {
             throw new BadRequestException(
-                'Cannot delete company with existing employees or prodes. Deactivate it instead.',
+                `Cannot delete company with ${company._count.employees} employee(s). Please remove employees first.`
             );
         }
 
-        // Delete company (cascade will delete admin user)
-        await this.prisma.company.delete({
+        if (company._count.prodes > 0) {
+            throw new BadRequestException(
+                `Cannot delete company with ${company._count.prodes} prode(s). Please remove prodes first.`
+            );
+        }
+
+        return this.prisma.company.delete({
             where: { id },
         });
-
-        return { message: 'Company deleted successfully' };
     }
 }

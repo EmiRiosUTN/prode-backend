@@ -24,12 +24,22 @@ export class TenantMiddleware implements NestMiddleware {
         const hostname = req.hostname;
         const subdomain = this.extractSubdomain(hostname);
 
-        // Skip tenant resolution for admin global endpoints
-        if (req.path.startsWith('/admin') || req.path.startsWith('/auth/login')) {
+        // Skip tenant resolution for these paths (CORREGIDO: incluye /api)
+        const publicPaths = [
+            '/api/admin',           // Todos los endpoints de admin global
+            '/api/auth/login',      // Login (cualquier usuario)
+            '/',                    // Root
+            '/health',              // Health check
+        ];
+
+        // Check if current path should skip tenant validation
+        const shouldSkipTenant = publicPaths.some(path => req.path.startsWith(path));
+        
+        if (shouldSkipTenant) {
             return next();
         }
 
-        // For other endpoints, tenant is required
+        // For other endpoints (like /api/auth/register), tenant is required
         if (!subdomain) {
             throw new BadRequestException('Tenant subdomain is required');
         }

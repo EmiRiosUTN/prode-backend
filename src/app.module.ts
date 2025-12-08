@@ -5,6 +5,7 @@ import { AppService } from './app.service';
 import { PrismaModule } from './prisma/prisma.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { AdminGlobalModule } from './modules/admin-global/admin-global.module';
+import { CompanyModule } from './modules/company/company.module';
 import { TenantMiddleware } from './common/middleware/tenant.middleware';
 import databaseConfig from './config/database.config';
 import jwtConfig from './config/jwt.config';
@@ -19,6 +20,7 @@ import jwtConfig from './config/jwt.config';
     PrismaModule,
     AuthModule,
     AdminGlobalModule,
+    CompanyModule,
   ],
   controllers: [AppController],
   providers: [AppService],

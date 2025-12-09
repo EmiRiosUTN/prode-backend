@@ -7,6 +7,7 @@ import { AuthModule } from './modules/auth/auth.module';
 import { AdminGlobalModule } from './modules/admin-global/admin-global.module';
 import { CompanyModule } from './modules/company/company.module';
 import { TenantMiddleware } from './common/middleware/tenant.middleware';
+import { EmployeeModule } from './modules/employee/employee.module';
 import databaseConfig from './config/database.config';
 import jwtConfig from './config/jwt.config';
 
@@ -21,6 +22,7 @@ import jwtConfig from './config/jwt.config';
     AuthModule,
     AdminGlobalModule,
     CompanyModule,
+    EmployeeModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -24,12 +24,8 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
             throw new UnauthorizedException('Invalid token or user not found');
         }
 
-        return {
-            id: user.id,
-            email: user.email,
-            role: user.role,
-            companyId: user.employee?.company_id,
-            employeeId: user.employee?.id,
-        };
+        // IMPORTANTE: Retornar el usuario completo con la relación employee
+        // El authService.validateUser ya incluye employee con company y company_area
+        return user;
     }
 }

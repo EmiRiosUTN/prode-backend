@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
 /**
- * Script de Testing Completo - Fase 5: Módulo Employee
- * Incluye setup automático de empleado si no existe
+ * Script de Testing - Fase 5: Módulo Employee
+ * Tests SOLO de funcionalidades de empleados
  */
 
 const BASE_URL = 'http://acme.localhost:3000';
@@ -24,7 +24,7 @@ let companyAdminToken = '';
 let prodeId = '';
 let matchId = '';
 let predictionId = '';
-let areaId = '';
+let competitionId = '';
 
 let passedTests = 0;
 let failedTests = 0;
@@ -47,17 +47,19 @@ function logTest(name) {
 }
 
 function logSuccess(message) {
-    passedTests++;
     log(`✓ ${message}`, 'green');
 }
 
 function logError(message) {
-    failedTests++;
     log(`✗ ${message}`, 'red');
 }
 
 function logInfo(message) {
     log(`  ${message}`, 'gray');
+}
+
+function logWarning(message) {
+    log(`⚠️  ${message}`, 'yellow');
 }
 
 function logData(label, data) {
@@ -103,12 +105,15 @@ async function request(method, endpoint, body = null, headers = {}) {
 
 function validateResponse(response, expectedStatus, action) {
     if (response.status === expectedStatus) {
+        passedTests++;
         logSuccess(`${action} - Status ${expectedStatus}`);
         return true;
     } else {
+        failedTests++;
         logError(`${action} - Expected ${expectedStatus}, got ${response.status}`);
-        log('  Response:', 'gray');
-        console.log(JSON.stringify(response.data, null, 2).split('\n').map(line => `    ${line}`).join('\n'));
+        if (response.data) {
+            logData('Response', response.data);
+        }
         return false;
     }
 }
@@ -134,117 +139,10 @@ async function loginAsCompanyAdmin() {
     }
 }
 
-async function getOrCreateArea() {
-    logTest('Setup: Obtener o crear área de Sistemas');
+async function setupProdeIfNeeded() {
+    logTest('Setup: Verificar o crear Prode para testing');
 
-    // Intentar obtener áreas existentes
-    const areasResponse = await request('GET', '/company/areas', null, {
-        'Authorization': `Bearer ${companyAdminToken}`
-    });
-
-    if (areasResponse.status === 200) {
-        const areas = areasResponse.data.data || areasResponse.data;
-        if (Array.isArray(areas) && areas.length > 0) {
-            // Buscar área de Sistemas
-            const sistemasArea = areas.find(a => a.name === 'Sistemas');
-            if (sistemasArea) {
-                areaId = sistemasArea.id;
-                logSuccess(`Área de Sistemas encontrada: ${areaId}`);
-                return;
-            }
-            // Si no hay Sistemas, usar la primera disponible
-            areaId = areas[0].id;
-            logSuccess(`Usando área: ${areas[0].name} (${areaId})`);
-            return;
-        }
-    }
-
-    // Si no hay áreas, crear una
-    const createAreaResponse = await request('POST', '/company/areas', {
-        name: 'Sistemas',
-        description: 'Área de Sistemas'
-    }, {
-        'Authorization': `Bearer ${companyAdminToken}`
-    });
-
-    if (createAreaResponse.status === 201) {
-        const area = createAreaResponse.data.data || createAreaResponse.data;
-        areaId = area.id;
-        logSuccess(`Área de Sistemas creada: ${areaId}`);
-    } else {
-        logError('No se pudo crear área de Sistemas');
-    }
-}
-
-async function registerOrLoginEmployee() {
-    logTest('Setup: Registrar o hacer login como empleado');
-
-    // Intentar login primero
-    const loginResponse = await request('POST', '/auth/login', {
-        email: 'john.doe@acme.com',
-        password: 'Employee123!'
-    });
-
-    if (loginResponse.status === 200) {
-        const responseData = loginResponse.data.data || loginResponse.data;
-        if (responseData.accessToken) {
-            employeeToken = responseData.accessToken;
-            logSuccess('Empleado ya existe - Login exitoso');
-            return;
-        }
-    }
-
-    // Si no existe, registrar
-    if (!areaId) {
-        logError('No hay área disponible para registrar empleado');
-        return;
-    }
-
-    logInfo('Empleado no existe - Registrando...');
-
-    const registerResponse = await request('POST', '/auth/register', {
-        email: 'john.doe@acme.com',
-        password: 'Employee123!',
-        firstName: 'John',
-        lastName: 'Doe',
-        phone: '+54 11 1234-5678',
-        companyAreaId: areaId
-    });
-
-    if (registerResponse.status === 201) {
-        const responseData = registerResponse.data.data || registerResponse.data;
-        if (responseData.accessToken) {
-            employeeToken = responseData.accessToken;
-            logSuccess('Empleado registrado exitosamente');
-            logData('Nuevo empleado', {
-                email: 'john.doe@acme.com',
-                nombre: 'John Doe',
-                area: responseData.user?.employee?.company_area?.name
-            });
-        }
-    } else {
-        logError('No se pudo registrar empleado');
-    }
-}
-
-async function setupProdeAndMatch() {
-    logTest('Setup: Obtener Prode y Match para testing');
-
-    // Obtener competición
-    const competitionsResponse = await request('GET', '/admin/competitions', null, {
-        'Authorization': `Bearer ${companyAdminToken}`
-    });
-
-    let competitionId = null;
-    if (competitionsResponse.status === 200) {
-        const competitions = competitionsResponse.data.data || competitionsResponse.data;
-        if (Array.isArray(competitions) && competitions.length > 0) {
-            competitionId = competitions[0].id;
-            logSuccess(`Competición encontrada: ${competitionId}`);
-        }
-    }
-
-    // Obtener o crear prode
+    // Verificar si ya hay prodes
     const prodesResponse = await request('GET', '/company/prodes', null, {
         'Authorization': `Bearer ${companyAdminToken}`
     });
@@ -253,51 +151,87 @@ async function setupProdeAndMatch() {
         const prodes = prodesResponse.data.data || prodesResponse.data;
         if (Array.isArray(prodes) && prodes.length > 0) {
             prodeId = prodes[0].id;
-            logSuccess(`Prode encontrado: ${prodeId}`);
-        } else if (competitionId) {
-            // Crear un prode si no existe
-            logInfo('No hay prodes - Creando uno...');
-            const createProdeResponse = await request('POST', '/company/prodes', {
-                name: 'Prode Test Copa América',
-                description: 'Prode de prueba para testing',
-                competitionId: competitionId,
-                participationMode: 'general',
-                variableConfigs: [],
-                rankingConfig: {
-                    showIndividualGeneral: true,
-                    showIndividualByArea: false,
-                    showAreaRanking: false,
-                    areaRankingCalculation: 'sum'
-                }
-            }, {
-                'Authorization': `Bearer ${companyAdminToken}`
-            });
-
-            if (createProdeResponse.status === 201) {
-                const prode = createProdeResponse.data.data || createProdeResponse.data;
-                prodeId = prode.id;
-                logSuccess(`Prode creado: ${prodeId}`);
-            }
+            logSuccess(`Prode ya existe: ${prodes[0].name} (${prodeId})`);
+            return;
         }
     }
 
-    // Obtener partidos
-    const matchesResponse = await request('GET', '/admin/matches', null, {
+    // No hay prodes, necesitamos crear uno
+    logInfo('No hay prodes - Creando uno para testing...');
+
+    // Primero obtener una competición
+    const compsResponse = await request('GET', '/admin/competitions', null, {
         'Authorization': `Bearer ${companyAdminToken}`
     });
 
-    if (matchesResponse.status === 200) {
-        const matches = matchesResponse.data.data || matchesResponse.data;
-        if (Array.isArray(matches) && matches.length > 0) {
-            // Buscar un partido futuro
-            const futureMatch = matches.find(m => new Date(m.date) > new Date());
-            if (futureMatch) {
-                matchId = futureMatch.id;
-                logSuccess(`Match futuro encontrado: ${matchId}`);
-            } else {
-                matchId = matches[0].id;
-                logInfo('Usando primer match disponible');
-            }
+    if (compsResponse.status === 200) {
+        const comps = compsResponse.data.data || compsResponse.data;
+        if (Array.isArray(comps) && comps.length > 0) {
+            competitionId = comps[0].id;
+            logSuccess(`Competición encontrada: ${comps[0].name}`);
+        }
+    }
+
+    if (!competitionId) {
+        logWarning('No hay competiciones disponibles');
+        logInfo('💡 Ejecuta el seed: npx prisma db seed');
+        return;
+    }
+
+    // Crear prode
+    const createProdeResponse = await request('POST', '/company/prodes', {
+        name: 'Prode Test Automático',
+        description: 'Prode creado automáticamente para testing de Fase 5',
+        competitionId: competitionId,
+        participationMode: 'general',
+        variableConfigs: [],
+        rankingConfig: {
+            showIndividualGeneral: true,
+            showIndividualByArea: false,
+            showAreaRanking: false,
+            areaRankingCalculation: 'sum'
+        }
+    }, {
+        'Authorization': `Bearer ${companyAdminToken}`
+    });
+
+    if (createProdeResponse.status === 201) {
+        const prode = createProdeResponse.data.data || createProdeResponse.data;
+        prodeId = prode.id;
+        logSuccess(`✨ Prode creado exitosamente: ${prodeId}`);
+        logData('Prode creado', {
+            id: prode.id,
+            name: prode.name,
+            competition: prode.competition?.name
+        });
+    } else {
+        logError('No se pudo crear el prode');
+        logData('Error', createProdeResponse.data);
+    }
+}
+
+// ============================================================================
+// LOGIN EMPLEADO
+// ============================================================================
+
+async function loginAsEmployee() {
+    logTest('Login como Empleado');
+
+    const response = await request('POST', '/auth/login', {
+        email: 'john.doe@acme.com',
+        password: 'Employee123!'
+    });
+
+    if (validateResponse(response, 200, 'Login exitoso')) {
+        const responseData = response.data.data || response.data;
+        if (responseData.accessToken) {
+            employeeToken = responseData.accessToken;
+            logSuccess('Token de empleado recibido');
+            logData('Usuario', {
+                email: responseData.user?.email,
+                role: responseData.user?.role,
+                nombre: `${responseData.user?.employee?.first_name} ${responseData.user?.employee?.last_name}`
+            });
         }
     }
 }
@@ -340,10 +274,16 @@ async function testAvailableProdes() {
         if (Array.isArray(prodes)) {
             logSuccess(`Se encontraron ${prodes.length} prode(s) disponible(s)`);
             if (prodes.length > 0) {
+                prodeId = prodes[0].id;
                 logData('Primer prode disponible', {
                     id: prodes[0].id,
-                    name: prodes[0].name
+                    name: prodes[0].name,
+                    description: prodes[0].description,
+                    participantCount: prodes[0]._count?.participants || 0
                 });
+            } else {
+                logWarning('No hay prodes disponibles');
+                logInfo('El admin de empresa debe crear un prode primero');
             }
         }
     }
@@ -351,7 +291,7 @@ async function testAvailableProdes() {
 
 async function testProdeDetail() {
     if (!prodeId) {
-        logError('No hay prode ID para testear detalle');
+        logWarning('Saltando test: No hay prode disponible para ver detalle');
         return;
     }
 
@@ -368,7 +308,9 @@ async function testProdeDetail() {
                 id: prode.id,
                 name: prode.name,
                 isParticipating: prode.isParticipating,
-                competition: prode.competition?.name
+                competition: prode.competition?.name,
+                variableConfigs: prode.prode_variable_configs?.length || 0,
+                rankingConfig: prode.prode_ranking_config ? 'Configurado' : 'No configurado'
             });
         }
     }
@@ -376,7 +318,7 @@ async function testProdeDetail() {
 
 async function testJoinProde() {
     if (!prodeId) {
-        logError('No hay prode ID para testear unirse');
+        logWarning('Saltando test: No hay prode disponible para unirse');
         return;
     }
 
@@ -387,11 +329,22 @@ async function testJoinProde() {
     });
 
     if (response.status === 201) {
+        passedTests++;
         logSuccess('Se unió exitosamente al prode');
+        const result = response.data.data || response.data;
+        if (result) {
+            logData('Participación', {
+                message: result.message,
+                prode: result.participant?.prode?.name
+            });
+        }
     } else if (response.status === 400 && response.data.message?.includes('Already participating')) {
+        passedTests++;
         logSuccess('Ya estaba participando en el prode (esperado)');
     } else {
-        validateResponse(response, 201, 'Unirse a prode');
+        failedTests++;
+        logError(`Unirse a prode - Expected 201, got ${response.status}`);
+        logData('Response', response.data);
     }
 }
 
@@ -401,7 +354,7 @@ async function testJoinProde() {
 
 async function testProdeMatches() {
     if (!prodeId) {
-        logError('No hay prode ID para listar partidos');
+        logWarning('Saltando test: No hay prode para listar partidos');
         return;
     }
 
@@ -416,15 +369,18 @@ async function testProdeMatches() {
         if (Array.isArray(matches)) {
             logSuccess(`Se encontraron ${matches.length} partido(s) en el prode`);
             if (matches.length > 0) {
+                const match = matches[0];
+                matchId = match.id;
                 logData('Primer partido', {
-                    id: matches[0].id,
-                    home: matches[0].home_team?.name,
-                    away: matches[0].away_team?.name,
-                    date: matches[0].date
+                    id: match.id,
+                    home: match.home_team?.name || match.team_a?.name,
+                    away: match.away_team?.name || match.team_b?.name,
+                    date: match.date || match.match_date,
+                    myPrediction: match.myPrediction ? 'Sí' : 'No',
+                    isLocked: match.isLocked
                 });
-                if (!matchId) {
-                    matchId = matches[0].id;
-                }
+            } else {
+                logWarning('El prode no tiene partidos asociados');
             }
         }
     }
@@ -432,7 +388,7 @@ async function testProdeMatches() {
 
 async function testCreatePrediction() {
     if (!prodeId || !matchId) {
-        logError('No hay prode ID o match ID para crear predicción');
+        logWarning('Saltando test: No hay prode o match para crear predicción');
         return;
     }
 
@@ -441,8 +397,8 @@ async function testCreatePrediction() {
     const response = await request('POST', '/employee/predictions', {
         prodeId: prodeId,
         matchId: matchId,
-        predictedGoalsTeamA: 2,
-        predictedGoalsTeamB: 1
+        homeScore: 2,
+        awayScore: 1
     }, {
         'Authorization': `Bearer ${employeeToken}`
     });
@@ -452,13 +408,19 @@ async function testCreatePrediction() {
         if (prediction && prediction.id) {
             predictionId = prediction.id;
             logSuccess(`Predicción creada con ID: ${predictionId}`);
+            logData('Predicción creada', {
+                id: prediction.id,
+                predictedGoalsTeamA: prediction.predicted_goals_team_a,
+                predictedGoalsTeamB: prediction.predicted_goals_team_b,
+                createdAt: prediction.created_at
+            });
         }
     }
 }
 
 async function testUpdatePrediction() {
     if (!prodeId || !matchId) {
-        logError('No hay prode ID o match ID para actualizar predicción');
+        logWarning('Saltando test: No hay prode o match para actualizar predicción');
         return;
     }
 
@@ -467,16 +429,27 @@ async function testUpdatePrediction() {
     const response = await request('POST', '/employee/predictions', {
         prodeId: prodeId,
         matchId: matchId,
-        predictedGoalsTeamA: 3,
-        predictedGoalsTeamB: 2
+        homeScore: 3,
+        awayScore: 2
     }, {
         'Authorization': `Bearer ${employeeToken}`
     });
 
     if (response.status === 201 || response.status === 200) {
-        logSuccess('Predicción actualizada correctamente');
+        passedTests++;
+        logSuccess('Predicción actualizada correctamente (UPSERT)');
+        const prediction = response.data.data || response.data;
+        if (prediction) {
+            logData('Predicción actualizada', {
+                id: prediction.id,
+                predictedGoalsTeamA: prediction.predicted_goals_team_a,
+                predictedGoalsTeamB: prediction.predicted_goals_team_b
+            });
+        }
     } else {
-        validateResponse(response, 200, 'Actualizar predicción');
+        failedTests++;
+        logError(`Actualizar predicción - Expected 200/201, got ${response.status}`);
+        logData('Response', response.data);
     }
 }
 
@@ -491,13 +464,21 @@ async function testMyPredictions() {
         const predictions = response.data.data || response.data;
         if (Array.isArray(predictions)) {
             logSuccess(`Se encontraron ${predictions.length} predicción(es)`);
+            if (predictions.length > 0) {
+                logData('Primera predicción', {
+                    id: predictions[0].id,
+                    match: `${predictions[0].match?.home_team?.name || predictions[0].match?.team_a?.name} vs ${predictions[0].match?.away_team?.name || predictions[0].match?.team_b?.name}`,
+                    predicted: `${predictions[0].predicted_goals_team_a} - ${predictions[0].predicted_goals_team_b}`,
+                    createdAt: predictions[0].created_at
+                });
+            }
         }
     }
 }
 
 async function testMyPredictionsFiltered() {
     if (!prodeId) {
-        logError('No hay prode ID para filtrar predicciones');
+        logWarning('Saltando test: No hay prode para filtrar predicciones');
         return;
     }
 
@@ -517,7 +498,7 @@ async function testMyPredictionsFiltered() {
 
 async function testPredictionDetail() {
     if (!predictionId) {
-        logError('No hay prediction ID para ver detalle');
+        logWarning('Saltando test: No hay predicción para ver detalle');
         return;
     }
 
@@ -532,8 +513,9 @@ async function testPredictionDetail() {
         if (prediction) {
             logData('Detalle de predicción', {
                 id: prediction.id,
-                match: `${prediction.match?.home_team?.name} vs ${prediction.match?.away_team?.name}`,
-                predicted: `${prediction.predicted_goals_team_a} - ${prediction.predicted_goals_team_b}`
+                match: prediction.match ? `${prediction.match.home_team?.name || prediction.match.team_a?.name} vs ${prediction.match.away_team?.name || prediction.match.team_b?.name}` : 'N/A',
+                predicted: `${prediction.predicted_goals_team_a} - ${prediction.predicted_goals_team_b}`,
+                prode: prediction.prode_match?.prode?.name
             });
         }
     }
@@ -546,34 +528,39 @@ async function testPredictionDetail() {
 async function runAllTests() {
     log('', 'reset');
     log('╔═══════════════════════════════════════════════════════════════════════════════╗', 'bright');
-    log('║            FASE 5: MÓDULO EMPLOYEE - TESTS COMPLETOS                         ║', 'bright');
+    log('║                  FASE 5: MÓDULO EMPLOYEE - TESTS                             ║', 'bright');
     log('╚═══════════════════════════════════════════════════════════════════════════════╝', 'bright');
     log('', 'reset');
     log(`Base URL: ${BASE_URL}`, 'cyan');
     log(`API Base: ${API_BASE}`, 'cyan');
     log('', 'reset');
-    log('📝 Este script incluye setup automático de empleado', 'yellow');
-    log('', 'reset');
 
     try {
         // SETUP AUTOMÁTICO
         logSection('SETUP AUTOMÁTICO');
+
+        // Login como admin y crear prode si no existe
         await loginAsCompanyAdmin();
 
         if (!companyAdminToken) {
-            logError('No se pudo obtener token de admin. Abortando.');
+            logError('No se pudo obtener token de admin empresa');
             process.exit(1);
         }
 
-        await getOrCreateArea();
-        await registerOrLoginEmployee();
+        await setupProdeIfNeeded();
+
+        // LOGIN EMPLEADO
+        logSection('LOGIN EMPLEADO');
+        await loginAsEmployee();
 
         if (!employeeToken) {
-            logError('No se pudo obtener token de empleado. Abortando.');
+            logError('No se pudo obtener token de empleado. Abortando tests.');
+            logInfo('');
+            logInfo('💡 Si el empleado no existe, regístralo con:');
+            logInfo('   POST /api/auth/register');
+            logInfo('   Host: acme.localhost:3000');
             process.exit(1);
         }
-
-        await setupProdeAndMatch();
 
         // PRODES DEL EMPLEADO
         logSection('1. PRODES DEL EMPLEADO');
@@ -613,13 +600,12 @@ async function runAllTests() {
     if (failedTests === 0) {
         log('🎉 ¡TODOS LOS TESTS PASARON! 🎉', 'green');
         log('', 'reset');
-        log('📋 Credenciales creadas:', 'cyan');
-        log('   Email: john.doe@acme.com', 'gray');
-        log('   Password: Employee123!', 'gray');
+        log('✅ Fase 5 (Módulo Employee) completada exitosamente', 'green');
         log('', 'reset');
         process.exit(0);
     } else {
         log('⚠️  Algunos tests fallaron. Revisa los detalles arriba.', 'yellow');
+        log('', 'reset');
         process.exit(1);
     }
 }

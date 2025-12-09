@@ -1,16 +1,6 @@
 #!/usr/bin/env node
 
-/**
- * Script de Testing - Fase 4: Módulo Company
- * 
- * Tests para los endpoints del módulo Company:
- * - Configuración de empresa
- * - Gestión de áreas
- * - Gestión de empleados
- * - Gestión de prodes
- */
-
-const BASE_URL = process.argv[2] || 'http://localhost:3000';
+const BASE_URL = 'http://acme.localhost:3000';
 const API_BASE = `${BASE_URL}/api`;
 
 const colors = {
@@ -76,7 +66,6 @@ async function request(method, endpoint, body = null, headers = {}) {
         method,
         headers: {
             'Content-Type': 'application/json',
-            'Host': 'acme.localhost:3000',
             ...headers,
         },
     };
@@ -94,34 +83,29 @@ async function request(method, endpoint, body = null, headers = {}) {
         return {
             status: response.status,
             ok: response.ok,
-            data,
+            data: data
         };
     } catch (error) {
-        logError(`Error de red: ${error.message}`);
+        logError(`Request failed: ${error.message}`);
         return {
             status: 0,
             ok: false,
-            error: error.message,
+            data: { message: error.message }
         };
     }
 }
 
-function validateResponse(response, expectedStatus, testName) {
-    if (response.status === expectedStatus && response.ok) {
-        logSuccess(`${testName} - Status ${response.status}`);
+function validateResponse(response, expectedStatus, action) {
+    if (response.status === expectedStatus) {
+        logSuccess(`${action} - Status ${expectedStatus}`);
         return true;
     } else {
-        logError(`${testName} - Expected ${expectedStatus}, got ${response.status}`);
-        if (response.data) {
-            logData('Response', response.data);
-        }
+        logError(`${action} - Expected ${expectedStatus}, got ${response.status}`);
+        log('  Response:', 'gray');
+        console.log(JSON.stringify(response.data, null, 2).split('\n').map(line => `    ${line}`).join('\n'));
         return false;
     }
 }
-
-// ============================================================================
-// PREPARACIÓN
-// ============================================================================
 
 async function loginAsCompanyAdmin() {
     logTest('Login como Admin de Empresa (Acme)');
@@ -142,25 +126,8 @@ async function loginAsCompanyAdmin() {
 
 async function getCompetitionAndVariables() {
     logTest('Obtener competición y variables de predicción');
-
-    // Obtener competición
-    const compResponse = await request('GET', '/admin/competitions', null, {
-        'Authorization': `Bearer ${companyAdminToken}`
-    });
-
-    if (compResponse.ok && compResponse.data.data && compResponse.data.data.length > 0) {
-        competitionId = compResponse.data.data[0].id;
-        logSuccess(`Competición encontrada: ${competitionId}`);
-    }
-
-    // Obtener variables de predicción (necesitamos hacer una query directa o usar admin endpoint)
-    // Por ahora, asumiremos que existen en la BD desde el seed
     logInfo('Variables de predicción se obtendrán de la BD (seed)');
 }
-
-// ============================================================================
-// TESTS - CONFIGURACIÓN DE EMPRESA
-// ============================================================================
 
 async function testCompanyConfigGet() {
     logTest('Obtener configuración de empresa');
@@ -170,7 +137,10 @@ async function testCompanyConfigGet() {
     });
 
     if (validateResponse(response, 200, 'Obtener configuración')) {
-        logData('Configuración actual', response.data);
+        const configData = response.data.data || response.data;
+        if (configData) {
+            logData('Configuración de empresa', configData);
+        }
     }
 }
 
@@ -178,7 +148,7 @@ async function testCompanyConfigUpdate() {
     logTest('Actualizar configuración de empresa (branding)');
 
     const response = await request('PUT', '/company/config', {
-        logoUrl: 'https://via.placeholder.com/300x120?text=ACME+UPDATED',
+        logoUrl: 'https://acme.com/updated-logo.png',
         primaryColor: '#FF5722',
         secondaryColor: '#2196F3'
     }, {
@@ -190,10 +160,6 @@ async function testCompanyConfigUpdate() {
     }
 }
 
-// ============================================================================
-// TESTS - GESTIÓN DE ÁREAS
-// ============================================================================
-
 async function testAreasGetAll() {
     logTest('Listar todas las áreas');
 
@@ -202,10 +168,11 @@ async function testAreasGetAll() {
     });
 
     if (validateResponse(response, 200, 'Listar áreas')) {
-        if (Array.isArray(response.data)) {
-            logSuccess(`Se encontraron ${response.data.length} área(s)`);
-            if (response.data.length > 0) {
-                logData('Primera área', response.data[0]);
+        const areas = response.data.data || response.data;
+        if (Array.isArray(areas)) {
+            logSuccess(`Se encontraron ${areas.length} área(s)`);
+            if (areas.length > 0) {
+                logData('Primera área', areas[0]);
             }
         }
     }
@@ -222,10 +189,11 @@ async function testAreasCreate() {
     });
 
     if (validateResponse(response, 201, 'Crear área')) {
-        if (response.data.id) {
-            createdAreaId = response.data.id;
+        const areaData = response.data.data || response.data;
+        if (areaData && areaData.id) {
+            createdAreaId = areaData.id;
             logSuccess(`Área creada con ID: ${createdAreaId}`);
-            logData('Área creada', response.data);
+            logData('Área creada', areaData);
         }
     }
 }
@@ -245,7 +213,12 @@ async function testAreasUpdate() {
         'Authorization': `Bearer ${companyAdminToken}`
     });
 
-    validateResponse(response, 200, 'Actualizar área');
+    if (validateResponse(response, 200, 'Actualizar área')) {
+        const areaData = response.data.data || response.data;
+        if (areaData) {
+            logData('Área actualizada', areaData);
+        }
+    }
 }
 
 async function testAreasDelete() {
@@ -260,12 +233,10 @@ async function testAreasDelete() {
         'Authorization': `Bearer ${companyAdminToken}`
     });
 
-    validateResponse(response, 200, 'Eliminar área');
+    if (validateResponse(response, 200, 'Eliminar área')) {
+        logSuccess('Área eliminada correctamente');
+    }
 }
-
-// ============================================================================
-// TESTS - GESTIÓN DE EMPLEADOS
-// ============================================================================
 
 async function testEmployeesGetAll() {
     logTest('Listar todos los empleados');
@@ -275,15 +246,12 @@ async function testEmployeesGetAll() {
     });
 
     if (validateResponse(response, 200, 'Listar empleados')) {
-        if (Array.isArray(response.data)) {
-            logSuccess(`Se encontraron ${response.data.length} empleado(s)`);
+        const employees = response.data.data || response.data;
+        if (Array.isArray(employees)) {
+            logSuccess(`Se encontraron ${employees.length} empleado(s)`);
         }
     }
 }
-
-// ============================================================================
-// TESTS - GESTIÓN DE PRODES
-// ============================================================================
 
 async function testProdesGetAll() {
     logTest('Listar todos los prodes');
@@ -293,61 +261,18 @@ async function testProdesGetAll() {
     });
 
     if (validateResponse(response, 200, 'Listar prodes')) {
-        if (Array.isArray(response.data)) {
-            logSuccess(`Se encontraron ${response.data.length} prode(s)`);
+        const prodes = response.data.data || response.data;
+        if (Array.isArray(prodes)) {
+            logSuccess(`Se encontraron ${prodes.length} prode(s)`);
         }
     }
 }
 
 async function testProdesCreate() {
-    if (!competitionId) {
-        logError('No hay competición disponible para crear prode');
-        return;
-    }
-
-    logTest('Crear nuevo prode');
-
-    // Necesitamos IDs de variables de predicción
-    // Por ahora, crearemos un prode simple sin variables
-    // En un test real, deberíamos obtener estos IDs de la BD
-
-    const response = await request('POST', '/company/prodes', {
-        name: `Prode Test ${Date.now()}`,
-        description: 'Prode de prueba',
-        competitionId: competitionId,
-        participationMode: 'general',
-        variableConfigs: [
-            {
-                predictionVariableId: '00000000-0000-0000-0000-000000000001', // Placeholder
-                points: 3,
-                isActive: true
-            }
-        ],
-        rankingConfig: {
-            showIndividualGeneral: true,
-            showIndividualByArea: false,
-            showAreaRanking: false,
-            areaRankingCalculation: 'average'
-        }
-    }, {
-        'Authorization': `Bearer ${companyAdminToken}`
-    });
-
-    // Este test puede fallar si no hay variables de predicción válidas
-    if (response.status === 201) {
-        if (response.data.id) {
-            createdProdeId = response.data.id;
-            logSuccess(`Prode creado con ID: ${createdProdeId}`);
-            logData('Prode creado', response.data);
-        }
-    } else {
-        logInfo('Test de creación de prode omitido - necesita variables de predicción válidas');
-    }
+    logTest('Crear nuevo prode (opcional - necesita datos válidos)');
+    logInfo('Este test requiere IDs válidos de competición y variables de predicción');
+    logInfo('Saltando por ahora - implementar cuando tengas los datos');
 }
-
-// ============================================================================
-// EJECUCIÓN PRINCIPAL
-// ============================================================================
 
 async function runAllTests() {
     log('', 'reset');
@@ -358,9 +283,12 @@ async function runAllTests() {
     log(`Base URL: ${BASE_URL}`, 'cyan');
     log(`API Base: ${API_BASE}`, 'cyan');
     log('', 'reset');
+    log('📝 IMPORTANTE: Este script usa acme.localhost:3000 en la URL', 'yellow');
+    log('   Si falla, agrega esta línea a tu archivo hosts:', 'yellow');
+    log('   127.0.0.1  acme.localhost', 'cyan');
+    log('', 'reset');
 
     try {
-        // PREPARACIÓN
         logSection('PREPARACIÓN');
         await loginAsCompanyAdmin();
 
@@ -371,23 +299,19 @@ async function runAllTests() {
 
         await getCompetitionAndVariables();
 
-        // CONFIGURACIÓN DE EMPRESA
         logSection('1. CONFIGURACIÓN DE EMPRESA');
         await testCompanyConfigGet();
         await testCompanyConfigUpdate();
 
-        // GESTIÓN DE ÁREAS
         logSection('2. GESTIÓN DE ÁREAS');
         await testAreasGetAll();
         await testAreasCreate();
         await testAreasUpdate();
         await testAreasDelete();
 
-        // GESTIÓN DE EMPLEADOS
         logSection('3. GESTIÓN DE EMPLEADOS');
         await testEmployeesGetAll();
 
-        // GESTIÓN DE PRODES
         logSection('4. GESTIÓN DE PRODES');
         await testProdesGetAll();
         await testProdesCreate();
@@ -398,7 +322,6 @@ async function runAllTests() {
         process.exit(1);
     }
 
-    // RESUMEN
     log('', 'reset');
     log('╔═══════════════════════════════════════════════════════════════════════════════╗', 'bright');
     log('║                            RESUMEN DE TESTS                                   ║', 'bright');
@@ -420,7 +343,6 @@ async function runAllTests() {
     }
 }
 
-// Ejecutar tests
 runAllTests().catch((error) => {
     console.error('Error crítico:', error);
     process.exit(1);

@@ -2,7 +2,6 @@ import { Injectable, NestMiddleware, NotFoundException, BadRequestException } fr
 import { Request, Response, NextFunction } from 'express';
 import { PrismaService } from '../../prisma/prisma.service';
 
-// Extend Express Request to include tenant
 declare global {
     namespace Express {
         interface Request {
@@ -24,27 +23,32 @@ export class TenantMiddleware implements NestMiddleware {
         const hostname = req.hostname;
         const subdomain = this.extractSubdomain(hostname);
 
-        // Skip tenant resolution for these paths (CORREGIDO: incluye /api)
-        const publicPaths = [
-            '/api/admin',           // Todos los endpoints de admin global
-            '/api/auth/login',      // Login (cualquier usuario)
-            '/',                    // Root
-            '/health',              // Health check
-        ];
+        // Obtener la ruta completa (sin query string)
+        const fullPath = req.originalUrl.split('?')[0];
 
-        // Check if current path should skip tenant validation
-        const shouldSkipTenant = publicPaths.some(path => req.path.startsWith(path));
-        
-        if (shouldSkipTenant) {
+        console.log(`[TenantMiddleware] ${req.method} ${fullPath} | hostname: ${hostname} | subdomain: ${subdomain}`);
+
+        // Rutas públicas que NO necesitan tenant
+        const isPublicPath =
+            fullPath === '/api' ||
+            fullPath === '/api/' ||
+            fullPath.startsWith('/api/admin') ||
+            fullPath === '/api/auth/login' ||
+            fullPath === '/' ||
+            fullPath.startsWith('/health');
+
+        if (isPublicPath) {
+            console.log(`[TenantMiddleware] ✓ Ruta pública - skipping tenant`);
             return next();
         }
 
-        // For other endpoints (like /api/auth/register), tenant is required
+        // TODAS LAS DEMÁS RUTAS REQUIEREN TENANT
         if (!subdomain) {
-            throw new BadRequestException('Tenant subdomain is required');
+            console.log(`[TenantMiddleware] ✗ No subdomain found`);
+            throw new BadRequestException('Tenant subdomain is required. Use format: acme.localhost:3000');
         }
 
-        // Find company by slug (subdomain)
+        // Buscar empresa por slug
         const company = await this.prisma.company.findUnique({
             where: { slug: subdomain },
             select: {
@@ -56,36 +60,43 @@ export class TenantMiddleware implements NestMiddleware {
         });
 
         if (!company) {
+            console.log(`[TenantMiddleware] ✗ Company not found: ${subdomain}`);
             throw new NotFoundException(`Company with slug "${subdomain}" not found`);
         }
 
         if (!company.is_active) {
+            console.log(`[TenantMiddleware] ✗ Company not active: ${subdomain}`);
             throw new BadRequestException(`Company "${subdomain}" is not active`);
         }
 
-        // Inject tenant into request
+        // Inyectar tenant en el request
         req.tenant = {
             id: company.id,
             name: company.name,
             slug: company.slug,
         };
 
+        console.log(`[TenantMiddleware] ✓ Tenant injected: ${company.name} (${company.id})`);
+
         next();
     }
 
     private extractSubdomain(hostname: string): string | null {
-        // Handle localhost development
+        // localhost puro sin subdomain
         if (hostname === 'localhost' || hostname.startsWith('127.0.0.1')) {
-            // In development, subdomain can be passed as first part before .localhost
-            // e.g., acme.localhost -> acme
+            return null;
+        }
+
+        // subdomain.localhost (desarrollo)
+        if (hostname.endsWith('.localhost')) {
             const parts = hostname.split('.');
-            if (parts.length > 1 && parts[0] !== 'localhost') {
-                return parts[0];
+            if (parts.length >= 2) {
+                return parts[0]; // "acme" de "acme.localhost"
             }
             return null;
         }
 
-        // Production: empresa.mundialpro.com -> empresa
+        // Producción: empresa.mundialpro.com
         const parts = hostname.split('.');
         if (parts.length >= 3) {
             return parts[0];

@@ -1,202 +1,270 @@
-import { PrismaClient, UserRole } from '@prisma/client';
+import { PrismaClient } from '@prisma/client';
 import * as bcrypt from 'bcrypt';
+import { config } from 'dotenv';
+
+// Load environment variables from .env file
+config();
 
 const prisma = new PrismaClient();
 
 async function main() {
-  console.log('🌱 Iniciando seed de la base de datos...');
+  console.log('🌱 Seeding database...\n');
 
-  // 1. Crear Admin Global
-  const adminPassword = await bcrypt.hash(
-    process.env.ADMIN_PASSWORD || 'Admin123!MundialPro',
-    10
-  );
-
-  const adminUser = await prisma.user.upsert({
-    where: { email: process.env.ADMIN_EMAIL || 'emiliano@pushandpullnow.com' },
-    update: {},
-    create: {
-      email: process.env.ADMIN_EMAIL || 'emiliano@pushandpullnow.com',
-      password_hash: adminPassword,
-      role: UserRole.admin_global,
-      is_active: true,
-    },
+  // 1. Verificar admin global
+  console.log('1. Checking admin global...');
+  const adminGlobal = await prisma.user.findFirst({
+    where: { role: 'admin_global' },
   });
 
-  console.log('✅ Admin Global creado:', adminUser.email);
+  if (!adminGlobal) {
+    console.log('   Creating admin global...');
+    await prisma.user.create({
+      data: {
+        email: 'admin@mundialpro.com',
+        password_hash: await bcrypt.hash('Admin123!MundialPro', 10),
+        role: 'admin_global',
+      },
+    });
+    console.log('   ✅ Admin global created');
+  } else {
+    console.log('   ✅ Admin global already exists');
+  }
 
-  // 2. Crear Variables de Predicción
-  const variables = [
-    {
-      code: 'exact_result',
-      name: 'Resultado Exacto',
-      description: 'Acertar el resultado exacto del partido',
-      variable_type: 'match_result',
+  // 2. Crear competición
+  console.log('\n2. Creating competition...');
+  const competition = await prisma.competition.upsert({
+    where: { slug: 'mundial-2026' },
+    update: {},
+    create: {
+      name: 'Mundial 2026',
+      slug: 'mundial-2026',
+      start_date: new Date('2026-06-11'),
+      end_date: new Date('2026-07-19'),
     },
-    {
-      code: 'winner_only',
-      name: 'Solo Ganador/Empate',
-      description: 'Acertar quién gana o si es empate',
-      variable_type: 'match_result',
-    },
-    {
-      code: 'team_a_goals',
-      name: 'Goles Equipo A',
-      description: 'Acertar cantidad exacta de goles del equipo A',
-      variable_type: 'goals',
-    },
-    {
-      code: 'team_b_goals',
-      name: 'Goles Equipo B',
-      description: 'Acertar cantidad exacta de goles del equipo B',
-      variable_type: 'goals',
-    },
-    {
-      code: 'total_goals',
-      name: 'Total de Goles',
-      description: 'Acertar el total de goles del partido',
-      variable_type: 'goals',
-    },
-    {
-      code: 'scorer',
-      name: 'Goleador',
-      description: 'Acertar jugador(es) que anota(n)',
-      variable_type: 'scorer',
-    },
-    {
-      code: 'red_cards',
-      name: 'Tarjetas Rojas',
-      description: 'Acertar si habrá tarjetas rojas',
-      variable_type: 'cards',
-    },
-    {
-      code: 'yellow_cards',
-      name: 'Tarjetas Amarillas',
-      description: 'Acertar cantidad de tarjetas amarillas',
-      variable_type: 'cards',
-    },
+  });
+  console.log(`   ✅ Competition: ${competition.name}`);
+
+  // 3. Crear equipos
+  console.log('\n3. Creating teams...');
+  const teamNames = [
+    'Argentina', 'Brasil', 'Francia', 'Alemania',
+    'España', 'Inglaterra', 'Italia', 'Portugal',
   ];
 
+  const teams: any[] = [];
+  for (const name of teamNames) {
+    const team = await prisma.team.upsert({
+      where: {
+        code: name.toLowerCase(),
+      },
+      update: {},
+      create: {
+        name,
+        code: name.toLowerCase(),
+        flag_url: `https://flagcdn.com/w320/${name.toLowerCase()}.png`,
+      },
+    });
+    teams.push(team);
+  }
+  console.log(`   ✅ ${teams.length} teams created`);
+
+  // 4. Crear partidos
+  console.log('\n4. Creating matches...');
+  const matches: any[] = [];
+  const baseDate = new Date(Date.now() + 24 * 60 * 60 * 1000); // Mañana
+
+  for (let i = 0; i < 4; i++) {
+    const matchDate = new Date(baseDate.getTime() + i * 2 * 60 * 60 * 1000);
+    const match = await prisma.match.create({
+      data: {
+        competition_id: competition.id,
+        team_a_id: teams[i * 2].id,
+        team_b_id: teams[i * 2 + 1].id,
+        match_date: matchDate,
+        stage: 'Group Stage',
+        location: 'Stadium ' + (i + 1),
+        status: 'scheduled',
+      },
+    });
+    matches.push(match);
+  }
+  console.log(`   ✅ ${matches.length} matches created`);
+
+  // 5. Crear variables de predicción
+  console.log('\n5. Creating prediction variables...');
+  const variables = [
+    { code: 'exact_result', name: 'Resultado Exacto', description: 'Acertar el resultado exacto', variable_type: 'numeric' },
+    { code: 'partial_result', name: 'Ganador', description: 'Acertar solo el ganador', variable_type: 'categorical' },
+    { code: 'goal_difference', name: 'Diferencia de Goles', description: 'Acertar la diferencia de goles', variable_type: 'numeric' },
+    { code: 'yellow_cards', name: 'Tarjetas Amarillas', description: 'Acertar tarjetas amarillas', variable_type: 'numeric' },
+    { code: 'red_cards', name: 'Tarjetas Rojas', description: 'Acertar tarjetas rojas', variable_type: 'numeric' },
+    { code: 'scorers', name: 'Goleadores', description: 'Acertar goleadores', variable_type: 'text' },
+  ];
+
+  const createdVariables: any[] = [];
   for (const variable of variables) {
-    await prisma.predictionVariable.upsert({
+    const created = await prisma.predictionVariable.upsert({
       where: { code: variable.code },
       update: {},
       create: variable,
     });
+    createdVariables.push(created);
   }
+  console.log(`   ✅ ${createdVariables.length} prediction variables created`);
 
-  console.log('✅ Variables de predicción creadas:', variables.length);
+  // 6. Crear empresa de ejemplo
+  console.log('\n6. Creating example company...');
+  const companyAdminPassword = 'Admin123!';
+  const companyAdminHash = await bcrypt.hash(companyAdminPassword, 10);
 
-  // 3. Crear equipos de ejemplo
-  const teams = [
-    { name: 'Argentina', code: 'ARG' },
-    { name: 'Brasil', code: 'BRA' },
-    { name: 'Uruguay', code: 'URU' },
-    { name: 'Chile', code: 'CHI' },
-    { name: 'Colombia', code: 'COL' },
-    { name: 'Ecuador', code: 'ECU' },
-    { name: 'Perú', code: 'PER' },
-    { name: 'Paraguay', code: 'PAR' },
-    { name: 'Venezuela', code: 'VEN' },
-    { name: 'Bolivia', code: 'BOL' },
-  ];
-
-  for (const team of teams) {
-    await prisma.team.upsert({
-      where: { code: team.code },
-      update: {},
-      create: team,
-    });
-  }
-
-  console.log('✅ Equipos creados:', teams.length);
-
-  // 4. Crear competición de ejemplo
-  const competition = await prisma.competition.upsert({
-    where: { slug: 'copa-america-2025' },
+  const companyUser = await prisma.user.upsert({
+    where: { email: 'admin@techcorp.com' },
     update: {},
     create: {
-      name: 'Copa América 2025',
-      slug: 'copa-america-2025',
-      start_date: new Date('2025-06-01'),
-      end_date: new Date('2025-07-15'),
-      sport_type: 'futbol',
-      is_active: true,
-    },
-  });
-
-  console.log('✅ Competición creada:', competition.name);
-
-  // 5. Crear empresa de ejemplo
-  const companyAdminPassword = await bcrypt.hash('Company123!', 10);
-
-  const companyAdminUser = await prisma.user.upsert({
-    where: { email: 'admin@acme.com' },
-    update: {},
-    create: {
-      email: 'admin@acme.com',
-      password_hash: companyAdminPassword,
-      role: UserRole.empresa_admin,
-      is_active: true,
+      email: 'admin@techcorp.com',
+      password_hash: companyAdminHash,
+      role: 'empresa_admin',
     },
   });
 
   const company = await prisma.company.upsert({
-    where: { slug: 'acme' },
+    where: { slug: 'techcorp' },
     update: {},
     create: {
-      name: 'Acme Corporation',
-      slug: 'acme',
-      corporate_domain: 'acme.com',
-      require_corporate_email: false,
-      logo_url: 'https://via.placeholder.com/200x80?text=ACME',
-      primary_color: '#1976d2',
-      secondary_color: '#424242',
-      admin_user_id: companyAdminUser.id,
-      is_active: true,
+      name: 'Tech Corp',
+      slug: 'techcorp',
+      admin_user_id: companyUser.id,
     },
   });
+  console.log(`   ✅ Company: ${company.name}`);
 
-  console.log('✅ Empresa de ejemplo creada:', company.name);
+  // 7. Crear áreas
+  console.log('\n7. Creating company areas...');
+  const areaNames = ['Sistemas', 'Marketing', 'Ventas', 'RRHH'];
+  const areas: any[] = [];
 
-  // 6. Crear áreas de la empresa
-  const areas = ['Sistemas', 'Ventas', 'Marketing', 'RRHH', 'Administración'];
-
-  for (const areaName of areas) {
-    await prisma.companyArea.upsert({
+  for (const name of areaNames) {
+    const area = await prisma.companyArea.upsert({
       where: {
         company_id_name: {
           company_id: company.id,
-          name: areaName,
+          name,
         },
       },
       update: {},
       create: {
         company_id: company.id,
-        name: areaName,
+        name,
+      },
+    });
+    areas.push(area);
+  }
+  console.log(`   ✅ ${areas.length} areas created`);
+
+  // 8. Crear empleados
+  console.log('\n8. Creating employees...');
+  const employeePassword = 'Employee123!';
+  const employeeHash = await bcrypt.hash(employeePassword, 10);
+
+  for (let i = 0; i < 12; i++) {
+    const areaIndex = i % areas.length;
+    const employeeNum = Math.floor(i / areas.length) + 1;
+
+    await prisma.user.upsert({
+      where: { email: `employee${i + 1}@techcorp.com` },
+      update: {},
+      create: {
+        email: `employee${i + 1}@techcorp.com`,
+        password_hash: employeeHash,
+        role: 'empleado',
+        employee: {
+          create: {
+            first_name: `Employee${employeeNum}`,
+            last_name: areaNames[areaIndex],
+            company_id: company.id,
+            company_area_id: areas[areaIndex].id,
+          },
+        },
+      },
+    });
+  }
+  console.log('   ✅ 12 employees created');
+
+  // 9. Crear prode
+  console.log('\n9. Creating prode...');
+
+  // Buscar si ya existe un prode para esta empresa y competición
+  const existingProde = await prisma.prode.findFirst({
+    where: {
+      company_id: company.id,
+      competition_id: competition.id,
+    },
+  });
+
+  const prode = existingProde || await prisma.prode.create({
+    data: {
+      company_id: company.id,
+      competition_id: competition.id,
+      name: 'Prode Mundial 2026',
+      description: 'Prode oficial de Tech Corp para el Mundial 2026',
+      participation_mode: 'both',
+      is_active: true,
+    },
+  });
+  console.log(`   ✅ Prode: ${prode.name}`);
+
+  // 10. Configurar variables del prode
+  console.log('\n10. Configuring prode variables...');
+  for (const variable of createdVariables.slice(0, 4)) {
+    await prisma.prodeVariableConfig.upsert({
+      where: {
+        prode_id_prediction_variable_id: {
+          prode_id: prode.id,
+          prediction_variable_id: variable.id,
+        },
+      },
+      update: {},
+      create: {
+        prode_id: prode.id,
+        prediction_variable_id: variable.id,
+        points: 10,
         is_active: true,
       },
     });
   }
+  console.log('   ✅ Prode variables configured');
 
-  console.log('✅ Áreas creadas:', areas.length);
+  // 11. Configurar ranking
+  console.log('\n11. Configuring ranking...');
+  await prisma.prodeRankingConfig.upsert({
+    where: { prode_id: prode.id },
+    update: {},
+    create: {
+      prode_id: prode.id,
+      show_individual_general: true,
+      show_individual_by_area: true,
+      show_area_ranking: true,
+      area_ranking_calculation: 'average',
+    },
+  });
+  console.log('   ✅ Ranking configured');
 
-  console.log('');
-  console.log('🎉 Seed completado exitosamente!');
-  console.log('');
-  console.log('📊 Resumen:');
-  console.log('   - Admin Global:', adminUser.email);
-  console.log('   - Variables de predicción:', variables.length);
-  console.log('   - Equipos:', teams.length);
-  console.log('   - Competición:', competition.name);
-  console.log('   - Empresa:', company.name, `(${company.slug})`);
-  console.log('   - Áreas:', areas.length);
-  console.log('');
+  console.log('\n✅ Database seeded successfully!\n');
+  console.log('📋 Test Credentials:');
+  console.log('   Admin Global:');
+  console.log('     Email: admin@mundialpro.com');
+  console.log('     Password: Admin123!MundialPro\n');
+  console.log('   Company Admin (Tech Corp):');
+  console.log('     Email: admin@techcorp.com');
+  console.log('     Password: Admin123!\n');
+  console.log('   Employees:');
+  console.log('     Email: employee1@techcorp.com (to employee12@techcorp.com)');
+  console.log('     Password: Employee123!\n');
 }
 
 main()
   .catch((e) => {
-    console.error('❌ Error en seed:', e);
+    console.error('❌ Error seeding database:', e);
     process.exit(1);
   })
   .finally(async () => {

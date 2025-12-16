@@ -1,7 +1,7 @@
 {
   "name": "backend",
   "version": "0.0.1",
-  "description": "",
+  "description": "Sistema multi-tenant de prodes (predicción de resultados deportivos) para empresas.",
   "author": "",
   "private": true,
   "license": "UNLICENSED",
@@ -84,5 +84,10 @@
     ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
-  }
+  },
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "keywords": []
 }

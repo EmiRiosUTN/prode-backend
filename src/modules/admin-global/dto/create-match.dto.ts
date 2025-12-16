@@ -1,27 +1,37 @@
-import { IsString, IsNotEmpty, IsUUID, IsDateString, IsOptional } from 'class-validator';
+import { IsString, IsNotEmpty, IsUUID, IsOptional, IsEnum } from 'class-validator';
+
+export enum MatchStatus {
+    SCHEDULED = 'scheduled',
+    IN_PROGRESS = 'in_progress',
+    FINISHED = 'finished',
+}
 
 export class CreateMatchDto {
     @IsUUID()
     @IsNotEmpty()
     competitionId: string;
 
-    @IsUUID()
+    @IsString()
     @IsNotEmpty()
-    teamAId: string;
+    teamA: string; // Team name instead of ID
 
-    @IsUUID()
+    @IsString()
     @IsNotEmpty()
-    teamBId: string;
+    teamB: string; // Team name instead of ID
 
-    @IsDateString()
+    @IsString()
     @IsNotEmpty()
     matchDate: string;
 
     @IsString()
-    @IsOptional()
-    stage?: string;
+    @IsNotEmpty()
+    stage: string;
 
     @IsString()
     @IsOptional()
     location?: string;
+
+    @IsEnum(MatchStatus)
+    @IsOptional()
+    status?: MatchStatus;
 }

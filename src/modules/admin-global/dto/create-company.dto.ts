@@ -36,4 +36,12 @@ export class CreateCompanyDto {
     @IsString()
     @IsNotEmpty()
     adminPassword: string;
+
+    @IsString()
+    @IsOptional()
+    adminFirstName?: string;
+
+    @IsString()
+    @IsOptional()
+    adminLastName?: string;
 }

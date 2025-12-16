@@ -81,32 +81,52 @@ export class MatchesService {
             throw new NotFoundException(`Competition with ID "${createMatchDto.competitionId}" not found`);
         }
 
-        // Verify teams exist
-        const [teamA, teamB] = await Promise.all([
-            this.prisma.team.findUnique({ where: { id: createMatchDto.teamAId } }),
-            this.prisma.team.findUnique({ where: { id: createMatchDto.teamBId } }),
-        ]);
+        // Find or create Team A
+        let teamA = await this.prisma.team.findFirst({
+            where: { name: createMatchDto.teamA },
+        });
 
         if (!teamA) {
-            throw new NotFoundException(`Team A with ID "${createMatchDto.teamAId}" not found`);
+            // Create team with a simple code (first 3 letters uppercase)
+            const teamCode = createMatchDto.teamA.substring(0, 3).toUpperCase();
+            teamA = await this.prisma.team.create({
+                data: {
+                    name: createMatchDto.teamA,
+                    code: teamCode,
+                    flag_url: '', // Can be updated later
+                },
+            });
         }
+
+        // Find or create Team B
+        let teamB = await this.prisma.team.findFirst({
+            where: { name: createMatchDto.teamB },
+        });
 
         if (!teamB) {
-            throw new NotFoundException(`Team B with ID "${createMatchDto.teamBId}" not found`);
+            const teamCode = createMatchDto.teamB.substring(0, 3).toUpperCase();
+            teamB = await this.prisma.team.create({
+                data: {
+                    name: createMatchDto.teamB,
+                    code: teamCode,
+                    flag_url: '',
+                },
+            });
         }
 
-        if (createMatchDto.teamAId === createMatchDto.teamBId) {
+        if (teamA.id === teamB.id) {
             throw new BadRequestException('Team A and Team B cannot be the same');
         }
 
         return this.prisma.match.create({
             data: {
                 competition_id: createMatchDto.competitionId,
-                team_a_id: createMatchDto.teamAId,
-                team_b_id: createMatchDto.teamBId,
+                team_a_id: teamA.id,
+                team_b_id: teamB.id,
                 match_date: new Date(createMatchDto.matchDate),
-                stage: createMatchDto.stage,
+                stage: createMatchDto.stage || 'Regular',
                 location: createMatchDto.location,
+                status: createMatchDto.status || 'scheduled',
             },
             include: {
                 competition: true,

@@ -19,14 +19,10 @@ export class TenantMiddleware implements NestMiddleware {
     constructor(private readonly prisma: PrismaService) { }
 
     async use(req: Request, res: Response, next: NextFunction) {
-        // Extract subdomain from hostname
-        const hostname = req.hostname;
-        const subdomain = this.extractSubdomain(hostname);
-
         // Obtener la ruta completa (sin query string)
         const fullPath = req.originalUrl.split('?')[0];
 
-        console.log(`[TenantMiddleware] ${req.method} ${fullPath} | hostname: ${hostname} | subdomain: ${subdomain}`);
+        console.log(`[TenantMiddleware] ${req.method} ${fullPath}`);
 
         // Rutas públicas que NO necesitan tenant
         const isPublicPath =
@@ -43,9 +39,26 @@ export class TenantMiddleware implements NestMiddleware {
         }
 
         // TODAS LAS DEMÁS RUTAS REQUIEREN TENANT
+        let subdomain: string | null = null;
+
+        // DEBUG: Log all headers
+        console.log('[TenantMiddleware] All headers:', JSON.stringify(req.headers, null, 2));
+
+        // OPCIÓN 1: Intentar obtener tenant de header personalizado (para desarrollo frontend)
+        const tenantSlugHeader = req.headers['x-tenant-slug'] as string;
+        if (tenantSlugHeader) {
+            subdomain = tenantSlugHeader;
+            console.log(`[TenantMiddleware] Tenant from X-Tenant-Slug header: ${subdomain}`);
+        } else {
+            // OPCIÓN 2: Extraer subdomain del hostname (método original)
+            const hostname = req.hostname;
+            subdomain = this.extractSubdomain(hostname);
+            console.log(`[TenantMiddleware] hostname: ${hostname} | subdomain: ${subdomain}`);
+        }
+
         if (!subdomain) {
             console.log(`[TenantMiddleware] ✗ No subdomain found`);
-            throw new BadRequestException('Tenant subdomain is required. Use format: acme.localhost:3000');
+            throw new BadRequestException('Tenant subdomain is required. Use format: acme.localhost:3001 or set X-Tenant-Slug header');
         }
 
         // Buscar empresa por slug

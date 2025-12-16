@@ -85,7 +85,7 @@ export class CompaniesService {
         const saltRounds = 10;
         const passwordHash = await bcrypt.hash(adminPassword, saltRounds);
 
-        // Create company and admin user in transaction
+        // Create company, admin user, and employee in transaction
         const result = await this.prisma.$transaction(async (tx) => {
             // Create admin user
             const adminUser = await tx.user.create({
@@ -96,7 +96,7 @@ export class CompaniesService {
                 },
             });
 
-            // Create company - MAPEO CORREGIDO DE CAMPOS
+            // Create company
             const company = await tx.company.create({
                 data: {
                     name: dtoData.name,
@@ -108,6 +108,32 @@ export class CompaniesService {
                     secondary_color: dtoData.secondaryColor ?? '#424242',
                     admin_user_id: adminUser.id,
                 },
+            });
+
+            // Create default area for the company
+            const defaultArea = await tx.companyArea.create({
+                data: {
+                    company_id: company.id,
+                    name: 'Administración',
+                    description: 'Área de administración',
+                },
+            });
+
+            // Create employee record for admin user
+            await tx.employee.create({
+                data: {
+                    user_id: adminUser.id,
+                    company_id: company.id,
+                    company_area_id: defaultArea.id,
+                    first_name: dtoData.adminFirstName || 'Admin',
+                    last_name: dtoData.adminLastName || company.name,
+                    phone: '',
+                },
+            });
+
+            // Return company with admin user info
+            return tx.company.findUnique({
+                where: { id: company.id },
                 include: {
                     admin_user: {
                         select: {
@@ -118,8 +144,6 @@ export class CompaniesService {
                     },
                 },
             });
-
-            return company;
         });
 
         return result;

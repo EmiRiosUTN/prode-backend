@@ -1,10 +1,15 @@
-import { Injectable, NotFoundException, BadRequestException } from '@nestjs/common';
+import { Injectable, NotFoundException, BadRequestException, Inject } from '@nestjs/common';
+import { InjectQueue } from '@nestjs/bull';
+import type { Queue } from 'bull';
 import { PrismaService } from '../../../prisma/prisma.service';
 import { CreateMatchDto, UpdateMatchResultDto, AddMatchScorerDto } from '../dto';
 
 @Injectable()
 export class MatchesService {
-    constructor(private readonly prisma: PrismaService) { }
+    constructor(
+        private readonly prisma: PrismaService,
+        @InjectQueue('scoring') private scoringQueue: Queue,
+    ) { }
 
     async findAll(competitionId?: string) {
         const where = competitionId ? { competition_id: competitionId } : {};
@@ -200,6 +205,11 @@ export class MatchesService {
         await this.prisma.match.update({
             where: { id: matchId },
             data: { status: 'finished' },
+        });
+
+        // Trigger automatic scoring calculation
+        await this.scoringQueue.add('calculate-scores', {
+            matchId,
         });
 
         return result;

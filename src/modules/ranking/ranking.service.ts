@@ -408,4 +408,26 @@ export class RankingService {
         // Eliminar todas las keys
         await Promise.all(keys.map(key => this.cacheManager.del(key)));
     }
+
+    /**
+     * Invalida el caché de rankings para todos los prodes afectados por un partido
+     */
+    async invalidateCachesForMatch(matchId: string): Promise<void> {
+        // Encontrar el partido y su competición
+        const match = await this.prisma.match.findUnique({
+            where: { id: matchId },
+            include: { competition: true },
+        });
+
+        if (!match) return;
+
+        // Encontrar todos los prodes de esa competición
+        const prodes = await this.prisma.prode.findMany({
+            where: { competition_id: match.competition_id },
+            select: { id: true },
+        });
+
+        // Invalidar caché para cada prode
+        await Promise.all(prodes.map(prode => this.invalidateCache(prode.id)));
+    }
 }

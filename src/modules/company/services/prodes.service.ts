@@ -124,6 +124,20 @@ export class ProdesService {
             throw new BadRequestException('One or more prediction variables not found');
         }
 
+        // Validate Company Area if present
+        if (createProdeDto.companyAreaId) {
+            const area = await this.prisma.companyArea.findFirst({
+                where: {
+                    id: createProdeDto.companyAreaId,
+                    company_id: companyId,
+                },
+            });
+
+            if (!area) {
+                throw new NotFoundException(`Company Area with ID "${createProdeDto.companyAreaId}" not found`);
+            }
+        }
+
         // Crear prode en una transacción
         return this.prisma.$transaction(async (tx) => {
             // Crear prode
@@ -134,6 +148,7 @@ export class ProdesService {
                     name: createProdeDto.name,
                     description: createProdeDto.description,
                     participation_mode: createProdeDto.participationMode,
+                    company_area_id: createProdeDto.companyAreaId,
                 },
             });
 
@@ -148,13 +163,16 @@ export class ProdesService {
             });
 
             // Crear configuración de ranking
+            const defaultShowGeneral = createProdeDto.participationMode === 'general' || createProdeDto.participationMode === 'both';
+            const defaultShowByArea = createProdeDto.participationMode === 'by_area' || createProdeDto.participationMode === 'both';
+
             await tx.prodeRankingConfig.create({
                 data: {
                     prode_id: prode.id,
                     show_individual_general:
-                        createProdeDto.rankingConfig?.showIndividualGeneral ?? true,
+                        createProdeDto.rankingConfig?.showIndividualGeneral ?? defaultShowGeneral,
                     show_individual_by_area:
-                        createProdeDto.rankingConfig?.showIndividualByArea ?? false,
+                        createProdeDto.rankingConfig?.showIndividualByArea ?? defaultShowByArea,
                     show_area_ranking:
                         createProdeDto.rankingConfig?.showAreaRanking ?? false,
                     area_ranking_calculation:

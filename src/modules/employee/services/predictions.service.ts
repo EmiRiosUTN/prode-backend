@@ -43,6 +43,7 @@ export class PredictionsService {
                 team_a: true,
                 team_b: true,
                 competition: true,
+                match_result: true,
                 predictions: {
                     where: {
                         prode_participant_id: participant.id,
@@ -61,11 +62,36 @@ export class PredictionsService {
             },
         });
 
-        return matches.map(match => ({
-            ...match,
-            myPrediction: match.predictions[0] || null,
-            isLocked: match.predictions[0]?.locked_at ? true : false,
-        }));
+        return matches.map(match => {
+            const startDate = new Date(match.match_date);
+            const now = new Date();
+
+            // Determine duration based on sport type (default to 120 mins for futbol)
+            let durationMinutes = 120;
+            if (match.competition?.sport_type === 'basketball') {
+                durationMinutes = 150;
+            }
+
+            const endDate = new Date(startDate.getTime() + durationMinutes * 60000);
+
+            let computedStatus = match.status;
+
+            // Only override if status is NOT cancelled
+            if (match.status !== 'cancelled') {
+                if (now > endDate) {
+                    computedStatus = 'finished';
+                } else if (now >= startDate && now <= endDate) {
+                    computedStatus = 'in_progress';
+                }
+            }
+
+            return {
+                ...match,
+                status: computedStatus,
+                myPrediction: match.predictions[0] || null,
+                isLocked: now >= startDate || (match.predictions[0]?.locked_at ? true : false),
+            };
+        });
     }
 
     // Ver mis predicciones
@@ -184,6 +210,10 @@ export class PredictionsService {
             const predictionData = {
                 predicted_goals_team_a: createDto.homeScore,
                 predicted_goals_team_b: createDto.awayScore,
+                predicted_yellow_cards_team_a: createDto.homeYellowCards,
+                predicted_yellow_cards_team_b: createDto.awayYellowCards,
+                predicted_red_cards_team_a: createDto.homeRedCards,
+                predicted_red_cards_team_b: createDto.awayRedCards,
             };
 
             let prediction;
@@ -195,12 +225,7 @@ export class PredictionsService {
                     data: predictionData,
                 });
 
-                // Eliminar goleadores anteriores si se proporcionan nuevos
-                if (createDto.scorers) {
-                    await tx.predictedScorer.deleteMany({
-                        where: { prediction_id: prediction.id },
-                    });
-                }
+
             } else {
                 // Crear nueva predicción
                 prediction = await tx.prediction.create({
@@ -212,23 +237,7 @@ export class PredictionsService {
                 });
             }
 
-            // Crear goleadores si se proporcionan
-            if (createDto.scorers && createDto.scorers.length > 0) {
-                // Note: The DTO structure doesn't match the Prisma schema well
-                // DTO has: playerId (UUID), minute (number)
-                // Prisma expects: player_full_name (string), predicted_goals (number), team_id (UUID)
-                // This needs to be reviewed and fixed in the DTO or the mapping logic
-                await tx.predictedScorer.createMany({
-                    data: createDto.scorers
-                        .filter(scorer => scorer.minute !== undefined) // Filter out scorers without goals
-                        .map(scorer => ({
-                            prediction_id: prediction.id,
-                            player_full_name: scorer.playerId, // FIXME: This should be player name, not ID
-                            predicted_goals: scorer.minute || 1, // FIXME: This should be goals count, not minute
-                            team_id: createDto.winnerId || match.team_a_id, // FIXME: Needs proper team_id from scorer data
-                        })),
-                });
-            }
+
 
             // Retornar predicción completa
             return tx.prediction.findUnique({

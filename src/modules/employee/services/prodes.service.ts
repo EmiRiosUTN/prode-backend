@@ -18,6 +18,9 @@ export class ProdesService {
                             select: {
                                 id: true,
                                 name: true,
+                                start_date: true,
+                                end_date: true,
+                                sport_type: true,
                             },
                         },
                         _count: {
@@ -51,7 +54,13 @@ export class ProdesService {
 
         const myProdeIds = myProdes.map(p => p.prode_id);
 
-        // Buscar prodes activos de la empresa donde NO participa
+        // Obtener datos del empleado para saber su área
+        const employee = await this.prisma.employee.findUnique({
+            where: { id: employeeId },
+            select: { company_area_id: true },
+        });
+
+        // Buscar prodes activos de la empresa donde NO participa y que sean accesibles (general o de su área)
         return this.prisma.prode.findMany({
             where: {
                 company_id: companyId,
@@ -59,12 +68,19 @@ export class ProdesService {
                 id: {
                     notIn: myProdeIds,
                 },
+                OR: [
+                    { company_area_id: null }, // Prodes generales
+                    { company_area_id: employee?.company_area_id }, // Prodes de su área
+                ],
             },
             include: {
                 competition: {
                     select: {
                         id: true,
                         name: true,
+                        start_date: true,
+                        end_date: true,
+                        sport_type: true,
                     },
                 },
                 _count: {
@@ -125,12 +141,21 @@ export class ProdesService {
 
     // Unirse a un prode
     async joinProde(prodeId: string, companyId: string, employeeId: string) {
-        // Verificar que el prode existe y pertenece a la empresa
+        const employee = await this.prisma.employee.findUnique({
+            where: { id: employeeId },
+            select: { company_area_id: true },
+        });
+
+        // Verificar que el prode existe, pertenece a la empresa y es accesible
         const prode = await this.prisma.prode.findFirst({
             where: {
                 id: prodeId,
                 company_id: companyId,
                 is_active: true,
+                OR: [
+                    { company_area_id: null },
+                    { company_area_id: employee?.company_area_id },
+                ],
             },
         });
 

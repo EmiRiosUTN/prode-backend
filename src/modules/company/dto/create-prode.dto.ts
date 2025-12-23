@@ -38,6 +38,10 @@ export class CreateProdeDto {
     @IsNotEmpty()
     participationMode: ParticipationMode;
 
+    @IsUUID()
+    @IsOptional()
+    companyAreaId?: string;
+
     @IsArray()
     @ArrayMinSize(1)
     @ValidateNested({ each: true })

@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Module, Global } from '@nestjs/common';
 import { BullModule } from '@nestjs/bull';
 import { ScheduleModule } from '@nestjs/schedule';
 import { ConfigModule, ConfigService } from '@nestjs/config';
@@ -9,6 +9,7 @@ import { ScorerMatcherService } from './services/scorer-matcher.service';
 import { ScoringProcessor } from './processors/scoring.processor';
 import { PredictionsLockProcessor } from './processors/predictions-lock.processor';
 
+@Global()
 @Module({
     imports: [
         PrismaModule,

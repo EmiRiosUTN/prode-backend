@@ -192,6 +192,7 @@ model CompanyArea {
 
   company   Company    @relation(fields: [company_id], references: [id], onDelete: Cascade)
   employees Employee[]
+  prodes    Prode[]
 
   @@unique([company_id, name])
   @@index([company_id])
@@ -234,6 +235,8 @@ model Prode {
 
   company                Company               @relation(fields: [company_id], references: [id], onDelete: Cascade)
   competition            Competition           @relation(fields: [competition_id], references: [id])
+  company_area_id        String?               @map("company_area_id")
+  company_area           CompanyArea?          @relation(fields: [company_area_id], references: [id])
   prode_variable_configs ProdeVariableConfig[]
   prode_ranking_config   ProdeRankingConfig?
   prode_participants     ProdeParticipant[]
@@ -241,6 +244,7 @@ model Prode {
 
   @@index([company_id])
   @@index([competition_id])
+  @@index([company_area_id])
   @@index([is_active])
   @@map("prodes")
 }

@@ -86,14 +86,14 @@ export class ScoringService {
             },
         }) as PredictionWithRelations[];
 
-        this.logger.log(`Found ${predictions.length} predictions to score`);
+        this.logger.warn(`Found ${predictions.length} predictions to score for match ${match.id}`);
 
         // Calcular puntos para cada predicción
         for (const prediction of predictions) {
             await this.calculatePointsForPrediction(prediction, match);
         }
 
-        this.logger.log(`Finished calculating points for match ${matchId}`);
+        this.logger.warn(`Finished calculating points for match ${matchId}`);
     }
 
     /**
@@ -106,20 +106,22 @@ export class ScoringService {
         const result = match.match_result;
         const variableConfigs = prediction.prode_participant.prode.prode_variable_configs;
 
+        this.logger.warn(`Scoring Prediction ${prediction.id} (User: ${prediction.prode_participant.employee_id}). Configs: ${variableConfigs.length}`);
+
         let totalPoints = 0;
         const pointsBreakdown: Record<string, number> = {};
 
         // Calcular puntos por cada variable configurada
         for (const config of variableConfigs) {
             const variable = config.prediction_variable;
+            this.logger.warn(`Evaluating variable ${variable.code} (Points: ${config.points})`);
+
             const points = await this.calculateVariablePoints(prediction, result, variable, config.points);
+            this.logger.warn(`Variable ${variable.code} result: ${points} points`);
 
             if (points > 0) {
                 totalPoints += points;
                 pointsBreakdown[variable.code] = points;
-                this.logger.debug(
-                    `Prediction ${prediction.id}: ${variable.code} = ${points} points`,
-                );
             }
         }
 
@@ -138,8 +140,8 @@ export class ScoringService {
             },
         });
 
-        this.logger.log(
-            `Prediction ${prediction.id}: Total points = ${totalPoints}`,
+        this.logger.warn(
+            `Prediction ${prediction.id}: Total points saved = ${totalPoints}`,
         );
     }
 

@@ -1,11 +1,13 @@
-import { IsUUID, IsOptional, IsInt, Min } from 'class-validator';
+import { IsUUID, IsOptional, IsInt, Min, IsString } from 'class-validator';
 
 export class PredictionScorerDto {
+    @IsString()
+    playerFullName: string;
+
     @IsUUID()
-    playerId: string;
+    teamId: string;
 
     @IsInt()
     @Min(1)
-    @IsOptional()
-    minute?: number;
+    goals: number;
 }

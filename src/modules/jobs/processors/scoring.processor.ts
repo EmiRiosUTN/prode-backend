@@ -26,6 +26,9 @@ export class ScoringProcessor {
             if (prodeId) {
                 this.logger.log(`Invalidating ranking cache for prode ${prodeId}`);
                 await this.rankingService.invalidateCache(prodeId);
+            } else {
+                this.logger.log(`Invalidating ranking caches for match ${matchId}`);
+                await this.rankingService.invalidateCachesForMatch(matchId);
             }
 
             this.logger.log(`Successfully calculated scores for match ${matchId}`);

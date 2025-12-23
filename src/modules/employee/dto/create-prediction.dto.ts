@@ -1,6 +1,6 @@
 import { IsUUID, IsInt, Min, Max, IsOptional, IsArray, ValidateNested } from 'class-validator';
 import { Type } from 'class-transformer';
-import { PredictionScorerDto } from './prediction-scorer.dto';
+
 
 export class CreatePredictionDto {
     @IsUUID()
@@ -22,13 +22,32 @@ export class CreatePredictionDto {
     @IsOptional()
     awayScore?: number;
 
+    @IsInt()
+    @Min(0)
+    @Max(20)
+    @IsOptional()
+    homeYellowCards?: number;
+
+    @IsInt()
+    @Min(0)
+    @Max(20)
+    @IsOptional()
+    awayYellowCards?: number;
+
+    @IsInt()
+    @Min(0)
+    @Max(5)
+    @IsOptional()
+    homeRedCards?: number;
+
+    @IsInt()
+    @Min(0)
+    @Max(5)
+    @IsOptional()
+    awayRedCards?: number;
+
     @IsUUID()
     @IsOptional()
     winnerId?: string; // ID del equipo ganador (null si empate)
 
-    @IsArray()
-    @ValidateNested({ each: true })
-    @Type(() => PredictionScorerDto)
-    @IsOptional()
-    scorers?: PredictionScorerDto[];
 }

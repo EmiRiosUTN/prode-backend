@@ -71,6 +71,8 @@ export class AuthService {
                         id: user.employee.company.id,
                         name: user.employee.company.name,
                         slug: user.employee.company.slug,
+                        primary_color: user.employee.company.primary_color,
+                        secondary_color: user.employee.company.secondary_color,
                     },
                     area: {
                         id: user.employee.company_area.id,
@@ -182,6 +184,8 @@ export class AuthService {
                         id: result.employee.company.id,
                         name: result.employee.company.name,
                         slug: result.employee.company.slug,
+                        primary_color: result.employee.company.primary_color,
+                        secondary_color: result.employee.company.secondary_color,
                     },
                     area: {
                         id: result.employee.company_area.id,

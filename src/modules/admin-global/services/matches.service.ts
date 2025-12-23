@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException, BadRequestException, Inject } from '@nestjs/common';
+import { Injectable, NotFoundException, BadRequestException, Inject, Logger } from '@nestjs/common';
 import { InjectQueue } from '@nestjs/bull';
 import type { Queue } from 'bull';
 import { PrismaService } from '../../../prisma/prisma.service';
@@ -6,6 +6,8 @@ import { CreateMatchDto, UpdateMatchResultDto, AddMatchScorerDto } from '../dto'
 
 @Injectable()
 export class MatchesService {
+    private readonly logger = new Logger(MatchesService.name);
+
     constructor(
         private readonly prisma: PrismaService,
         @InjectQueue('scoring') private scoringQueue: Queue,
@@ -14,7 +16,7 @@ export class MatchesService {
     async findAll(competitionId?: string) {
         const where = competitionId ? { competition_id: competitionId } : {};
 
-        return this.prisma.match.findMany({
+        const matches = await this.prisma.match.findMany({
             where,
             include: {
                 competition: true,
@@ -33,6 +35,37 @@ export class MatchesService {
             orderBy: {
                 match_date: 'asc',
             },
+        });
+
+        return matches.map(match => {
+            const startDate = new Date(match.match_date);
+            const now = new Date();
+
+            // Determine duration based on sport type (default to 120 mins for futbol)
+            let durationMinutes = 120;
+            if (match.competition?.sport_type === 'basketball') {
+                durationMinutes = 150;
+            }
+
+            const endDate = new Date(startDate.getTime() + durationMinutes * 60000);
+
+            let computedStatus = match.status;
+
+            // Dynamic status logic:
+            // Only automaticaly update if status is 'scheduled'.
+            // If it's 'in_progress', 'finished', or 'cancelled' (manually set), respect the DB value.
+            if (match.status === 'scheduled') {
+                if (now > endDate) {
+                    computedStatus = 'finished';
+                } else if (now >= startDate && now <= endDate) {
+                    computedStatus = 'in_progress';
+                }
+            }
+
+            return {
+                ...match,
+                status: computedStatus,
+            };
         });
     }
 
@@ -150,12 +183,13 @@ export class MatchesService {
             throw new NotFoundException(`Match with ID "${id}" not found`);
         }
 
-        return this.prisma.match.update({
+        const updatedMatch = await this.prisma.match.update({
             where: { id },
             data: {
                 match_date: updateData.matchDate ? new Date(updateData.matchDate) : undefined,
                 stage: updateData.stage,
                 location: updateData.location,
+                status: updateData.status,
             },
             include: {
                 competition: true,
@@ -166,6 +200,7 @@ export class MatchesService {
     }
 
     async updateResult(matchId: string, resultDto: UpdateMatchResultDto) {
+        this.logger.log(`Updating result for match ${matchId}`);
         const match = await this.prisma.match.findUnique({
             where: { id: matchId },
             include: {
@@ -201,16 +236,33 @@ export class MatchesService {
             },
         });
 
-        // Update match status to finished
-        await this.prisma.match.update({
-            where: { id: matchId },
-            data: { status: 'finished' },
-        });
+        console.error(`[[DEBUG]] Result upserted for match ${matchId}. Triggering scoring job...`);
 
-        // Trigger automatic scoring calculation
-        await this.scoringQueue.add('calculate-scores', {
-            matchId,
-        });
+        // Trigger scoring calculation
+        try {
+            // Check queue status
+            const queueClient = this.scoringQueue.client;
+            const clientStatus = (queueClient as any).status;
+            console.error(`[[DEBUG]] Scoring Queue Client Status: ${clientStatus}`);
+
+            // Check if client is ready
+            if (clientStatus !== 'ready') {
+                console.error(`[[DEBUG]] Redis client is NOT ready. It is in state: ${clientStatus}. Attempting to proceed anyway but expecting failure.`);
+            }
+
+            console.error(`[[DEBUG]] Adding job to scoring queue for match ${matchId}`);
+
+            // Race condition constraint: 
+            const jobPromise = this.scoringQueue.add('calculate-scores', { matchId }, { timeout: 3000 });
+            const timeoutPromise = new Promise((_, reject) => setTimeout(() => reject(new Error('Queue Add Timeout')), 3000));
+
+            await Promise.race([jobPromise, timeoutPromise]);
+
+            console.error(`[[DEBUG]] Job added successfully`);
+        } catch (error) {
+            console.error(`[[DEBUG]] Error adding job to queue:`, error);
+            // Non-blocking error for client, but critical for system
+        }
 
         return result;
     }

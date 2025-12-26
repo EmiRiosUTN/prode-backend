@@ -174,9 +174,9 @@ export class ProdesService {
                     show_individual_by_area:
                         createProdeDto.rankingConfig?.showIndividualByArea ?? defaultShowByArea,
                     show_area_ranking:
-                        createProdeDto.rankingConfig?.showAreaRanking ?? false,
+                        createProdeDto.showAreaRanking ?? createProdeDto.rankingConfig?.showAreaRanking ?? false,
                     area_ranking_calculation:
-                        createProdeDto.rankingConfig?.areaRankingCalculation ?? 'average',
+                        createProdeDto.areaRankingCalculation ?? createProdeDto.rankingConfig?.areaRankingCalculation ?? 'average',
                 },
             });
 

@@ -7,6 +7,20 @@ export class CompetitionsService {
     constructor(private readonly prisma: PrismaService) { }
 
     async findAll() {
+        // First, auto-update expired competitions to inactive
+        const now = new Date();
+        await this.prisma.competition.updateMany({
+            where: {
+                end_date: {
+                    lt: now,
+                },
+                is_active: true,
+            },
+            data: {
+                is_active: false,
+            },
+        });
+
         return this.prisma.competition.findMany({
             include: {
                 _count: {
@@ -63,15 +77,24 @@ export class CompetitionsService {
             throw new ConflictException(`Competition with slug "${slug}" already exists`);
         }
 
+        // Determine if competition should be active based on dates
+        const now = new Date();
+        const startDate = new Date(createCompetitionDto.startDate);
+        const endDate = new Date(createCompetitionDto.endDate);
+
+        // Competition is active if current date is between start and end dates
+        const isWithinDateRange = now >= startDate && now <= endDate;
+        const shouldBeActive = createCompetitionDto.isActive ?? isWithinDateRange;
+
         // MAPEO CORREGIDO DE CAMPOS
         return this.prisma.competition.create({
             data: {
                 name: createCompetitionDto.name,
                 slug: createCompetitionDto.slug,
-                start_date: new Date(createCompetitionDto.startDate),
-                end_date: new Date(createCompetitionDto.endDate),
+                start_date: startDate,
+                end_date: endDate,
                 sport_type: createCompetitionDto.sportType || 'futbol',
-                is_active: createCompetitionDto.isActive ?? true,
+                is_active: shouldBeActive,
             },
         });
     }

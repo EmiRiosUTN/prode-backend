@@ -11,7 +11,7 @@ export class AuthService {
         private readonly jwtService: JwtService,
     ) { }
 
-    async login(loginDto: LoginDto) {
+    async login(loginDto: LoginDto, tenant?: { id: string; slug: string; name: string }) {
         const { email, password } = loginDto;
 
         // Find user by email
@@ -35,18 +35,43 @@ export class AuthService {
             throw new UnauthorizedException('User account is inactive');
         }
 
-        // Verify password
         const isPasswordValid = await bcrypt.compare(password, user.password_hash);
         if (!isPasswordValid) {
-            throw new UnauthorizedException('Invalid credentials');
+            throw new UnauthorizedException('Credenciales inválidas');
         }
 
-        // Check if employee is blocked
         if (user.employee && user.employee.is_blocked) {
-            throw new UnauthorizedException('Employee account is blocked');
+            throw new UnauthorizedException('La cuenta está bloqueada');
         }
 
-        // Generate JWT token
+        // Tenant validation logic
+        if (tenant) {
+            // Special case: admin subdomain
+            if (tenant.slug === 'admin') {
+                // Only admin_global users can log in from admin subdomain
+                if (user.role !== 'admin_global') {
+                    throw new UnauthorizedException('Acceso denegado. Solo administradores globales pueden acceder desde este portal.');
+                }
+                // Allow admin_global to proceed
+            } else {
+                // Regular company subdomain
+                if (!user.employee) {
+                    // User is not an employee (likely admin_global)
+                    if (user.role === 'admin_global') {
+                        // Admin global cannot log in from company subdomains
+                        throw new UnauthorizedException('Acceso denegado. Los administradores globales deben iniciar sesión desde admin.dominio.com');
+                    } else {
+                        throw new UnauthorizedException(`Acceso denegado. Este usuario no pertenece a esta compañía.`);
+                    }
+                } else {
+                    // User is an employee, check if they belong to this company
+                    if (user.employee.company_id !== tenant.id) {
+                        throw new UnauthorizedException(`Acceso denegado. Por favor, inicie sesión en el portal de su compañía.`);
+                    }
+                }
+            }
+        }
+
         const payload = {
             sub: user.id,
             email: user.email,
@@ -86,13 +111,12 @@ export class AuthService {
     async register(registerDto: RegisterDto, companyId: string) {
         const { email, password, firstName, lastName, phone, companyAreaId } = registerDto;
 
-        // Check if user already exists
         const existingUser = await this.prisma.user.findUnique({
             where: { email },
         });
 
         if (existingUser) {
-            throw new ConflictException('User with this email already exists');
+            throw new ConflictException('Ya existe un usuario con este email.');
         }
 
         // Verify company exists and is active
@@ -101,7 +125,7 @@ export class AuthService {
         });
 
         if (!company || !company.is_active) {
-            throw new BadRequestException('Company not found or inactive');
+            throw new BadRequestException('Compañía desactivada o inexistente.');
         }
 
         // Verify company area exists and belongs to company
@@ -114,15 +138,14 @@ export class AuthService {
         });
 
         if (!companyArea) {
-            throw new BadRequestException('Company area not found or inactive');
+            throw new BadRequestException('Area de la compañía no encontrada o inactiva');
         }
 
-        // Validate corporate email if required
         if (company.require_corporate_email && company.corporate_domain) {
             const emailDomain = email.split('@')[1];
             if (emailDomain !== company.corporate_domain) {
                 throw new BadRequestException(
-                    `Email must be from corporate domain: @${company.corporate_domain}`,
+                    `Email debe ser del dominio corporativo: @${company.corporate_domain}`,
                 );
             }
         }

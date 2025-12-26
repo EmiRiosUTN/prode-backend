@@ -31,6 +31,14 @@ export class CreateMatchDto {
     @IsOptional()
     location?: string;
 
+    @IsString()
+    @IsOptional()
+    teamAFlagUrl?: string;
+
+    @IsString()
+    @IsOptional()
+    teamBFlagUrl?: string;
+
     @IsEnum(MatchStatus)
     @IsOptional()
     status?: MatchStatus;

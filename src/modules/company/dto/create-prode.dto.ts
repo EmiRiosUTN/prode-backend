@@ -8,10 +8,11 @@ import {
     IsArray,
     ArrayMinSize,
     MaxLength,
+    IsBoolean,
 } from 'class-validator';
 import { Type } from 'class-transformer';
 import { ProdeVariableConfigDto } from './prode-variable-config.dto';
-import { ProdeRankingConfigDto } from './prode-ranking-config.dto';
+import { ProdeRankingConfigDto, AreaRankingCalculation } from './prode-ranking-config.dto';
 
 export enum ParticipationMode {
     GENERAL = 'general',
@@ -52,4 +53,12 @@ export class CreateProdeDto {
     @Type(() => ProdeRankingConfigDto)
     @IsOptional()
     rankingConfig?: ProdeRankingConfigDto;
+
+    @IsBoolean()
+    @IsOptional()
+    showAreaRanking?: boolean;
+
+    @IsEnum(AreaRankingCalculation)
+    @IsOptional()
+    areaRankingCalculation?: AreaRankingCalculation;
 }

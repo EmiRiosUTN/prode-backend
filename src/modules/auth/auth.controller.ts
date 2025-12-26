@@ -9,8 +9,11 @@ export class AuthController {
 
     @Post('login')
     @HttpCode(HttpStatus.OK)
-    async login(@Body() loginDto: LoginDto) {
-        return this.authService.login(loginDto);
+    async login(
+        @Body() loginDto: LoginDto,
+        @CurrentTenant() tenant?: { id: string; slug: string; name: string },
+    ) {
+        return this.authService.login(loginDto, tenant);
     }
 
     @Post('register')

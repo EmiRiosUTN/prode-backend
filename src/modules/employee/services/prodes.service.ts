@@ -1,9 +1,13 @@
 import { Injectable, NotFoundException, BadRequestException, ForbiddenException } from '@nestjs/common';
 import { PrismaService } from '../../../prisma/prisma.service';
+import { RankingService } from '../../ranking/ranking.service';
 
 @Injectable()
 export class ProdesService {
-    constructor(private prisma: PrismaService) { }
+    constructor(
+        private readonly prisma: PrismaService,
+        private readonly rankingService: RankingService,
+    ) { }
 
     // Listar prodes donde el empleado participa
     async findMyProdes(employeeId: string) {
@@ -40,7 +44,7 @@ export class ProdesService {
             ...p.prode,
             joinedAt: p.joined_at,
             participantCount: p.prode._count.prode_participants,
-            matchCount: 0, // Note: Matches are not directly linked to prodes in the schema
+            matchCount: 0,
         }));
     }
 
@@ -191,6 +195,9 @@ export class ProdesService {
                 },
             },
         });
+
+        // INVALDAR CACHE DE RANKING
+        await this.rankingService.invalidateCache(prodeId);
 
         return {
             message: 'Successfully joined prode',

@@ -22,74 +22,93 @@ export class TenantMiddleware implements NestMiddleware {
         // Obtener la ruta completa (sin query string)
         const fullPath = req.originalUrl.split('?')[0];
 
-        console.log(`[TenantMiddleware] ${req.method} ${fullPath}`);
-
-        // Rutas públicas que NO necesitan tenant
+        // Rutas públicas que NO nececitan BLOQUEAR si no hay tenant, pero pueden usarlo si existe
         const isPublicPath =
             fullPath === '/api' ||
             fullPath === '/api/' ||
-            fullPath.startsWith('/api/admin') ||
+            fullPath.startsWith('/api/admin') || // Admin routes likely don't need tenant context or handle it differently
             fullPath === '/api/auth/login' ||
             fullPath === '/' ||
             fullPath.startsWith('/health');
 
-        if (isPublicPath) {
-            console.log(`[TenantMiddleware] ✓ Ruta pública - skipping tenant`);
-            return next();
-        }
-
-        // TODAS LAS DEMÁS RUTAS REQUIEREN TENANT
+        // Intentar obtener tenant
         let subdomain: string | null = null;
+        let tenantFound = false;
 
-        // DEBUG: Log all headers
-        console.log('[TenantMiddleware] All headers:', JSON.stringify(req.headers, null, 2));
-
-        // OPCIÓN 1: Intentar obtener tenant de header personalizado (para desarrollo frontend)
+        // OPCIÓN 1: Header personalizado
         const tenantSlugHeader = req.headers['x-tenant-slug'] as string;
         if (tenantSlugHeader) {
             subdomain = tenantSlugHeader;
-            console.log(`[TenantMiddleware] Tenant from X-Tenant-Slug header: ${subdomain}`);
         } else {
-            // OPCIÓN 2: Extraer subdomain del hostname (método original)
-            const hostname = req.hostname;
-            subdomain = this.extractSubdomain(hostname);
-            console.log(`[TenantMiddleware] hostname: ${hostname} | subdomain: ${subdomain}`);
+            // OPCIÓN 2: Origin Header (para CORS requests donde Host es localhost)
+            const origin = req.headers.origin;
+            if (origin) {
+                try {
+                    const url = new URL(origin);
+                    subdomain = this.extractSubdomain(url.hostname);
+                } catch (e) {
+                    console.log(`[TenantMiddleware] Invalid Origin URL: ${origin}`);
+                }
+            }
+
+            // OPCIÓN 3: Hostname (fallback)
+            if (!subdomain) {
+                subdomain = this.extractSubdomain(req.hostname);
+            }
         }
 
-        if (!subdomain) {
-            console.log(`[TenantMiddleware] ✗ No subdomain found`);
-            throw new BadRequestException('Tenant subdomain is required. Use format: acme.localhost:3001 or set X-Tenant-Slug header');
+        if (subdomain) {
+            // Special case: admin subdomain
+            if (subdomain.toLowerCase() === 'admin') {
+                // Create a special tenant object for admin subdomain
+                req.tenant = {
+                    id: 'admin',
+                    name: 'Admin Portal',
+                    slug: 'admin',
+                };
+                tenantFound = true;
+                console.log(`[TenantMiddleware] ✓ Admin subdomain detected`);
+            } else {
+                // Regular company subdomain - search in database
+                const company = await this.prisma.company.findFirst({
+                    where: {
+                        slug: {
+                            equals: subdomain,
+                            mode: 'insensitive',
+                        }
+                    },
+                    select: {
+                        id: true,
+                        name: true,
+                        slug: true,
+                        is_active: true,
+                    },
+                });
+
+                if (company && company.is_active) {
+                    // Inyectar tenant en el request
+                    req.tenant = {
+                        id: company.id,
+                        name: company.name,
+                        slug: company.slug,
+                    };
+                    tenantFound = true;
+                    console.log(`[TenantMiddleware] ✓ Tenant injected: ${company.name} (${company.id})`);
+                } else {
+                    console.log(`[TenantMiddleware] ✗ Company not found or inactive: ${subdomain}`);
+                    if (!isPublicPath) {
+                        throw new NotFoundException(`Company with slug "${subdomain}" not found or inactive`);
+                    }
+                }
+            }
         }
 
-        // Buscar empresa por slug
-        const company = await this.prisma.company.findUnique({
-            where: { slug: subdomain },
-            select: {
-                id: true,
-                name: true,
-                slug: true,
-                is_active: true,
-            },
-        });
-
-        if (!company) {
-            console.log(`[TenantMiddleware] ✗ Company not found: ${subdomain}`);
-            throw new NotFoundException(`Company with slug "${subdomain}" not found`);
+        // Validación final
+        if (!tenantFound && !isPublicPath) {
+            // Si ruta protegida y no hay tenant -> Error
+            console.log(`[TenantMiddleware] ✗ No subdomain found for protected route`);
+            throw new BadRequestException('Tenant subdomain is required for this route.');
         }
-
-        if (!company.is_active) {
-            console.log(`[TenantMiddleware] ✗ Company not active: ${subdomain}`);
-            throw new BadRequestException(`Company "${subdomain}" is not active`);
-        }
-
-        // Inyectar tenant en el request
-        req.tenant = {
-            id: company.id,
-            name: company.name,
-            slug: company.slug,
-        };
-
-        console.log(`[TenantMiddleware] ✓ Tenant injected: ${company.name} (${company.id})`);
 
         next();
     }

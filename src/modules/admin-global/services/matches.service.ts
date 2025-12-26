@@ -131,8 +131,14 @@ export class MatchesService {
                 data: {
                     name: createMatchDto.teamA,
                     code: teamCode,
-                    flag_url: '', // Can be updated later
+                    flag_url: createMatchDto.teamAFlagUrl || null,
                 },
+            });
+        } else if (createMatchDto.teamAFlagUrl && teamA.flag_url !== createMatchDto.teamAFlagUrl) {
+            // Update flag URL if provided and different
+            teamA = await this.prisma.team.update({
+                where: { id: teamA.id },
+                data: { flag_url: createMatchDto.teamAFlagUrl },
             });
         }
 
@@ -147,8 +153,14 @@ export class MatchesService {
                 data: {
                     name: createMatchDto.teamB,
                     code: teamCode,
-                    flag_url: '',
+                    flag_url: createMatchDto.teamBFlagUrl || null,
                 },
+            });
+        } else if (createMatchDto.teamBFlagUrl && teamB.flag_url !== createMatchDto.teamBFlagUrl) {
+            // Update flag URL if provided and different
+            teamB = await this.prisma.team.update({
+                where: { id: teamB.id },
+                data: { flag_url: createMatchDto.teamBFlagUrl },
             });
         }
 
@@ -177,10 +189,30 @@ export class MatchesService {
     async update(id: string, updateData: Partial<CreateMatchDto>) {
         const match = await this.prisma.match.findUnique({
             where: { id },
+            include: {
+                team_a: true,
+                team_b: true,
+            },
         });
 
         if (!match) {
             throw new NotFoundException(`Match with ID "${id}" not found`);
+        }
+
+        // Update team A flag if provided
+        if (updateData.teamAFlagUrl !== undefined && match.team_a) {
+            await this.prisma.team.update({
+                where: { id: match.team_a.id },
+                data: { flag_url: updateData.teamAFlagUrl || null },
+            });
+        }
+
+        // Update team B flag if provided
+        if (updateData.teamBFlagUrl !== undefined && match.team_b) {
+            await this.prisma.team.update({
+                where: { id: match.team_b.id },
+                data: { flag_url: updateData.teamBFlagUrl || null },
+            });
         }
 
         const updatedMatch = await this.prisma.match.update({
@@ -197,6 +229,8 @@ export class MatchesService {
                 team_b: true,
             },
         });
+
+        return updatedMatch;
     }
 
     async updateResult(matchId: string, resultDto: UpdateMatchResultDto) {

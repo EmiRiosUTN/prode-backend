@@ -12,12 +12,15 @@ import {
     ProdesService
 } from './services';
 
+import { PublicCompanyController } from './controllers/public-company.controller';
+
 @Module({
     controllers: [
         ConfigController,
         AreasController,
         EmployeesController,
         ProdesController,
+        PublicCompanyController,
     ],
     providers: [
         ConfigService,

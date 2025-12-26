@@ -1,8 +1,10 @@
 import { Module } from '@nestjs/common';
 import { ProdesController, PredictionsController } from './controllers';
 import { ProdesService, PredictionsService } from './services';
+import { RankingModule } from '../ranking/ranking.module';
 
 @Module({
+    imports: [RankingModule],
     controllers: [
         ProdesController,
         PredictionsController,

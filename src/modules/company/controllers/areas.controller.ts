@@ -15,7 +15,7 @@ export class AreasController {
 
     @Get()
     findAll(@CurrentTenant() tenant: { id: string }) {
-        return this.areasService.findAll(tenant.id);
+        return this.areasService.findAll(tenant.id, true);
     }
 
     @Get(':id')

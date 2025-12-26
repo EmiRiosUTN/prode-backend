@@ -36,6 +36,17 @@ export class PredictionsController {
         return this.predictionsService.upsertPrediction(user.employee.id, tenant.id, createDto);
     }
 
+    @Get('predictions/match/:matchId/available-copies')
+    getAvailableCopies(
+        @Param('matchId') matchId: string,
+        @Query('prodeId') prodeId: string,
+        @CurrentUser() user: { id: string; employee: { id: string } },
+        @CurrentTenant() tenant: { id: string },
+    ) {
+        console.log('[getAvailableCopies] Called with:', { matchId, prodeId, userId: user?.employee?.id, tenantId: tenant?.id });
+        return this.predictionsService.getAvailableCopies(matchId, prodeId, user.employee.id, tenant.id);
+    }
+
     @Get('predictions/:id')
     findOne(
         @Param('id') id: string,

@@ -7,12 +7,17 @@ import { UpdateAreaDto } from '../dto/update-area.dto';
 export class AreasService {
     constructor(private readonly prisma: PrismaService) { }
 
-    async findAll(companyId: string) {
+    async findAll(companyId: string, includeInactive: boolean = false) {
+        const where: any = {
+            company_id: companyId,
+        };
+
+        if (!includeInactive) {
+            where.is_active = true;
+        }
+
         return this.prisma.companyArea.findMany({
-            where: {
-                company_id: companyId,
-                is_active: true,
-            },
+            where,
             include: {
                 _count: {
                     select: {
@@ -122,10 +127,9 @@ export class AreasService {
             );
         }
 
-        // Soft delete
-        return this.prisma.companyArea.update({
+        // Hard delete
+        return this.prisma.companyArea.delete({
             where: { id },
-            data: { is_active: false },
         });
     }
 }

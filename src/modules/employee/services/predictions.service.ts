@@ -287,12 +287,73 @@ export class PredictionsService {
                     },
                 },
             },
-        });
+        })
+
+            ;
 
         if (!prediction) {
             throw new NotFoundException('Prediction not found');
         }
 
         return prediction;
+    }
+
+    // Get available predictions to copy from other prodes
+    async getAvailableCopies(matchId: string, currentProdeId: string, employeeId: string, companyId: string) {
+        // Get the match to find its competition
+        const match = await this.prisma.match.findUnique({
+            where: { id: matchId },
+            select: { competition_id: true },
+        });
+
+        if (!match) {
+            throw new NotFoundException('Match not found');
+        }
+
+        // Find all prodes of the same competition where the employee participates
+        const participants = await this.prisma.prodeParticipant.findMany({
+            where: {
+                employee_id: employeeId,
+                prode: {
+                    company_id: companyId,
+                    competition_id: match.competition_id,
+                    id: {
+                        not: currentProdeId, // Exclude current prode
+                    },
+                },
+            },
+            include: {
+                prode: {
+                    select: {
+                        id: true,
+                        name: true,
+                    },
+                },
+                predictions: {
+                    where: {
+                        match_id: matchId,
+                    },
+                    select: {
+                        predicted_goals_team_a: true,
+                        predicted_goals_team_b: true,
+                        predicted_yellow_cards_team_a: true,
+                        predicted_yellow_cards_team_b: true,
+                        predicted_red_cards_team_a: true,
+                        predicted_red_cards_team_b: true,
+                    },
+                },
+            },
+        });
+
+        // Filter to only participants with predictions for this match
+        const availablePredictions = participants
+            .filter(p => p.predictions.length > 0)
+            .map(p => ({
+                prodeId: p.prode.id,
+                prodeName: p.prode.name,
+                prediction: p.predictions[0],
+            }));
+
+        return { availablePredictions };
     }
 }

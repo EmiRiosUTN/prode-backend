@@ -16,7 +16,7 @@ require('dotenv').config();
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
-const BASE_URL = process.argv[2] || 'http://localhost:3000';
+const BASE_URL = process.argv[2] || 'http://localhost:3001';
 const API_BASE = `${BASE_URL}/api`;
 
 const colors = {

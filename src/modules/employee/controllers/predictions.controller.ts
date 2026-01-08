@@ -54,4 +54,13 @@ export class PredictionsController {
     ) {
         return this.predictionsService.findOne(id, user.employee.id);
     }
+
+    @Get('matches/:matchId/ai-analysis')
+    getMatchAnalysis(
+        @Param('matchId') matchId: string,
+        @CurrentUser() user: { id: string; employee: { id: string } },
+        @CurrentTenant() tenant: { id: string },
+    ) {
+        return this.predictionsService.getMatchAnalysis(matchId, user.employee.id, tenant.id);
+    }
 }

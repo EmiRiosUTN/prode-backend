@@ -2,10 +2,14 @@ import { Injectable, NotFoundException, BadRequestException, ForbiddenException 
 import { PrismaService } from '../../../prisma/prisma.service';
 import { CreatePredictionDto } from '../dto/create-prediction.dto';
 import { UpdatePredictionDto } from '../dto/update-prediction.dto';
+import { AiService } from '../../../common/ai.service';
 
 @Injectable()
 export class PredictionsService {
-    constructor(private prisma: PrismaService) { }
+    constructor(
+        private prisma: PrismaService,
+        private aiService: AiService,
+    ) { }
 
     // Listar partidos de un prode
     async findProdeMatches(prodeId: string, companyId: string, employeeId: string) {
@@ -355,5 +359,47 @@ export class PredictionsService {
             }));
 
         return { availablePredictions };
+    }
+
+    // Get AI analysis for a match
+    async getMatchAnalysis(matchId: string, employeeId: string, companyId: string) {
+        // Verify the match exists
+        const match = await this.prisma.match.findUnique({
+            where: { id: matchId },
+            include: {
+                team_a: true,
+                team_b: true,
+            },
+        });
+
+        if (!match) {
+            throw new NotFoundException('Match not found');
+        }
+
+        // Check if analysis already exists
+        if (match.ai_analysis) {
+            return match.ai_analysis;
+        }
+
+        // Generate new analysis
+        try {
+            const analysis = await this.aiService.generateMatchAnalysis(
+                match.team_a.name,
+                match.team_b.name,
+                match.match_date,
+            );
+
+            // Cache the analysis in the database
+            await this.prisma.match.update({
+                where: { id: matchId },
+                data: { ai_analysis: analysis as any },
+            });
+
+            return analysis;
+        } catch (error) {
+            // If AI service fails, return null instead of throwing
+            // This allows the app to continue working without AI
+            return null;
+        }
     }
 }

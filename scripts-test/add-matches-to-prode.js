@@ -5,7 +5,7 @@
  * Los partidos ya deberían existir en la DB del seed
  */
 
-const BASE_URL = 'http://acme.localhost:3000/api';
+const BASE_URL = 'http://acme.localhost:3001/api';
 
 async function addMatchesToCompetition() {
     console.log('🔧 Verificando partidos en la competición...\n');

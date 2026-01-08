@@ -79,6 +79,7 @@ model Match {
   stage          String?
   location       String?
   status         MatchStatus @default(scheduled)
+  ai_analysis    Json?       @map("ai_analysis")
   created_at     DateTime    @default(now()) @map("created_at")
   updated_at     DateTime    @updatedAt @map("updated_at")
 
@@ -230,6 +231,13 @@ model Prode {
   description        String?
   participation_mode ParticipationMode @map("participation_mode")
   is_active          Boolean           @default(true) @map("is_active")
+  
+  // Rewards configuration
+  winner_count       Int?              @default(1) @map("winner_count")
+  individual_prize   String?           @map("individual_prize")
+  reward_area_winner Boolean           @default(false) @map("reward_area_winner")
+  area_prize         String?           @map("area_prize")
+  
   created_at         DateTime          @default(now()) @map("created_at")
   updated_at         DateTime          @updatedAt @map("updated_at")
 

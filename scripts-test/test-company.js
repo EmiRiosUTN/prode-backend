@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const BASE_URL = 'http://acme.localhost:3000';
+const BASE_URL = 'http://acme.localhost:3001';
 const API_BASE = `${BASE_URL}/api`;
 
 const colors = {
@@ -283,7 +283,7 @@ async function runAllTests() {
     log(`Base URL: ${BASE_URL}`, 'cyan');
     log(`API Base: ${API_BASE}`, 'cyan');
     log('', 'reset');
-    log('📝 IMPORTANTE: Este script usa acme.localhost:3000 en la URL', 'yellow');
+    log('📝 IMPORTANTE: Este script usa acme.localhost:3001 en la URL', 'yellow');
     log('   Si falla, agrega esta línea a tu archivo hosts:', 'yellow');
     log('   127.0.0.1  acme.localhost', 'cyan');
     log('', 'reset');

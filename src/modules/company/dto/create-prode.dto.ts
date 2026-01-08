@@ -9,6 +9,7 @@ import {
     ArrayMinSize,
     MaxLength,
     IsBoolean,
+    IsInt,
 } from 'class-validator';
 import { Type } from 'class-transformer';
 import { ProdeVariableConfigDto } from './prode-variable-config.dto';
@@ -61,4 +62,23 @@ export class CreateProdeDto {
     @IsEnum(AreaRankingCalculation)
     @IsOptional()
     areaRankingCalculation?: AreaRankingCalculation;
+
+    // Rewards configuration
+    @IsOptional()
+    @IsInt()
+    winnerCount?: number;
+
+    @IsOptional()
+    @IsString()
+    @MaxLength(500)
+    individualPrize?: string;
+
+    @IsOptional()
+    @IsBoolean()
+    rewardAreaWinner?: boolean;
+
+    @IsOptional()
+    @IsString()
+    @MaxLength(500)
+    areaPrize?: string;
 }

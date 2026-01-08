@@ -5,7 +5,7 @@
  * Ejecutar UNA SOLA VEZ antes de los tests
  */
 
-const BASE_URL = 'http://acme.localhost:3000/api';
+const BASE_URL = 'http://acme.localhost:3001/api';
 
 async function createTestProde() {
     console.log('🔧 Creando Prode de prueba...\n');

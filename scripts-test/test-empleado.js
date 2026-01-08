@@ -5,7 +5,7 @@
  * Tests SOLO de funcionalidades de empleados
  */
 
-const BASE_URL = 'http://acme.localhost:3000';
+const BASE_URL = 'http://acme.localhost:3001';
 const API_BASE = `${BASE_URL}/api`;
 
 const colors = {
@@ -558,7 +558,7 @@ async function runAllTests() {
             logInfo('');
             logInfo('💡 Si el empleado no existe, regístralo con:');
             logInfo('   POST /api/auth/register');
-            logInfo('   Host: acme.localhost:3000');
+            logInfo('   Host: acme.localhost:3001');
             process.exit(1);
         }
 

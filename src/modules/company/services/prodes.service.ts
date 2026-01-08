@@ -149,6 +149,10 @@ export class ProdesService {
                     description: createProdeDto.description,
                     participation_mode: createProdeDto.participationMode,
                     company_area_id: createProdeDto.companyAreaId,
+                    winner_count: createProdeDto.winnerCount,
+                    individual_prize: createProdeDto.individualPrize,
+                    reward_area_winner: createProdeDto.rewardAreaWinner,
+                    area_prize: createProdeDto.areaPrize,
                 },
             });
 
@@ -206,6 +210,10 @@ export class ProdesService {
                 name: updateProdeDto.name,
                 description: updateProdeDto.description,
                 is_active: updateProdeDto.isActive,
+                winner_count: updateProdeDto.winnerCount,
+                individual_prize: updateProdeDto.individualPrize,
+                reward_area_winner: updateProdeDto.rewardAreaWinner,
+                area_prize: updateProdeDto.areaPrize,
             },
         });
     }

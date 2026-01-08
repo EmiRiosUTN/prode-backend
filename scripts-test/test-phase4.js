@@ -6,16 +6,16 @@
  * Para testing real, usar Postman/Thunder Client o curl
  */
 
-const BASE_URL = 'http://acme.localhost:3000/api'; // Usar subdomain en URL
+const BASE_URL = 'http://acme.localhost:3001/api'; // Usar subdomain en URL
 
 async function test() {
     console.log('\n🧪 Testing Phase 4 - Company Module\n');
-    console.log('⚠️  NOTA: Este test usa acme.localhost:3000');
+    console.log('⚠️  NOTA: Este test usa acme.localhost:3001');
     console.log('   Si falla, verifica que tu /etc/hosts o DNS local resuelva acme.localhost\n');
 
     // 1. Login como empresa_admin
     console.log('1. Login como empresa_admin...');
-    const loginRes = await fetch(`http://localhost:3000/api/auth/login`, {
+    const loginRes = await fetch(`http://localhost:3001/api/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -179,7 +179,7 @@ async function test() {
 
     console.log('\n✅ Test completed!\n');
     console.log('📝 NOTA: Para testing completo, usa Postman/Thunder Client');
-    console.log('   con el header Host: acme.localhost:3000\n');
+    console.log('   con el header Host: acme.localhost:3001\n');
 }
 
 test().catch(err => {

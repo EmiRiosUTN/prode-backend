@@ -1,4 +1,4 @@
-import { IsString, IsBoolean, IsOptional, MaxLength } from 'class-validator';
+import { IsString, IsBoolean, IsOptional, MaxLength, IsInt } from 'class-validator';
 
 export class UpdateProdeDto {
     @IsString()
@@ -14,4 +14,23 @@ export class UpdateProdeDto {
     @IsBoolean()
     @IsOptional()
     isActive?: boolean;
+
+    // Rewards configuration
+    @IsOptional()
+    @IsInt()
+    winnerCount?: number;
+
+    @IsString()
+    @IsOptional()
+    @MaxLength(500)
+    individualPrize?: string;
+
+    @IsBoolean()
+    @IsOptional()
+    rewardAreaWinner?: boolean;
+
+    @IsString()
+    @IsOptional()
+    @MaxLength(500)
+    areaPrize?: string;
 }

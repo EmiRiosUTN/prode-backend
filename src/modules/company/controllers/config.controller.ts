@@ -6,13 +6,19 @@ import { RolesGuard } from '../../../common/guards/roles.guard';
 import { Roles } from '../../../common/decorators/roles.decorator';
 import { CurrentTenant } from '../../../common/decorators/current-tenant.decorator';
 
-@Controller('company/config')
-@UseGuards(JwtAuthGuard, RolesGuard)
-@Roles('empresa_admin')
+@Controller('company')
 export class ConfigController {
     constructor(private readonly configService: ConfigService) { }
 
-    @Get()
+    // Public endpoint for registration page
+    @Get('public/config')
+    async getPublicConfig(@CurrentTenant() tenant: { id: string; name: string; slug: string }) {
+        return this.configService.getPublicConfig(tenant.id);
+    }
+
+    @Get('config')
+    @UseGuards(JwtAuthGuard, RolesGuard)
+    @Roles('empresa_admin')
     async getConfig(
         @CurrentTenant() tenant: { id: string; name: string; slug: string },
         @Req() req: any  // Usar 'any' para evitar el error de TypeScript

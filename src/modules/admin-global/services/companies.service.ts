@@ -2,10 +2,15 @@ import { Injectable, NotFoundException, ConflictException, BadRequestException }
 import { PrismaService } from '../../../prisma/prisma.service';
 import { CreateCompanyDto, UpdateCompanyDto } from '../dto';
 import * as bcrypt from 'bcrypt';
+import * as crypto from 'crypto';
+import { EmailService } from '../../email/email.service';
 
 @Injectable()
 export class CompaniesService {
-    constructor(private readonly prisma: PrismaService) { }
+    constructor(
+        private readonly prisma: PrismaService,
+        private readonly emailService: EmailService
+    ) { }
 
     async findAll() {
         return this.prisma.company.findMany({
@@ -87,12 +92,19 @@ export class CompaniesService {
 
         // Create company, admin user, and employee in transaction
         const result = await this.prisma.$transaction(async (tx) => {
-            // Create admin user
+            // Create admin user with email verification
+            const verificationToken = crypto.randomBytes(32).toString('hex');
+            const tokenExpiresAt = new Date();
+            tokenExpiresAt.setHours(tokenExpiresAt.getHours() + 24); // 24 hours
+
             const adminUser = await tx.user.create({
                 data: {
                     email: adminEmail,
                     password_hash: passwordHash,
                     role: 'empresa_admin',
+                    email_verified: false,
+                    verification_token: verificationToken,
+                    token_expires_at: tokenExpiresAt,
                 },
             });
 
@@ -145,6 +157,36 @@ export class CompaniesService {
                 },
             });
         });
+
+        if (!result) {
+            throw new Error('Failed to create company');
+        }
+
+        // Send verification email to new admin
+        const verificationToken = crypto.randomBytes(32).toString('hex');
+        const tokenExpiresAt = new Date();
+        tokenExpiresAt.setHours(tokenExpiresAt.getHours() + 24);
+
+        // Update user with verification token
+        await this.prisma.user.update({
+            where: { id: result.admin_user.id },
+            data: {
+                verification_token: verificationToken,
+                token_expires_at: tokenExpiresAt,
+            },
+        });
+
+        // Send verification email
+        try {
+            await this.emailService.sendVerificationEmail(
+                adminEmail,
+                verificationToken,
+                result.name,
+                result.slug
+            );
+        } catch (error) {
+            console.error('Failed to send verification email to company admin:', error);
+        }
 
         return result;
     }

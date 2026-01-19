@@ -1,6 +1,6 @@
 import { Controller, Post, Body, HttpCode, HttpStatus } from '@nestjs/common';
 import { AuthService } from './auth.service';
-import { LoginDto, RegisterDto } from './dto';
+import { LoginDto, RegisterDto, VerifyEmailDto, ResendVerificationDto } from './dto';
 import { CurrentTenant } from '../../common/decorators';
 
 @Controller('auth')
@@ -9,11 +9,8 @@ export class AuthController {
 
     @Post('login')
     @HttpCode(HttpStatus.OK)
-    async login(
-        @Body() loginDto: LoginDto,
-        @CurrentTenant() tenant?: { id: string; slug: string; name: string },
-    ) {
-        return this.authService.login(loginDto, tenant);
+    async login(@Body() loginDto: LoginDto) {
+        return this.authService.login(loginDto);
     }
 
     @Post('register')
@@ -23,5 +20,17 @@ export class AuthController {
         @CurrentTenant() tenant: { id: string },
     ) {
         return this.authService.register(registerDto, tenant.id);
+    }
+
+    @Post('verify-email')
+    @HttpCode(HttpStatus.OK)
+    async verifyEmail(@Body() verifyEmailDto: VerifyEmailDto) {
+        return this.authService.verifyEmail(verifyEmailDto);
+    }
+
+    @Post('resend-verification')
+    @HttpCode(HttpStatus.OK)
+    async resendVerification(@Body() resendDto: ResendVerificationDto) {
+        return this.authService.resendVerification(resendDto);
     }
 }

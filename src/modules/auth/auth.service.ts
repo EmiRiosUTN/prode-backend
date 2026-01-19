@@ -1,17 +1,20 @@
 import { Injectable, UnauthorizedException, BadRequestException, ConflictException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { PrismaService } from '../../prisma/prisma.service';
+import { EmailService } from '../email/email.service';
 import * as bcrypt from 'bcrypt';
-import { LoginDto, RegisterDto } from './dto';
+import * as crypto from 'crypto';
+import { LoginDto, RegisterDto, VerifyEmailDto, ResendVerificationDto } from './dto';
 
 @Injectable()
 export class AuthService {
     constructor(
         private readonly prisma: PrismaService,
         private readonly jwtService: JwtService,
+        private readonly emailService: EmailService,
     ) { }
 
-    async login(loginDto: LoginDto, tenant?: { id: string; slug: string; name: string }) {
+    async login(loginDto: LoginDto) {
         const { email, password } = loginDto;
 
         // Find user by email
@@ -35,43 +38,23 @@ export class AuthService {
             throw new UnauthorizedException('User account is inactive');
         }
 
+        // Check email verification
+        if (!user.email_verified) {
+            throw new UnauthorizedException('Please verify your email before logging in');
+        }
+
+        // Verify password
         const isPasswordValid = await bcrypt.compare(password, user.password_hash);
         if (!isPasswordValid) {
-            throw new UnauthorizedException('Credenciales inválidas');
+            throw new UnauthorizedException('Invalid credentials');
         }
 
+        // Check if employee is blocked
         if (user.employee && user.employee.is_blocked) {
-            throw new UnauthorizedException('La cuenta está bloqueada');
+            throw new UnauthorizedException('Employee account is blocked');
         }
 
-        // Tenant validation logic
-        if (tenant) {
-            // Special case: admin subdomain
-            if (tenant.slug === 'admin') {
-                // Only admin_global users can log in from admin subdomain
-                if (user.role !== 'admin_global') {
-                    throw new UnauthorizedException('Acceso denegado. Solo administradores globales pueden acceder desde este portal.');
-                }
-                // Allow admin_global to proceed
-            } else {
-                // Regular company subdomain
-                if (!user.employee) {
-                    // User is not an employee (likely admin_global)
-                    if (user.role === 'admin_global') {
-                        // Admin global cannot log in from company subdomains
-                        throw new UnauthorizedException('Acceso denegado. Los administradores globales deben iniciar sesión desde admin.dominio.com');
-                    } else {
-                        throw new UnauthorizedException(`Acceso denegado. Este usuario no pertenece a esta compañía.`);
-                    }
-                } else {
-                    // User is an employee, check if they belong to this company
-                    if (user.employee.company_id !== tenant.id) {
-                        throw new UnauthorizedException(`Acceso denegado. Por favor, inicie sesión en el portal de su compañía.`);
-                    }
-                }
-            }
-        }
-
+        // Generate JWT token
         const payload = {
             sub: user.id,
             email: user.email,
@@ -96,8 +79,6 @@ export class AuthService {
                         id: user.employee.company.id,
                         name: user.employee.company.name,
                         slug: user.employee.company.slug,
-                        primary_color: user.employee.company.primary_color,
-                        secondary_color: user.employee.company.secondary_color,
                     },
                     area: {
                         id: user.employee.company_area.id,
@@ -111,12 +92,13 @@ export class AuthService {
     async register(registerDto: RegisterDto, companyId: string) {
         const { email, password, firstName, lastName, phone, companyAreaId } = registerDto;
 
+        // Check if user already exists
         const existingUser = await this.prisma.user.findUnique({
             where: { email },
         });
 
         if (existingUser) {
-            throw new ConflictException('Ya existe un usuario con este email.');
+            throw new ConflictException('User with this email already exists');
         }
 
         // Verify company exists and is active
@@ -125,7 +107,7 @@ export class AuthService {
         });
 
         if (!company || !company.is_active) {
-            throw new BadRequestException('Compañía desactivada o inexistente.');
+            throw new BadRequestException('Company not found or inactive');
         }
 
         // Verify company area exists and belongs to company
@@ -138,14 +120,15 @@ export class AuthService {
         });
 
         if (!companyArea) {
-            throw new BadRequestException('Area de la compañía no encontrada o inactiva');
+            throw new BadRequestException('Company area not found or inactive');
         }
 
+        // Validate corporate email if required
         if (company.require_corporate_email && company.corporate_domain) {
             const emailDomain = email.split('@')[1];
             if (emailDomain !== company.corporate_domain) {
                 throw new BadRequestException(
-                    `Email debe ser del dominio corporativo: @${company.corporate_domain}`,
+                    `Email must be from corporate domain: @${company.corporate_domain}`,
                 );
             }
         }
@@ -154,6 +137,11 @@ export class AuthService {
         const saltRounds = 10;
         const passwordHash = await bcrypt.hash(password, saltRounds);
 
+        // Generate verification token
+        const verificationToken = crypto.randomBytes(32).toString('hex');
+        const tokenExpiresAt = new Date();
+        tokenExpiresAt.setHours(tokenExpiresAt.getHours() + 24); // 24 hours
+
         // Create user and employee in transaction
         const result = await this.prisma.$transaction(async (tx) => {
             const user = await tx.user.create({
@@ -161,6 +149,9 @@ export class AuthService {
                     email,
                     password_hash: passwordHash,
                     role: 'empleado',
+                    email_verified: false,
+                    verification_token: verificationToken,
+                    token_expires_at: tokenExpiresAt,
                 },
             });
 
@@ -182,40 +173,104 @@ export class AuthService {
             return { user, employee };
         });
 
-        // Generate JWT token
-        const payload = {
-            sub: result.user.id,
-            email: result.user.email,
-            role: result.user.role,
-            companyId: result.employee.company_id,
-            employeeId: result.employee.id,
-        };
+        // Send verification email
+        try {
+            await this.emailService.sendVerificationEmail(
+                email,
+                verificationToken,
+                company.name,
+                company.slug
+            );
+        } catch (error) {
+            // Log error but don't fail registration
+            console.error('Failed to send verification email:', error);
+        }
 
-        const accessToken = this.jwtService.sign(payload);
+        // Return success message without token
+        return {
+            message: 'Registro exitoso. Por favor revisa tu email para verificar tu cuenta.',
+            email: result.user.email,
+        };
+    }
+
+    async verifyEmail(verifyEmailDto: VerifyEmailDto) {
+        const { token } = verifyEmailDto;
+
+        const user = await this.prisma.user.findUnique({
+            where: { verification_token: token },
+        });
+
+        if (!user) {
+            throw new BadRequestException('Invalid verification token');
+        }
+
+        if (user.email_verified) {
+            throw new BadRequestException('Email already verified');
+        }
+
+        if (user.token_expires_at && user.token_expires_at < new Date()) {
+            throw new BadRequestException('Verification token has expired');
+        }
+
+        await this.prisma.user.update({
+            where: { id: user.id },
+            data: {
+                email_verified: true,
+                verification_token: null,
+                token_expires_at: null,
+            },
+        });
 
         return {
-            accessToken,
-            user: {
-                id: result.user.id,
-                email: result.user.email,
-                role: result.user.role,
+            message: 'Email verified successfully. You can now log in.',
+        };
+    }
+
+    async resendVerification(resendDto: ResendVerificationDto) {
+        const { email } = resendDto;
+
+        const user = await this.prisma.user.findUnique({
+            where: { email },
+            include: {
                 employee: {
-                    id: result.employee.id,
-                    firstName: result.employee.first_name,
-                    lastName: result.employee.last_name,
-                    company: {
-                        id: result.employee.company.id,
-                        name: result.employee.company.name,
-                        slug: result.employee.company.slug,
-                        primary_color: result.employee.company.primary_color,
-                        secondary_color: result.employee.company.secondary_color,
-                    },
-                    area: {
-                        id: result.employee.company_area.id,
-                        name: result.employee.company_area.name,
+                    include: {
+                        company: true,
                     },
                 },
             },
+        });
+
+        if (!user) {
+            throw new BadRequestException('User not found');
+        }
+
+        if (user.email_verified) {
+            throw new BadRequestException('Email already verified');
+        }
+
+        // Generate new token
+        const verificationToken = crypto.randomBytes(32).toString('hex');
+        const tokenExpiresAt = new Date();
+        tokenExpiresAt.setHours(tokenExpiresAt.getHours() + 24);
+
+        await this.prisma.user.update({
+            where: { id: user.id },
+            data: {
+                verification_token: verificationToken,
+                token_expires_at: tokenExpiresAt,
+            },
+        });
+
+        // Send email
+        await this.emailService.sendVerificationEmail(
+            email,
+            verificationToken,
+            user.employee?.company?.name || 'Prode App',
+            user.employee?.company?.slug || 'admin'
+        );
+
+        return {
+            message: 'Verification email sent. Please check your inbox.',
         };
     }
 

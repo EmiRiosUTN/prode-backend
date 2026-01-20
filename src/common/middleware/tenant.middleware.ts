@@ -129,7 +129,13 @@ export class TenantMiddleware implements NestMiddleware {
         }
 
         // Producción: empresa.mundialpro.com
-        const parts = hostname.split('.');
+        // Si hay 'www.', lo quitamos antes de procesar
+        let cleanHostname = hostname;
+        if (cleanHostname.startsWith('www.')) {
+            cleanHostname = cleanHostname.substring(4);
+        }
+
+        const parts = cleanHostname.split('.');
         if (parts.length >= 3) {
             return parts[0];
         }

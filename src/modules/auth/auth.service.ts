@@ -14,7 +14,7 @@ export class AuthService {
         private readonly emailService: EmailService,
     ) { }
 
-    async login(loginDto: LoginDto) {
+    async login(loginDto: LoginDto, tenantId?: string) {
         const { email, password } = loginDto;
 
         // Find user by email
@@ -32,6 +32,17 @@ export class AuthService {
 
         if (!user) {
             throw new UnauthorizedException('Invalid credentials');
+        }
+
+        // Validate Tenant Access
+        if (tenantId && tenantId !== 'admin') {
+            // Global admins can access any tenant (optional, usually they use admin portal)
+            if (user.role !== 'admin_global') {
+                const userCompanyId = user.employee?.company_id;
+                if (!userCompanyId || userCompanyId !== tenantId) {
+                    throw new UnauthorizedException('You do not have access to this company portal.');
+                }
+            }
         }
 
         if (!user.is_active) {
@@ -53,6 +64,12 @@ export class AuthService {
         if (user.employee && user.employee.is_blocked) {
             throw new UnauthorizedException('Employee account is blocked');
         }
+
+        // VERIFY TENANT ACCESS
+        // If login is performed on a specific tenant subdodmain, ensure the user belongs to it.
+        // We need to inject the request or pass the tenant context to this method.
+        // Since we don't have the request here, we'll need to modify the controller to pass it.
+        // For now, let's look at how to implement this securely.
 
         // Generate JWT token
         const payload = {

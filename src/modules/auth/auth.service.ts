@@ -40,7 +40,7 @@ export class AuthService {
             if (user.role !== 'admin_global') {
                 const userCompanyId = user.employee?.company_id;
                 if (!userCompanyId || userCompanyId !== tenantId) {
-                    throw new UnauthorizedException('You do not have access to this company portal.');
+                    throw new UnauthorizedException('No tienes acceso al portal de esta empresa.');
                 }
             }
         }

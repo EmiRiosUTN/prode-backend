@@ -44,7 +44,7 @@ export class ConfigController {
         return this.configService.getConfig(tenantToUse.id);
     }
 
-    @Put()
+    @Put('config')
     async updateConfig(
         @CurrentTenant() tenant: { id: string; name: string; slug: string },
         @Body() updateDto: UpdateCompanyConfigDto,

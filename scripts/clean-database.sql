@@ -41,7 +41,7 @@ BEGIN
     -- 4. Eliminar predicciones
     DELETE FROM predictions
     WHERE prode_participant_id IN (
-        SELECT id FROM prode_participants pp
+        SELECT pp.id FROM prode_participants pp
         JOIN employees e ON pp.employee_id = e.id
         WHERE e.user_id != v_admin_user_id
     );

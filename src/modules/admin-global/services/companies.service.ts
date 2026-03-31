@@ -66,7 +66,7 @@ export class CompaniesService {
     }
 
     async create(createCompanyDto: CreateCompanyDto) {
-        const { adminEmail, adminPassword, slug, ...dtoData } = createCompanyDto;
+        const { adminEmail, adminPassword, slug, sendVerificationEmail, ...dtoData } = createCompanyDto;
 
         // Check if slug is already taken
         const existingCompany = await this.prisma.company.findUnique({
@@ -97,14 +97,17 @@ export class CompaniesService {
             const tokenExpiresAt = new Date();
             tokenExpiresAt.setHours(tokenExpiresAt.getHours() + 24); // 24 hours
 
+            // Send verification email if not strictly false (default to true)
+            const sendEmail = sendVerificationEmail !== false;
+
             const adminUser = await tx.user.create({
                 data: {
                     email: adminEmail,
                     password_hash: passwordHash,
                     role: 'empresa_admin',
-                    email_verified: false,
-                    verification_token: verificationToken,
-                    token_expires_at: tokenExpiresAt,
+                    email_verified: !sendEmail, // If we don't send email, auto-verify so they can login
+                    verification_token: sendEmail ? verificationToken : null,
+                    token_expires_at: sendEmail ? tokenExpiresAt : null,
                 },
             });
 
@@ -167,25 +170,29 @@ export class CompaniesService {
         const tokenExpiresAt = new Date();
         tokenExpiresAt.setHours(tokenExpiresAt.getHours() + 24);
 
-        // Update user with verification token
-        await this.prisma.user.update({
-            where: { id: result.admin_user.id },
-            data: {
-                verification_token: verificationToken,
-                token_expires_at: tokenExpiresAt,
-            },
-        });
+        // Send verification email if not strictly false (default to true)
+        const sendEmail = sendVerificationEmail !== false;
+        
+        if (sendEmail) {
+            // Update user with verification token
+            await this.prisma.user.update({
+                where: { id: result.admin_user.id },
+                data: {
+                    verification_token: verificationToken,
+                    token_expires_at: tokenExpiresAt,
+                },
+            });
 
-        // Send verification email
-        try {
-            await this.emailService.sendVerificationEmail(
-                adminEmail,
-                verificationToken,
-                result.name,
-                result.slug
-            );
-        } catch (error) {
-            console.error('Failed to send verification email to company admin:', error);
+            try {
+                await this.emailService.sendVerificationEmail(
+                    adminEmail,
+                    verificationToken,
+                    result.name,
+                    result.slug
+                );
+            } catch (error) {
+                console.error('Failed to send verification email to company admin:', error);
+            }
         }
 
         return result;
@@ -230,12 +237,9 @@ export class CompaniesService {
         const company = await this.prisma.company.findUnique({
             where: { id },
             include: {
-                _count: {
-                    select: {
-                        employees: true,
-                        prodes: true,
-                    },
-                },
+                employees: {
+                    select: { user_id: true }
+                }
             },
         });
 
@@ -243,21 +247,54 @@ export class CompaniesService {
             throw new NotFoundException(`Company with ID "${id}" not found`);
         }
 
-        // Check if company has employees or prodes
-        if (company._count.employees > 0) {
-            throw new BadRequestException(
-                `Cannot delete company with ${company._count.employees} employee(s). Please remove employees first.`
-            );
-        }
+        // Si la empresa ESTÁ ACTIVA -> Hacemos SOFT DELETE (baja lógica)
+        if (company.is_active) {
+            await this.prisma.$transaction(async (tx) => {
+                await tx.company.update({ where: { id }, data: { is_active: false } });
+                await tx.companyArea.updateMany({ where: { company_id: id }, data: { is_active: false } });
+                await tx.prode.updateMany({ where: { company_id: id }, data: { is_active: false } });
+                await tx.employee.updateMany({ where: { company_id: id }, data: { is_blocked: true } });
 
-        if (company._count.prodes > 0) {
-            throw new BadRequestException(
-                `Cannot delete company with ${company._count.prodes} prode(s). Please remove prodes first.`
-            );
-        }
+                const userIdsToDeactivate = company.employees.map(e => e.user_id);
+                if (company.admin_user_id && !userIdsToDeactivate.includes(company.admin_user_id)) {
+                    userIdsToDeactivate.push(company.admin_user_id);
+                }
 
-        return this.prisma.company.delete({
-            where: { id },
-        });
+                if (userIdsToDeactivate.length > 0) {
+                    await tx.user.updateMany({
+                        where: { id: { in: userIdsToDeactivate } },
+                        data: { is_active: false }
+                    });
+                }
+            });
+            return { success: true, message: `La empresa desactivada de manera segura (Soft Delete).` };
+        } 
+        
+        // Si la empresa YA ESTABA INACTIVA -> Hacemos HARD DELETE (borrado físico total)
+        else {
+            await this.prisma.$transaction(async (tx) => {
+                // 1. Identificar a los usuarios exclusivos de esta empresa para borrarlos físicamente
+                const userIds = company.employees.map(e => e.user_id);
+                if (company.admin_user_id && !userIds.includes(company.admin_user_id)) {
+                    userIds.push(company.admin_user_id);
+                }
+
+                // En un caso real hiper estricto, validaríamos que no estén en otras empresas.
+                // Aquí procedemos a borrar a la empresa. Por "Cascate Delete" de Prisma:
+                // Se borran: Employees, Prodes, ProdeParticipants, CompanyAreas.
+                await tx.company.delete({
+                    where: { id }
+                });
+
+                // Finalmente borramos físicamente a los Users (liberando sus emails)
+                // Se hace al final porque Company dependía del admin_user_id (foreign key) y Employee dependía de user_id.
+                if (userIds.length > 0) {
+                    await tx.user.deleteMany({
+                        where: { id: { in: userIds } }
+                    });
+                }
+            });
+            return { success: true, message: `La empresa y sus usuarios han sido eliminados de la base de datos de manera definitiva (Hard Delete).` };
+        }
     }
 }

@@ -31,12 +31,8 @@ export class EmailService {
     });
   }
 
-  async sendVerificationEmail(email: string, token: string, companyName: string, companySlug: string) {
-    // Build URL with company subdomain
-    const baseDomain = this.configService.get('BASE_DOMAIN') || 'localhost:3000';
-    const verificationUrl = baseDomain.includes('localhost')
-      ? `http://localhost:3000/verify-email?token=${token}`
-      : `https://${companySlug}.${baseDomain}/verify-email?token=${token}`;
+  async sendVerificationEmail(email: string, token: string, companyName: string, originUrl: string) {
+    const verificationUrl = `${originUrl}/verify-email?token=${token}`;
 
     const mailOptions = {
       from: this.configService.get('SMTP_FROM'),
@@ -97,9 +93,8 @@ export class EmailService {
     }
   }
 
-  async sendPasswordResetEmail(email: string, token: string) {
-    // Para implementación futura
-    const resetUrl = `${this.configService.get('FRONTEND_URL')}/reset-password?token=${token}`;
+  async sendPasswordResetEmail(email: string, token: string, originUrl: string) {
+    const resetUrl = `${originUrl}/reset-password?token=${token}`;
 
     const mailOptions = {
       from: this.configService.get('SMTP_FROM'),

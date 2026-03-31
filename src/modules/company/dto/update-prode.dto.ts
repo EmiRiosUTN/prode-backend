@@ -1,4 +1,8 @@
-import { IsString, IsBoolean, IsOptional, MaxLength, IsInt } from 'class-validator';
+import { IsString, IsBoolean, IsOptional, MaxLength, IsInt, IsEnum, ValidateNested, IsArray, ArrayMinSize } from 'class-validator';
+import { Type } from 'class-transformer';
+import { ParticipationMode } from './create-prode.dto';
+import { ProdeVariableConfigDto } from './prode-variable-config.dto';
+import { AreaRankingCalculation, ProdeRankingConfigDto } from './prode-ranking-config.dto';
 
 export class UpdateProdeDto {
     @IsString()
@@ -33,4 +37,23 @@ export class UpdateProdeDto {
     @IsOptional()
     @MaxLength(500)
     areaPrize?: string;
+
+    @IsEnum(ParticipationMode)
+    @IsOptional()
+    participationMode?: ParticipationMode;
+
+    @IsBoolean()
+    @IsOptional()
+    showAreaRanking?: boolean;
+
+    @IsEnum(AreaRankingCalculation)
+    @IsOptional()
+    areaRankingCalculation?: AreaRankingCalculation;
+
+    @IsArray()
+    @ArrayMinSize(1)
+    @IsOptional()
+    @ValidateNested({ each: true })
+    @Type(() => ProdeVariableConfigDto)
+    variableConfigs?: ProdeVariableConfigDto[];
 }

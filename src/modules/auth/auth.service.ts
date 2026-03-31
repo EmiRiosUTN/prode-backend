@@ -4,7 +4,7 @@ import { PrismaService } from '../../prisma/prisma.service';
 import { EmailService } from '../email/email.service';
 import * as bcrypt from 'bcrypt';
 import * as crypto from 'crypto';
-import { LoginDto, RegisterDto, VerifyEmailDto, ResendVerificationDto } from './dto';
+import { LoginDto, RegisterDto, VerifyEmailDto, ResendVerificationDto, ForgotPasswordDto, ResetPasswordDto } from './dto';
 
 @Injectable()
 export class AuthService {
@@ -106,7 +106,7 @@ export class AuthService {
         };
     }
 
-    async register(registerDto: RegisterDto, companyId: string) {
+    async register(registerDto: RegisterDto, companyId: string, originUrl: string) {
         const { email, password, firstName, lastName, phone, companyAreaId } = registerDto;
 
         // Check if user already exists
@@ -196,7 +196,7 @@ export class AuthService {
                 email,
                 verificationToken,
                 company.name,
-                company.slug
+                originUrl
             );
         } catch (error) {
             // Log error but don't fail registration
@@ -243,7 +243,7 @@ export class AuthService {
         };
     }
 
-    async resendVerification(resendDto: ResendVerificationDto) {
+    async resendVerification(resendDto: ResendVerificationDto, originUrl: string) {
         const { email } = resendDto;
 
         const user = await this.prisma.user.findUnique({
@@ -283,12 +283,98 @@ export class AuthService {
             email,
             verificationToken,
             user.employee?.company?.name || 'Prode App',
-            user.employee?.company?.slug || 'admin'
+            originUrl
         );
 
         return {
             message: 'Verification email sent. Please check your inbox.',
         };
+    }
+
+    async forgotPassword(dto: ForgotPasswordDto, originUrl: string, tenantId?: string) {
+        const { email } = dto;
+
+        const user = await this.prisma.user.findUnique({
+            where: { email },
+            include: {
+                employee: {
+                    include: { company: true }
+                }
+            }
+        });
+
+        if (!user) {
+            throw new BadRequestException('El correo proporcionado no se encuentra registrado en el sistema.');
+        }
+
+        if (!user.is_active) {
+            throw new BadRequestException('Esta cuenta se encuentra desactivada, comunícate con un administrador.');
+        }
+
+        if (user.role === 'empleado' && (!user.employee || user.employee.is_blocked)) {
+            throw new BadRequestException('Tu cuenta de empleado está bloqueada o incompleta.');
+        }
+
+        if (tenantId && tenantId !== 'admin' && user.role !== 'admin_global') {
+            if (user.employee?.company_id !== tenantId) {
+                throw new BadRequestException('Este correo no pertenece a los registros de esta empresa.');
+            }
+        }
+
+        // Generate reset token
+        const resetToken = crypto.randomBytes(32).toString('hex');
+        const tokenExpiresAt = new Date();
+        tokenExpiresAt.setHours(tokenExpiresAt.getHours() + 1); // 1 hour expiry
+
+        await this.prisma.user.update({
+            where: { id: user.id },
+            data: {
+                verification_token: resetToken,
+                token_expires_at: tokenExpiresAt,
+            },
+        });
+
+        // Send reset email
+        await this.emailService.sendPasswordResetEmail(
+            email,
+            resetToken,
+            originUrl
+        );
+
+        return { message: '¡Correo encontrado! Las instrucciones para restablecer han sido enviadas a la bandeja de entrada.' };
+    }
+
+    async resetPassword(dto: ResetPasswordDto) {
+        const { token, newPassword } = dto;
+
+        const user = await this.prisma.user.findUnique({
+            where: { verification_token: token },
+        });
+
+        if (!user) {
+            throw new BadRequestException('El token es inválido o expiró.');
+        }
+
+        if (user.token_expires_at && user.token_expires_at < new Date()) {
+            throw new BadRequestException('El token ha expirado. Por favor, solicita uno nuevo.');
+        }
+
+        // Hash new password
+        const saltRounds = 10;
+        const passwordHash = await bcrypt.hash(newPassword, saltRounds);
+
+        // Update user
+        await this.prisma.user.update({
+            where: { id: user.id },
+            data: {
+                password_hash: passwordHash,
+                verification_token: null,
+                token_expires_at: null,
+                email_verified: true, // Si logró resetear la clave asume que la cuenta está verificada
+            },
+        });
+
+        return { message: 'Tu contraseña ha sido restablecida exitosamente.' };
     }
 
     async validateUser(userId: string) {

@@ -44,4 +44,8 @@ export class CreateCompanyDto {
     @IsString()
     @IsOptional()
     adminLastName?: string;
+
+    @IsBoolean()
+    @IsOptional()
+    sendVerificationEmail?: boolean;
 }

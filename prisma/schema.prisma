@@ -28,17 +28,19 @@ model User {
 }
 
 model Competition {
-  id         String   @id @default(uuid())
-  name       String
-  slug       String   @unique
-  start_date DateTime @map("start_date")
-  end_date   DateTime @map("end_date")
-  sport_type String   @default("futbol") @map("sport_type")
-  is_active  Boolean  @default(true) @map("is_active")
-  created_at DateTime @default(now()) @map("created_at")
-  updated_at DateTime @updatedAt @map("updated_at")
-  matches    Match[]
-  prodes     Prode[]
+  id                       String   @id @default(uuid())
+  name                     String
+  slug                     String   @unique
+  api_football_league_id   Int?     @unique @map("api_football_league_id")
+  api_football_season      Int?     @map("api_football_season")
+  start_date               DateTime @map("start_date")
+  end_date                 DateTime @map("end_date")
+  sport_type               String   @default("futbol") @map("sport_type")
+  is_active                Boolean  @default(true) @map("is_active")
+  created_at               DateTime @default(now()) @map("created_at")
+  updated_at               DateTime @updatedAt @map("updated_at")
+  matches                  Match[]
+  prodes                   Prode[]
 
   @@index([slug])
   @@index([is_active])
@@ -49,6 +51,7 @@ model Team {
   id                String            @id @default(uuid())
   name              String
   code              String            @unique
+  api_football_id   Int?              @unique @map("api_football_id")
   flag_url          String?           @map("flag_url")
   created_at        DateTime          @default(now()) @map("created_at")
   updated_at        DateTime          @updatedAt @map("updated_at")
@@ -62,22 +65,23 @@ model Team {
 }
 
 model Match {
-  id             String       @id @default(uuid())
-  competition_id String       @map("competition_id")
-  team_a_id      String       @map("team_a_id")
-  team_b_id      String       @map("team_b_id")
-  match_date     DateTime     @map("match_date")
-  stage          String?
-  location       String?
-  status         MatchStatus  @default(scheduled)
-  created_at     DateTime     @default(now()) @map("created_at")
-  updated_at     DateTime     @updatedAt @map("updated_at")
-  ai_analysis    Json?
-  match_result   MatchResult?
-  competition    Competition  @relation(fields: [competition_id], references: [id], onDelete: Cascade)
-  team_a         Team         @relation("TeamA", fields: [team_a_id], references: [id])
-  team_b         Team         @relation("TeamB", fields: [team_b_id], references: [id])
-  predictions    Prediction[]
+  id              String       @id @default(uuid())
+  api_football_id Int?         @unique @map("api_football_id")
+  competition_id  String       @map("competition_id")
+  team_a_id       String       @map("team_a_id")
+  team_b_id       String       @map("team_b_id")
+  match_date      DateTime     @map("match_date")
+  stage           String?
+  location        String?
+  status          MatchStatus  @default(scheduled)
+  created_at      DateTime     @default(now()) @map("created_at")
+  updated_at      DateTime     @updatedAt @map("updated_at")
+  ai_analysis     Json?
+  match_result    MatchResult?
+  competition     Competition  @relation(fields: [competition_id], references: [id], onDelete: Cascade)
+  team_a          Team         @relation("TeamA", fields: [team_a_id], references: [id])
+  team_b          Team         @relation("TeamB", fields: [team_b_id], references: [id])
+  predictions     Prediction[]
 
   @@index([competition_id, match_date])
   @@index([status])

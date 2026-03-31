@@ -1,6 +1,7 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { PrismaService } from '../../../prisma/prisma.service';
 import { ScorerMatcherService } from './scorer-matcher.service';
+import { RankingService } from '../../ranking/ranking.service';
 import type { Match, MatchResult, Prediction, ProdeParticipant, PredictionVariable } from '@prisma/client';
 
 interface PredictionWithRelations extends Prediction {
@@ -39,6 +40,7 @@ export class ScoringService {
     constructor(
         private readonly prisma: PrismaService,
         private readonly scorerMatcher: ScorerMatcherService,
+        private readonly rankingService: RankingService,
     ) { }
 
     /**
@@ -94,6 +96,77 @@ export class ScoringService {
         }
 
         this.logger.warn(`Finished calculating points for match ${matchId}`);
+    }
+
+    /**
+     * Recalcula retroactivamente todas las predicciones de un PRODE entero.
+     * Útil cuando se modifican las reglas/puntos de un torneo con partidos ya jugados.
+     */
+    async recalculateProdeScores(prodeId: string): Promise<void> {
+        this.logger.log(`Starting full retroactive recalculation for Prode ${prodeId}`);
+
+        // Obtener el prode para encontrar su competición
+        const prode = await this.prisma.prode.findUnique({
+            where: { id: prodeId },
+            select: { competition_id: true }
+        });
+
+        if (!prode) {
+            this.logger.warn(`Prode ${prodeId} not found for recalculation`);
+            return;
+        }
+
+        // Obtener todos los partidos finalizados con resultado
+        const matches = await this.prisma.match.findMany({
+            where: {
+                competition_id: prode.competition_id,
+                status: 'finished',
+                match_result: { isNot: null }
+            },
+            include: {
+                match_result: {
+                    include: { match_scorers: true }
+                }
+            }
+        });
+
+        this.logger.log(`Found ${matches.length} finished matches to rescore for prode ${prodeId}`);
+
+        for (const match of matches) {
+            // Obtener predicciones SOLO DE ESTE PRODE
+            const predictions = await this.prisma.prediction.findMany({
+                where: {
+                    match_id: match.id,
+                    prode_participant: {
+                        prode_id: prodeId
+                    }
+                },
+                include: {
+                    prode_participant: {
+                        include: {
+                            prode: {
+                                include: {
+                                    prode_variable_configs: {
+                                        where: { is_active: true },
+                                        include: { prediction_variable: true }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    predicted_scorers: true
+                }
+            }) as PredictionWithRelations[];
+
+            for (const prediction of predictions) {
+                await this.calculatePointsForPrediction(prediction, match as MatchWithResult);
+            }
+        }
+
+        // Después de recalcular todo, invalidamos el caché de este Prode en particular
+        await this.rankingService.invalidateCache(prodeId);
+        
+        this.logger.log(`Finished full retroactive recalculation for Prode ${prodeId}`);
     }
 
     /**

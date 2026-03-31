@@ -11,6 +11,7 @@ import { EmployeeModule } from './modules/employee/employee.module';
 import { RankingModule } from './modules/ranking/ranking.module';
 import { JobsModule } from './modules/jobs/jobs.module';
 import { AuditModule } from './modules/audit/audit.module';
+import { ApiFootballModule } from './modules/api-football/api-football.module';
 import databaseConfig from './config/database.config';
 import jwtConfig from './config/jwt.config';
 import cacheConfig from './config/cache.config';
@@ -30,6 +31,7 @@ import cacheConfig from './config/cache.config';
     RankingModule,
     JobsModule,
     AuditModule,
+    ApiFootballModule,
   ],
   controllers: [AppController],
   providers: [AppService],

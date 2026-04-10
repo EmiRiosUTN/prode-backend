@@ -29,6 +29,10 @@ export class CreateCompanyDto {
     @IsOptional()
     secondaryColor?: string;
 
+    @IsBoolean()
+    @IsOptional()
+    aiEnabled?: boolean;
+
     @IsEmail()
     @IsNotEmpty()
     adminEmail: string;

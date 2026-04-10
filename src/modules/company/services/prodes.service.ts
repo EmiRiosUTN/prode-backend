@@ -278,14 +278,7 @@ export class ProdesService {
         // Verificar que el prode existe y pertenece a la empresa
         const prode = await this.findOne(companyId, id);
 
-        // Verificar que no tenga participantes
-        if (prode.prode_participants.length > 0) {
-            throw new BadRequestException(
-                `Cannot delete prode with ${prode.prode_participants.length} participant(s)`
-            );
-        }
-
-        // Eliminar prode (cascade eliminará configs)
+        // Eliminar prode (cascade eliminará configs, participantes y predicciones)
         return this.prisma.prode.delete({
             where: { id },
         });

@@ -7,13 +7,16 @@ export class UpdateCompanyDto {
 
     @IsString()
     @IsOptional()
+    slug?: string;
+
+    @IsString()
+    @IsOptional()
     corporateDomain?: string;
 
     @IsBoolean()
     @IsOptional()
     requireCorporateEmail?: boolean;
 
-    @IsUrl()
     @IsOptional()
     logoUrl?: string;
 
@@ -24,6 +27,10 @@ export class UpdateCompanyDto {
     @IsString()
     @IsOptional()
     secondaryColor?: string;
+
+    @IsBoolean()
+    @IsOptional()
+    aiEnabled?: boolean;
 
     @IsBoolean()
     @IsOptional()

@@ -121,6 +121,7 @@ export class CompaniesService {
                     logo_url: dtoData.logoUrl,
                     primary_color: dtoData.primaryColor ?? '#1976d2',
                     secondary_color: dtoData.secondaryColor ?? '#424242',
+                    ai_enabled: createCompanyDto.aiEnabled ?? true,
                     admin_user_id: adminUser.id,
                 },
             });
@@ -208,16 +209,29 @@ export class CompaniesService {
             throw new NotFoundException(`Company with ID "${id}" not found`);
         }
 
+        // Check if slug is being changed and if it's already taken
+        if (updateCompanyDto.slug && updateCompanyDto.slug !== company.slug) {
+            const existingCompany = await this.prisma.company.findUnique({
+                where: { slug: updateCompanyDto.slug },
+            });
+
+            if (existingCompany) {
+                throw new ConflictException(`Company with slug "${updateCompanyDto.slug}" already exists`);
+            }
+        }
+
         // MAPEO CORREGIDO DE CAMPOS
         return this.prisma.company.update({
             where: { id },
             data: {
                 name: updateCompanyDto.name,
+                slug: updateCompanyDto.slug,
                 corporate_domain: updateCompanyDto.corporateDomain,
                 require_corporate_email: updateCompanyDto.requireCorporateEmail,
                 logo_url: updateCompanyDto.logoUrl,
                 primary_color: updateCompanyDto.primaryColor,
                 secondary_color: updateCompanyDto.secondaryColor,
+                ai_enabled: updateCompanyDto.aiEnabled,
                 is_active: updateCompanyDto.isActive,
             },
             include: {

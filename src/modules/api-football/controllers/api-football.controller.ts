@@ -50,8 +50,8 @@ export class ApiFootballController {
      * POST /admin/api-football/update-results
      */
     @Post('update-results')
-    async updateResults() {
-        return this.importService.updatePendingResults();
+    async updateResults(@Body() dto?: { competitionId?: string }) {
+        return this.importService.updatePendingResults(dto?.competitionId);
     }
 
     /**

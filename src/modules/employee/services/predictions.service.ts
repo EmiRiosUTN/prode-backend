@@ -20,6 +20,7 @@ export class PredictionsService {
                 employee_id: employeeId,
                 prode: {
                     company_id: companyId,
+                    is_active: true,
                 },
             },
         });
@@ -30,7 +31,7 @@ export class PredictionsService {
 
         // Obtener el prode para verificar la competición
         const prode = await this.prisma.prode.findUnique({
-            where: { id: prodeId },
+            where: { id: prodeId, is_active: true },
             select: { competition_id: true },
         });
 
@@ -58,6 +59,7 @@ export class PredictionsService {
                                 team: true,
                             },
                         },
+                        prediction_score: true,
                     },
                 },
             },
@@ -92,7 +94,11 @@ export class PredictionsService {
             return {
                 ...match,
                 status: computedStatus,
-                myPrediction: match.predictions[0] || null,
+                myPrediction: match.predictions[0] ? {
+                    ...match.predictions[0],
+                    points: match.predictions[0].prediction_score?.total_points || 0,
+                    pointDetails: match.predictions[0].prediction_score?.details || null
+                } : null,
                 isLocked: now >= startDate || (match.predictions[0]?.locked_at ? true : false),
             };
         });
@@ -103,6 +109,9 @@ export class PredictionsService {
         const where: any = {
             prode_participant: {
                 employee_id: employeeId,
+                prode: {
+                    is_active: true,
+                }
             },
         };
 
@@ -158,6 +167,7 @@ export class PredictionsService {
                 employee_id: employeeId,
                 prode: {
                     company_id: companyId,
+                    is_active: true,
                 },
             },
         });
@@ -168,7 +178,7 @@ export class PredictionsService {
 
         // Verificar que el partido existe y pertenece a la competición del prode
         const prode = await this.prisma.prode.findUnique({
-            where: { id: createDto.prodeId },
+            where: { id: createDto.prodeId, is_active: true },
             select: { competition_id: true },
         });
 
@@ -321,6 +331,7 @@ export class PredictionsService {
                 prode: {
                     company_id: companyId,
                     competition_id: match.competition_id,
+                    is_active: true,
                     id: {
                         not: currentProdeId, // Exclude current prode
                     },
@@ -363,6 +374,16 @@ export class PredictionsService {
 
     // Get AI analysis for a match
     async getMatchAnalysis(matchId: string, employeeId: string, companyId: string) {
+        // Verificar que la empresa tenga habilitada la IA
+        const company = await this.prisma.company.findUnique({
+            where: { id: companyId },
+            select: { ai_enabled: true },
+        });
+
+        if (!company?.ai_enabled) {
+            return null;
+        }
+
         // Verify the match exists
         const match = await this.prisma.match.findUnique({
             where: { id: matchId },

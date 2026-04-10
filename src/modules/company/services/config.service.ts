@@ -19,6 +19,7 @@ export class ConfigService {
                 primary_color: true,
                 secondary_color: true,
                 is_active: true,
+                ai_enabled: true,
                 created_at: true,
                 updated_at: true,
             },
@@ -81,6 +82,7 @@ export class ConfigService {
                 logo_url: updateDto.logoUrl,
                 primary_color: updateDto.primaryColor,
                 secondary_color: updateDto.secondaryColor,
+                ai_enabled: updateDto.aiEnabled,
             },
             select: {
                 id: true,
@@ -88,6 +90,7 @@ export class ConfigService {
                 logo_url: true,
                 primary_color: true,
                 secondary_color: true,
+                ai_enabled: true,
                 updated_at: true,
             },
         });

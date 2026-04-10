@@ -311,14 +311,20 @@ export class ApiFootballImportService {
      * Update results for all finished matches that don't have results yet.
      * Called by the cron job or manually via the controller.
      */
-    async updatePendingResults() {
+    async updatePendingResults(competitionId?: string) {
         // Find active competitions with API-Football IDs
+        const whereClause: any = {
+            is_active: true,
+            api_football_league_id: { not: null },
+            api_football_season: { not: null },
+        };
+        
+        if (competitionId) {
+            whereClause.id = competitionId;
+        }
+
         const competitions = await this.prisma.competition.findMany({
-            where: {
-                is_active: true,
-                api_football_league_id: { not: null },
-                api_football_season: { not: null },
-            },
+            where: whereClause,
         });
 
         if (competitions.length === 0) {

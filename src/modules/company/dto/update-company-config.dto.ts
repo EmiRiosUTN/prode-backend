@@ -12,4 +12,7 @@ export class UpdateCompanyConfigDto {
     @IsString()
     @IsOptional()
     secondaryColor?: string;
+
+    @IsOptional()
+    aiEnabled?: boolean;
 }

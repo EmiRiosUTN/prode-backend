@@ -14,6 +14,9 @@ export class ProdesService {
         const participants = await this.prisma.prodeParticipant.findMany({
             where: {
                 employee_id: employeeId,
+                prode: {
+                    is_active: true,
+                },
             },
             include: {
                 prode: {
@@ -105,8 +108,10 @@ export class ProdesService {
             where: {
                 id: prodeId,
                 company_id: companyId,
+                is_active: true,
             },
             include: {
+                company: true,
                 competition: true,
                 prode_variable_configs: {
                     include: {

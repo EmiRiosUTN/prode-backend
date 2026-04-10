@@ -147,6 +147,7 @@ model Company {
   primary_color           String        @default("#1976d2") @map("primary_color")
   secondary_color         String        @default("#424242") @map("secondary_color")
   is_active               Boolean       @default(true) @map("is_active")
+  ai_enabled              Boolean       @default(true) @map("ai_enabled")
   admin_user_id           String        @map("admin_user_id")
   created_at              DateTime      @default(now()) @map("created_at")
   updated_at              DateTime      @updatedAt @map("updated_at")

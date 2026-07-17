@@ -1,0 +1,31 @@
+Empresa: Grupo Italgas (grupoitalgas)
+CSV: D:\Trabajo\Prode\back-produ\prode-backend\Cuentas prodemax Italgas - Hoja 1.csv
+Area asignada: Grupo Italgas (f46cd76a-fee2-48d2-aadb-170a5e66ffb9)
+Dry run: no
+Force verified: no
+Password usada: *********026@
+Email verified aplicado: true
+
+Resumen:
+- total: 29
+- created: 16
+- dry_run_ready: 0
+- duplicate_in_csv: 0
+- already_exists: 13
+- invalid: 0
+- error: 0
+
+Detalle de filas con problemas:
+- fila 2 | nadia.avendano@gmail.com | already_exists | El email ya existe en el sistema
+- fila 3 | aronemanuelperalta@gmail.com | already_exists | El email ya existe en el sistema
+- fila 4 | markiewiczmiguelsimon@gmail.com | already_exists | El email ya existe en el sistema
+- fila 5 | veralautrox@gmail.com | already_exists | El email ya existe en el sistema
+- fila 8 | davidpatterer14@gmail.com | already_exists | El email ya existe en el sistema
+- fila 9 | juliansimon96@hotmail.com | already_exists | El email ya existe en el sistema
+- fila 10 | marcelotardivo@hotmail.com | already_exists | El email ya existe en el sistema
+- fila 11 | estebanfazzini64@gmail.com | already_exists | El email ya existe en el sistema
+- fila 12 | julianignacio2296@gmail.com | already_exists | El email ya existe en el sistema
+- fila 13 | braiancavallero@gmail.com | already_exists | El email ya existe en el sistema
+- fila 14 | aleshi3436@gmail.com | already_exists | El email ya existe en el sistema
+- fila 15 | lucastorres89080@gmail.com | already_exists | El email ya existe en el sistema
+- fila 16 | diegogianna21@gmail.com | already_exists | El email ya existe en el sistema

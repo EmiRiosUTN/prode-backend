@@ -1,0 +1,50 @@
+Empresa: Turismo Recrear (recrear)
+Area: Administración (1ab6476e-88a3-4fe5-87e8-0e75d3f7b3a8)
+Prode: Mundial 2026 (f3d5c87b-09ce-4b49-81ce-207a5832756d)
+Competencia: Mundial 2026
+Partidos futuros con prediccion: 72
+Dry run: no
+Count objetivo: 30
+Batch tag: recrear0608a
+Seed: 260608
+Password: ********026@
+
+Resumen:
+- requested: 30
+- created: 30
+- ready_in_dry_run: 0
+- skipped_existing_email: 0
+- errors: 0
+- total_predictions_created: 2160
+
+Detalle:
+- created | brisa.herrera.recrear0608a.001@gmail.com | Brisa Herrera | ok
+- created | tomas.juarez.recrear0608a.002@hotmail.com | Tomas Juarez | ok
+- created | salvador.ponce.recrear0608a.003@outlook.com | Salvador Ponce | ok
+- created | emilia.correa.recrear0608a.004@gmail.com | Emilia Correa | ok
+- created | joaquin.quiroga.recrear0608a.005@hotmail.com | Joaquin Quiroga | ok
+- created | valentino.barrios.recrear0608a.006@outlook.com | Valentino Barrios | ok
+- created | uma.campos.recrear0608a.007@gmail.com | Uma Campos | ok
+- created | simon.roldan.recrear0608a.008@hotmail.com | Simón Roldan | ok
+- created | josefina.ortiz.recrear0608a.009@outlook.com | Josefina Ortiz | ok
+- created | salvador.mendez.recrear0608a.010@gmail.com | Salvador Mendez | ok
+- created | alma.cardozo.recrear0608a.011@hotmail.com | Alma Cardozo | ok
+- created | benjamin.bustos.recrear0608a.012@outlook.com | Benjamin Bustos | ok
+- created | benjamin.castro.recrear0608a.013@gmail.com | Benjamin Castro Castro | ok
+- created | mora.arce.recrear0608a.014@hotmail.com | Mora Arce | ok
+- created | clara.gomez.recrear0608a.015@outlook.com | Clara Gomez Ruiz | ok
+- created | camila.ruiz.recrear0608a.016@gmail.com | Camila Ruiz | ok
+- created | malena.molina.recrear0608a.017@hotmail.com | Malena Molina | ok
+- created | santino.medina.recrear0608a.018@outlook.com | Santino Medina | ok
+- created | bianca.quiroga.recrear0608a.019@gmail.com | Bianca Quiroga | ok
+- created | simon.roldan.recrear0608a.020@hotmail.com | Simón Roldan | ok
+- created | dylan.ojeda.recrear0608a.021@outlook.com | Dylan Ojeda | ok
+- created | emilia.mendez.recrear0608a.022@gmail.com | Emilia Mendez | ok
+- created | delfina.benitez.recrear0608a.023@hotmail.com | Delfina Benitez | ok
+- created | dylan.suarez.recrear0608a.024@outlook.com | Dylan Suarez Roldan | ok
+- created | delfina.quiroga.recrear0608a.025@gmail.com | Delfina Quiroga | ok
+- created | josefina.gonzalez.recrear0608a.026@hotmail.com | Josefina Gonzalez | ok
+- created | vicente.arce.recrear0608a.027@outlook.com | Vicente Arce | ok
+- created | josefina.ponce.recrear0608a.028@gmail.com | Josefina Ponce | ok
+- created | pilar.correa.recrear0608a.029@hotmail.com | Pilar Correa | ok
+- created | delfina.bustos.recrear0608a.030@outlook.com | Delfina Bustos | ok

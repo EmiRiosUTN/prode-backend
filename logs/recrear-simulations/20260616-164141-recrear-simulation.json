@@ -1,0 +1,179 @@
+{
+  "generatedAt": "2026-06-16T19:41:41.903Z",
+  "company": {
+    "id": "1a645723-5fb5-4249-b3cb-ca132aa32b78",
+    "slug": "recrear",
+    "name": "Turismo Recrear"
+  },
+  "area": {
+    "id": "1ab6476e-88a3-4fe5-87e8-0e75d3f7b3a8",
+    "name": "Administración"
+  },
+  "prode": {
+    "id": "f3d5c87b-09ce-4b49-81ce-207a5832756d",
+    "name": "Mundial 2026",
+    "competition": "Mundial 2026"
+  },
+  "options": {
+    "dryRun": true,
+    "count": 12,
+    "seed": 260616,
+    "batchTag": "recrear20260616test",
+    "profile": "batch3",
+    "passwordMasked": "********026@"
+  },
+  "summary": {
+    "requested": 12,
+    "created": 0,
+    "readyInDryRun": 12,
+    "skippedExistingEmail": 0,
+    "errors": 0,
+    "totalPredictionsCreated": 660
+  },
+  "results": [
+    {
+      "status": "dry_run_ready",
+      "email": "torres_mateo597@hotmail.com",
+      "firstName": "Mateo",
+      "lastName": "Torres",
+      "reason": "Listo para crear con 55 predicciones",
+      "extraData": {
+        "colegio": "santa marta",
+        "grado_ano": "5to",
+        "localidad": "CABA"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "florencia.serrano96@outlook.com",
+      "firstName": "Florencia",
+      "lastName": "Serrano",
+      "reason": "Listo para crear con 55 predicciones",
+      "extraData": {
+        "colegio": "santa marta",
+        "grado_ano": "Cuarto año",
+        "localidad": "Ensenada"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "franco99monzon@yahoo.com.ar",
+      "firstName": "Franco",
+      "lastName": "Monzon",
+      "reason": "Listo para crear con 55 predicciones",
+      "extraData": {
+        "colegio": "San Juan Bautista",
+        "grado_ano": "Sexto",
+        "localidad": "Balcarce"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "sarmiento.d06@gmail.com",
+      "firstName": "Dylan",
+      "lastName": "Sarmiento Gonzalez",
+      "reason": "Listo para crear con 55 predicciones",
+      "extraData": {
+        "colegio": "Nuestra Senora de Lujan",
+        "grado_ano": "6",
+        "localidad": "Zarate"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "dominguez.l477@yahoo.com.ar",
+      "firstName": "Lucia",
+      "lastName": "Dominguez",
+      "reason": "Listo para crear con 55 predicciones",
+      "extraData": {
+        "colegio": "Mariano Acosta",
+        "grado_ano": "4to",
+        "localidad": "Jose C. Paz"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "biancacoronel57@outlook.com",
+      "firstName": "Bianca",
+      "lastName": "Coronel",
+      "reason": "Listo para crear con 55 predicciones",
+      "extraData": {
+        "colegio": "mariano moreno",
+        "grado_ano": "1 año",
+        "localidad": "Jose c paz"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "pazp5704@yahoo.com.ar",
+      "firstName": "Pilar",
+      "lastName": "Paz",
+      "reason": "Listo para crear con 55 predicciones",
+      "extraData": {
+        "colegio": "Domingo Savio",
+        "grado_ano": "4to ano",
+        "localidad": "Valentin Alsina"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "cabrera_nicolas7@hotmail.com",
+      "firstName": "Nicolas",
+      "lastName": "Cabrera",
+      "reason": "Listo para crear con 55 predicciones",
+      "extraData": {
+        "colegio": "escuela secundaria n 7",
+        "grado_ano": "3ro",
+        "localidad": "Cordoba"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "agustina89tevez@yahoo.com.ar",
+      "firstName": "Agustina",
+      "lastName": "Tevez",
+      "reason": "Listo para crear con 55 predicciones",
+      "extraData": {
+        "colegio": "mariano moreno",
+        "grado_ano": "Sexto",
+        "localidad": "Cordoba"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "alvarez.p50@yahoo.com.ar",
+      "firstName": "Paula",
+      "lastName": "Alvarez",
+      "reason": "Listo para crear con 55 predicciones",
+      "extraData": {
+        "colegio": "Nuestra Senora de Lujan de los Patriotas",
+        "grado_ano": "Sexto",
+        "localidad": "Oncativo"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "ledesma.a89@hotmail.com",
+      "firstName": "Aldana",
+      "lastName": "Ledesma Nuñez",
+      "reason": "Listo para crear con 55 predicciones",
+      "extraData": {
+        "colegio": "ET 17 Cornelio Saavedra",
+        "grado_ano": "3ro",
+        "localidad": "Villa Allende"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "miloperalta26@yahoo.com.ar",
+      "firstName": "Milo",
+      "lastName": "Peralta Gauna",
+      "reason": "Listo para crear con 55 predicciones",
+      "extraData": {
+        "colegio": "Mariano Acosta",
+        "grado_ano": "5A",
+        "localidad": "Avellaneda"
+      }
+    }
+  ]
+}

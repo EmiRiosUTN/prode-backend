@@ -1,0 +1,71 @@
+Empresa: Turismo Recrear (recrear)
+Area: Administración (1ab6476e-88a3-4fe5-87e8-0e75d3f7b3a8)
+Prode: Mundial 2026 (f3d5c87b-09ce-4b49-81ce-207a5832756d)
+Competencia: Mundial 2026
+Partidos futuros con prediccion: 55
+Dry run: no
+Count objetivo: 50
+Batch tag: recrear20260616a
+Seed: 260616
+Profile: batch3
+Password: ********026@
+
+Resumen:
+- requested: 50
+- created: 50
+- ready_in_dry_run: 0
+- skipped_existing_email: 0
+- errors: 0
+- total_predictions_created: 2750
+
+Detalle:
+- created | torres_mateo597@hotmail.com | Mateo Torres | ok
+- created | etapia94@gmail.com | Ezequiel Tapia | ok
+- created | carrizos20@outlook.com | Salvador Carrizo | ok
+- created | milagrosp97@yahoo.com.ar | Milagros Pino | ok
+- created | medinatomas46@outlook.com | Tomas Medina | ok
+- created | vargas38g@gmail.com | Gael Vargas | ok
+- created | maia2.ruiz@yahoo.com.ar | Maia Ruiz Paredes | ok
+- created | felipep96@yahoo.com.ar | Felipe Paz | ok
+- created | mirandau1068@hotmail.com | Ulises Miranda | ok
+- created | tjuarez92@outlook.com | Tatiana Juarez Pereyra | ok
+- created | nina.cardozo_91@outlook.com | Nina Cardozo | ok
+- created | renata9.perez@yahoo.com.ar | Renata Perez | ok
+- created | bautista9.benitez@hotmail.com | Bautista Benitez | ok
+- created | valentino5.quiroga@outlook.com | Valentino Quiroga Acosta | ok
+- created | pilar98.macias@yahoo.com.ar | Pilar Macias | ok
+- created | facundo.gauna90@yahoo.com.ar | Facundo Gauna | ok
+- created | rodriguez_zoe4@yahoo.com.ar | Zoe Rodriguez | ok
+- created | villalbamilena3@yahoo.com.ar | Milena Villalba Brizuela | ok
+- created | mateom98@gmail.com | Mateo Martinez | ok
+- created | mmaldonado2001@yahoo.com.ar | Milagros Maldonado Navarro | ok
+- created | cromero2002@yahoo.com.ar | Ciro Romero | ok
+- created | serranomirko2@hotmail.com | Mirko Serrano | ok
+- created | felipe.dominguez_95@hotmail.com | Felipe Dominguez | ok
+- created | krkevin32@outlook.com | Kevin Ramos | ok
+- created | facundo.moyano93@outlook.com | Facundo Moyano | ok
+- created | aitana.herrera93@gmail.com | Aitana Herrera Macias | ok
+- created | milo.flores66@gmail.com | Milo Flores | ok
+- created | candelam81@hotmail.com | Candela Mendez Pereyra | ok
+- created | lopezm1343@yahoo.com.ar | Milena Lopez | ok
+- created | aitana1.campos@outlook.com | Aitana Campos | ok
+- created | nunez.a303@yahoo.com.ar | Abril Nuñez | ok
+- created | gael1.castro@hotmail.com | Gael Castro | ok
+- created | gonzalez83n@hotmail.com | Nina Gonzalez | ok
+- created | jgimenez98@yahoo.com.ar | Josefina Gimenez | ok
+- created | sofiam84@yahoo.com.ar | Sofia Mansilla | ok
+- created | tomas96aguero@yahoo.com.ar | Tomas Aguero | ok
+- created | gescudero2002@hotmail.com | Gonzalo Escudero Nuñez | ok
+- created | paula7.bazan@hotmail.com | Paula Bazan | ok
+- created | ezequiel5.maidana@yahoo.com.ar | Ezequiel Maidana Arce | ok
+- created | godoy_lucia4@outlook.com | Lucia Godoy | ok
+- created | rojassantino77@gmail.com | Santino Rojas | ok
+- created | bianca6.britez@gmail.com | Bianca Britez | ok
+- created | andrada.d23@outlook.com | Delfina Andrada | ok
+- created | ignacio73sotelo@gmail.com | Ignacio Sotelo Sanchez | ok
+- created | bustos837s@outlook.com | Sofia Bustos | ok
+- created | julian9.lucero@outlook.com | Julian Lucero | ok
+- created | luna.i546@yahoo.com.ar | Ian Luna | ok
+- created | brbenicio843@hotmail.com | Benicio Roldan | ok
+- created | kevinc81@yahoo.com.ar | Kevin Cejas | ok
+- created | farias_alma31@outlook.com | Alma Farias | ok

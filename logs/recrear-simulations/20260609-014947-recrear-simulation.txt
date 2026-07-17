@@ -1,0 +1,50 @@
+Empresa: Turismo Recrear (recrear)
+Area: Administración (1ab6476e-88a3-4fe5-87e8-0e75d3f7b3a8)
+Prode: Mundial 2026 (f3d5c87b-09ce-4b49-81ce-207a5832756d)
+Competencia: Mundial 2026
+Partidos futuros con prediccion: 72
+Dry run: no
+Count objetivo: 30
+Batch tag: recrear20260609b
+Seed: 260608
+Password: ********026@
+
+Resumen:
+- requested: 30
+- created: 30
+- ready_in_dry_run: 0
+- skipped_existing_email: 0
+- errors: 0
+- total_predictions_created: 2160
+
+Detalle:
+- created | brisa.herrera@gmail.com | Brisa Herrera | ok
+- created | pilardiaz56@hotmail.com | Pilar Diaz | ok
+- created | j.fernandez@outlook.com | Joaquin Fernandez | ok
+- created | bustos.tomas@gmail.com | Tomas Bustos | ok
+- created | renata_tevez_0@hotmail.com | Renata Tevez | ok
+- created | agustina.molina6@outlook.com | Agustina Molina | ok
+- created | agustina_benitez@gmail.com | Agustina Benitez | ok
+- created | bruno.farias0@hotmail.com | Bruno Farias | ok
+- created | delfina.perez4@outlook.com | Delfina Perez | ok
+- created | bautista10@gmail.com | Bautista Ramos | ok
+- created | benitez.abril9@hotmail.com | Abril Benitez | ok
+- created | thiago_miranda_8@outlook.com | Thiago Miranda | ok
+- created | tomassuarez@gmail.com | Tomas Suarez | ok
+- created | francom89@hotmail.com | Franco Mansilla | ok
+- created | delfinaruiz@outlook.com | Delfina Ruiz Ortiz | ok
+- created | josefina16@gmail.com | Josefina Romero | ok
+- created | pilar92@hotmail.com | Pilar Martinez | ok
+- created | dylansuarez@outlook.com | Dylan Suarez | ok
+- created | mateorojas@gmail.com | Mateo Rojas | ok
+- created | fcardozo274@hotmail.com | Facundo Cardozo | ok
+- created | mateoromero@outlook.com | Mateo Romero | ok
+- created | aguirreb@gmail.com | Bautista Aguirre | ok
+- created | gael2004v@hotmail.com | Gael Villalba | ok
+- created | caguirre@outlook.com | Clara Aguirre | ok
+- created | franco.miranda0@gmail.com | Franco Miranda | ok
+- created | martina.miranda2@hotmail.com | Martina Miranda | ok
+- created | elena8842@outlook.com | Elena Aguirre | ok
+- created | gfernandez89@gmail.com | Gael Fernandez | ok
+- created | acostap@hotmail.com | Pilar Acosta | ok
+- created | ailenpaz@outlook.com | Ailen Paz | ok

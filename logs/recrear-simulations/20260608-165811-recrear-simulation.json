@@ -1,0 +1,2098 @@
+{
+  "generatedAt": "2026-06-08T19:58:11.126Z",
+  "company": {
+    "id": "1a645723-5fb5-4249-b3cb-ca132aa32b78",
+    "slug": "recrear",
+    "name": "Turismo Recrear"
+  },
+  "area": {
+    "id": "1ab6476e-88a3-4fe5-87e8-0e75d3f7b3a8",
+    "name": "Administración"
+  },
+  "prode": {
+    "id": "f3d5c87b-09ce-4b49-81ce-207a5832756d",
+    "name": "Mundial 2026",
+    "competition": "Mundial 2026"
+  },
+  "options": {
+    "dryRun": true,
+    "count": 172,
+    "seed": 260608,
+    "batchTag": "recrear0608a",
+    "passwordMasked": "********026@"
+  },
+  "summary": {
+    "requested": 172,
+    "created": 0,
+    "readyInDryRun": 172,
+    "skippedExistingEmail": 0,
+    "errors": 0,
+    "totalPredictionsCreated": 9288
+  },
+  "results": [
+    {
+      "status": "dry_run_ready",
+      "email": "brisa.herrera.recrear0608a.001@gmail.com",
+      "firstName": "Brisa",
+      "lastName": "Herrera",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Santa Ana",
+        "grado_ano": "4to ano",
+        "localidad": "CABA"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "julieta.castro.recrear0608a.002@hotmail.com",
+      "firstName": "Julieta",
+      "lastName": "Castro",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Santa Ana",
+        "grado_ano": "3er grado",
+        "localidad": "Ezeiza"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "elena.campos.recrear0608a.003@outlook.com",
+      "firstName": "Elena",
+      "lastName": "Campos",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Modelo de Banfield",
+        "grado_ano": "5to grado",
+        "localidad": "Temperley"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "bruno.peralta.recrear0608a.004@gmail.com",
+      "firstName": "Bruno",
+      "lastName": "Peralta",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Inmaculada Concepcion",
+        "grado_ano": "2do grado",
+        "localidad": "Temperley"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "nahuel.silva.recrear0608a.005@hotmail.com",
+      "firstName": "Nahuel",
+      "lastName": "Silva",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Nuestra Senora de la Merced",
+        "grado_ano": "6to ano",
+        "localidad": "Avellaneda"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "lorenzo.mansilla.recrear0608a.006@outlook.com",
+      "firstName": "Lorenzo",
+      "lastName": "Mansilla",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Sagrado Corazon",
+        "grado_ano": "1er ano",
+        "localidad": "Avellaneda"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "valentina.aguirre.recrear0608a.007@gmail.com",
+      "firstName": "Valentina",
+      "lastName": "Aguirre",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Nuestra Tierra",
+        "grado_ano": "1er ano",
+        "localidad": "Ramos Mejia"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "ignacio.aguirre.recrear0608a.008@hotmail.com",
+      "firstName": "Ignacio",
+      "lastName": "Aguirre Castro",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Modelo de Banfield",
+        "grado_ano": "6to grado",
+        "localidad": "Avellaneda"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "valentina.ruiz.recrear0608a.009@outlook.com",
+      "firstName": "Valentina",
+      "lastName": "Ruiz",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio San Martin",
+        "grado_ano": "2do grado",
+        "localidad": "CABA"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "olivia.correa.recrear0608a.010@gmail.com",
+      "firstName": "Olivia",
+      "lastName": "Correa",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Don Bosco",
+        "grado_ano": "5to ano",
+        "localidad": "Berazategui"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "tiziano.roldan.recrear0608a.011@hotmail.com",
+      "firstName": "Tiziano",
+      "lastName": "Roldan",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Nuestra Senora de la Merced",
+        "grado_ano": "6to grado",
+        "localidad": "La Plata"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "lorenzo.peralta.recrear0608a.012@outlook.com",
+      "firstName": "Lorenzo",
+      "lastName": "Peralta",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Don Bosco",
+        "grado_ano": "4to ano",
+        "localidad": "Burzaco"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "milagros.acosta.recrear0608a.013@gmail.com",
+      "firstName": "Milagros",
+      "lastName": "Acosta",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio San Martin",
+        "grado_ano": "6to ano",
+        "localidad": "Avellaneda"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "ignacio.roldan.recrear0608a.014@hotmail.com",
+      "firstName": "Ignacio",
+      "lastName": "Roldan",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Nacional de Adrogue",
+        "grado_ano": "2do grado",
+        "localidad": "Burzaco"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "facundo.godoy.recrear0608a.015@outlook.com",
+      "firstName": "Facundo",
+      "lastName": "Godoy",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Nuestra Senora de la Merced",
+        "grado_ano": "2do ano",
+        "localidad": "Temperley"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "victoria.torres.recrear0608a.016@gmail.com",
+      "firstName": "Victoria",
+      "lastName": "Torres Ortiz",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio San Martin",
+        "grado_ano": "4to grado",
+        "localidad": "Lanus"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "joaquin.villalba.recrear0608a.017@hotmail.com",
+      "firstName": "Joaquin",
+      "lastName": "Villalba",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Jose Hernandez",
+        "grado_ano": "1er ano",
+        "localidad": "La Plata"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "tiziano.lopez.recrear0608a.018@outlook.com",
+      "firstName": "Tiziano",
+      "lastName": "Lopez",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Don Bosco",
+        "grado_ano": "6to grado",
+        "localidad": "Adrogue"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "malena.martinez.recrear0608a.019@gmail.com",
+      "firstName": "Malena",
+      "lastName": "Martinez",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Jose Hernandez",
+        "grado_ano": "2do grado",
+        "localidad": "Lanus"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "julieta.leiva.recrear0608a.020@hotmail.com",
+      "firstName": "Julieta",
+      "lastName": "Leiva",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Don Bosco",
+        "grado_ano": "5to ano",
+        "localidad": "San Vicente"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "ramiro.benitez.recrear0608a.021@outlook.com",
+      "firstName": "Ramiro",
+      "lastName": "Benitez",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Belgrano",
+        "grado_ano": "1er grado",
+        "localidad": "Lanus"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "lorenzo.alvarez.recrear0608a.022@gmail.com",
+      "firstName": "Lorenzo",
+      "lastName": "Alvarez",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Santa Ana",
+        "grado_ano": "3er grado",
+        "localidad": "Banfield"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "clara.lopez.recrear0608a.023@hotmail.com",
+      "firstName": "Clara",
+      "lastName": "Lopez Paz",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Modelo de Banfield",
+        "grado_ano": "3er grado",
+        "localidad": "Lomas de Zamora"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "santino.ortiz.recrear0608a.024@outlook.com",
+      "firstName": "Santino",
+      "lastName": "Ortiz",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio San Jose",
+        "grado_ano": "4to grado",
+        "localidad": "La Plata"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "camila.gomez.recrear0608a.025@gmail.com",
+      "firstName": "Camila",
+      "lastName": "Gomez Herrera",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Nuestra Tierra",
+        "grado_ano": "4to ano",
+        "localidad": "Banfield"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "tiziano.rodriguez.recrear0608a.026@hotmail.com",
+      "firstName": "Tiziano",
+      "lastName": "Rodriguez",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Santa Ana",
+        "grado_ano": "1er ano",
+        "localidad": "Lanus"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "pilar.paz.recrear0608a.027@outlook.com",
+      "firstName": "Pilar",
+      "lastName": "Paz",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Sagrado Corazon",
+        "grado_ano": "6to grado",
+        "localidad": "Lomas de Zamora"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "nahuel.lopez.recrear0608a.028@gmail.com",
+      "firstName": "Nahuel",
+      "lastName": "Lopez Molina",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Nacional de Adrogue",
+        "grado_ano": "5to ano",
+        "localidad": "Ezeiza"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "agustina.aguirre.recrear0608a.029@hotmail.com",
+      "firstName": "Agustina",
+      "lastName": "Aguirre",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Inmaculada Concepcion",
+        "grado_ano": "5to grado",
+        "localidad": "Ramos Mejia"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "benjamin.medina.recrear0608a.030@outlook.com",
+      "firstName": "Benjamin",
+      "lastName": "Medina",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Santa Ana",
+        "grado_ano": "2do ano",
+        "localidad": "Quilmes"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "olivia.villalba.recrear0608a.031@gmail.com",
+      "firstName": "Olivia",
+      "lastName": "Villalba",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio San Martin",
+        "grado_ano": "1er ano",
+        "localidad": "Monte Grande"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "santiago.ruiz.recrear0608a.032@hotmail.com",
+      "firstName": "Santiago",
+      "lastName": "Ruiz",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Nuestra Tierra",
+        "grado_ano": "6to ano",
+        "localidad": "Berazategui"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "thiago.mansilla.recrear0608a.033@outlook.com",
+      "firstName": "Thiago",
+      "lastName": "Mansilla",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Modelo de Banfield",
+        "grado_ano": "4to grado",
+        "localidad": "La Plata"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "martina.sosa.recrear0608a.034@gmail.com",
+      "firstName": "Martina",
+      "lastName": "Sosa",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Nuestra Tierra",
+        "grado_ano": "5to ano",
+        "localidad": "Burzaco"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "candela.paz.recrear0608a.035@hotmail.com",
+      "firstName": "Candela",
+      "lastName": "Paz",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Don Bosco",
+        "grado_ano": "4to grado",
+        "localidad": "La Plata"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "sofia.castro.recrear0608a.036@outlook.com",
+      "firstName": "Sofia",
+      "lastName": "Castro",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Inmaculada Concepcion",
+        "grado_ano": "2do grado",
+        "localidad": "CABA"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "tomas.ledesma.recrear0608a.037@gmail.com",
+      "firstName": "Tomas",
+      "lastName": "Ledesma",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Sagrado Corazon",
+        "grado_ano": "6to ano",
+        "localidad": "Lomas de Zamora"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "santiago.diaz.recrear0608a.038@hotmail.com",
+      "firstName": "Santiago",
+      "lastName": "Diaz",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Don Bosco",
+        "grado_ano": "3er grado",
+        "localidad": "Ezeiza"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "juan.cardozo.recrear0608a.039@outlook.com",
+      "firstName": "Juan",
+      "lastName": "Cardozo",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio San Martin",
+        "grado_ano": "2do ano",
+        "localidad": "Ramos Mejia"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "valentina.castro.recrear0608a.040@gmail.com",
+      "firstName": "Valentina",
+      "lastName": "Castro",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Sagrado Corazon",
+        "grado_ano": "5to grado",
+        "localidad": "Ezeiza"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "juan.rodriguez.recrear0608a.041@hotmail.com",
+      "firstName": "Juan",
+      "lastName": "Rodriguez",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio San Jose",
+        "grado_ano": "3er ano",
+        "localidad": "Banfield"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "tomas.acosta.recrear0608a.042@outlook.com",
+      "firstName": "Tomas",
+      "lastName": "Acosta",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Inmaculada Concepcion",
+        "grado_ano": "1er grado",
+        "localidad": "CABA"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "santino.ojeda.recrear0608a.043@gmail.com",
+      "firstName": "Santino",
+      "lastName": "Ojeda",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Nuestra Senora de la Merced",
+        "grado_ano": "5to ano",
+        "localidad": "Berazategui"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "delfina.leiva.recrear0608a.044@hotmail.com",
+      "firstName": "Delfina",
+      "lastName": "Leiva Ortiz",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Nuestra Tierra",
+        "grado_ano": "1er grado",
+        "localidad": "Burzaco"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "milagros.herrera.recrear0608a.045@outlook.com",
+      "firstName": "Milagros",
+      "lastName": "Herrera",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio San Martin",
+        "grado_ano": "5to grado",
+        "localidad": "CABA"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "camila.mendez.recrear0608a.046@gmail.com",
+      "firstName": "Camila",
+      "lastName": "Mendez",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio San Martin",
+        "grado_ano": "1er ano",
+        "localidad": "San Vicente"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "pilar.acosta.recrear0608a.047@hotmail.com",
+      "firstName": "Pilar",
+      "lastName": "Acosta",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Nacional de Adrogue",
+        "grado_ano": "6to ano",
+        "localidad": "Ezeiza"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "olivia.suarez.recrear0608a.048@outlook.com",
+      "firstName": "Olivia",
+      "lastName": "Suarez",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Nuestra Tierra",
+        "grado_ano": "6to ano",
+        "localidad": "Monte Grande"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "delfina.arce.recrear0608a.049@gmail.com",
+      "firstName": "Delfina",
+      "lastName": "Arce",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio San Martin",
+        "grado_ano": "6to grado",
+        "localidad": "Ezeiza"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "gael.ortiz.recrear0608a.050@hotmail.com",
+      "firstName": "Gael",
+      "lastName": "Ortiz",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Belgrano",
+        "grado_ano": "2do grado",
+        "localidad": "La Plata"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "santiago.ojeda.recrear0608a.051@outlook.com",
+      "firstName": "Santiago",
+      "lastName": "Ojeda",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Sagrado Corazon",
+        "grado_ano": "5to ano",
+        "localidad": "CABA"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "benjamin.gonzalez.recrear0608a.052@gmail.com",
+      "firstName": "Benjamin",
+      "lastName": "Gonzalez Peralta",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Don Bosco",
+        "grado_ano": "5to ano",
+        "localidad": "San Vicente"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "ignacio.gonzalez.recrear0608a.053@hotmail.com",
+      "firstName": "Ignacio",
+      "lastName": "Gonzalez",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Inmaculada Concepcion",
+        "grado_ano": "5to grado",
+        "localidad": "La Plata"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "julieta.fernandez.recrear0608a.054@outlook.com",
+      "firstName": "Julieta",
+      "lastName": "Fernandez Arce",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Belgrano",
+        "grado_ano": "4to grado",
+        "localidad": "La Plata"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "sofia.molina.recrear0608a.055@gmail.com",
+      "firstName": "Sofia",
+      "lastName": "Molina",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Nuestra Senora de la Merced",
+        "grado_ano": "6to ano",
+        "localidad": "Adrogue"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "camila.vera.recrear0608a.056@hotmail.com",
+      "firstName": "Camila",
+      "lastName": "Vera",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Jose Hernandez",
+        "grado_ano": "3er ano",
+        "localidad": "Avellaneda"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "milagros.campos.recrear0608a.057@outlook.com",
+      "firstName": "Milagros",
+      "lastName": "Campos",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Belgrano",
+        "grado_ano": "2do ano",
+        "localidad": "La Plata"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "victoria.acosta.recrear0608a.058@gmail.com",
+      "firstName": "Victoria",
+      "lastName": "Acosta Silva",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Inmaculada Concepcion",
+        "grado_ano": "4to grado",
+        "localidad": "San Vicente"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "lola.navarro.recrear0608a.059@hotmail.com",
+      "firstName": "Lola",
+      "lastName": "Navarro",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Nuestra Tierra",
+        "grado_ano": "3er grado",
+        "localidad": "Quilmes"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "lola.cabrera.recrear0608a.060@outlook.com",
+      "firstName": "Lola",
+      "lastName": "Cabrera Suarez",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Don Bosco",
+        "grado_ano": "5to ano",
+        "localidad": "Monte Grande"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "tiziano.ramos.recrear0608a.061@gmail.com",
+      "firstName": "Tiziano",
+      "lastName": "Ramos Ponce",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Inmaculada Concepcion",
+        "grado_ano": "1er grado",
+        "localidad": "Banfield"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "emilia.campos.recrear0608a.062@hotmail.com",
+      "firstName": "Emilia",
+      "lastName": "Campos",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Sagrado Corazon",
+        "grado_ano": "6to grado",
+        "localidad": "Ramos Mejia"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "amparo.acosta.recrear0608a.063@outlook.com",
+      "firstName": "Amparo",
+      "lastName": "Acosta",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Inmaculada Concepcion",
+        "grado_ano": "3er ano",
+        "localidad": "Burzaco"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "nahuel.rojas.recrear0608a.064@gmail.com",
+      "firstName": "Nahuel",
+      "lastName": "Rojas",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio San Martin",
+        "grado_ano": "1er ano",
+        "localidad": "Ramos Mejia"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "bautista.ponce.recrear0608a.065@hotmail.com",
+      "firstName": "Bautista",
+      "lastName": "Ponce",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Santa Ana",
+        "grado_ano": "3er grado",
+        "localidad": "Sarandi"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "dylan.ledesma.recrear0608a.066@outlook.com",
+      "firstName": "Dylan",
+      "lastName": "Ledesma",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio San Jose",
+        "grado_ano": "1er ano",
+        "localidad": "Banfield"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "catalina.arce.recrear0608a.067@gmail.com",
+      "firstName": "Catalina",
+      "lastName": "Arce",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Modelo de Banfield",
+        "grado_ano": "3er ano",
+        "localidad": "Lanus"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "thiago.alvarez.recrear0608a.068@hotmail.com",
+      "firstName": "Thiago",
+      "lastName": "Alvarez Juarez",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Modelo de Banfield",
+        "grado_ano": "2do ano",
+        "localidad": "Avellaneda"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "candela.barrios.recrear0608a.069@outlook.com",
+      "firstName": "Candela",
+      "lastName": "Barrios",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Nuestra Tierra",
+        "grado_ano": "3er grado",
+        "localidad": "CABA"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "ignacio.acosta.recrear0608a.070@gmail.com",
+      "firstName": "Ignacio",
+      "lastName": "Acosta",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Nuestra Tierra",
+        "grado_ano": "1er ano",
+        "localidad": "Berazategui"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "gael.miranda.recrear0608a.071@hotmail.com",
+      "firstName": "Gael",
+      "lastName": "Miranda",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Santa Ana",
+        "grado_ano": "3er ano",
+        "localidad": "Lanus"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "santiago.peralta.recrear0608a.072@outlook.com",
+      "firstName": "Santiago",
+      "lastName": "Peralta",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Sagrado Corazon",
+        "grado_ano": "3er grado",
+        "localidad": "Temperley"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "catalina.alvarez.recrear0608a.073@gmail.com",
+      "firstName": "Catalina",
+      "lastName": "Alvarez",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Sagrado Corazon",
+        "grado_ano": "3er grado",
+        "localidad": "CABA"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "franco.correa.recrear0608a.074@hotmail.com",
+      "firstName": "Franco",
+      "lastName": "Correa",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Modelo de Banfield",
+        "grado_ano": "5to grado",
+        "localidad": "Lanus"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "gael.ruiz.recrear0608a.075@outlook.com",
+      "firstName": "Gael",
+      "lastName": "Ruiz",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Nuestra Senora de la Merced",
+        "grado_ano": "6to grado",
+        "localidad": "Ramos Mejia"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "dylan.torres.recrear0608a.076@gmail.com",
+      "firstName": "Dylan",
+      "lastName": "Torres",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio San Jose",
+        "grado_ano": "2do ano",
+        "localidad": "Temperley"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "lorenzo.rodriguez.recrear0608a.077@hotmail.com",
+      "firstName": "Lorenzo",
+      "lastName": "Rodriguez",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Sagrado Corazon",
+        "grado_ano": "2do grado",
+        "localidad": "Lanus"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "julieta.aguirre.recrear0608a.078@outlook.com",
+      "firstName": "Julieta",
+      "lastName": "Aguirre Peralta",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Nacional de Adrogue",
+        "grado_ano": "3er grado",
+        "localidad": "Ezeiza"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "lorenzo.ponce.recrear0608a.079@gmail.com",
+      "firstName": "Lorenzo",
+      "lastName": "Ponce",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Nuestra Senora de la Merced",
+        "grado_ano": "4to grado",
+        "localidad": "Berazategui"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "elena.rojas.recrear0608a.080@hotmail.com",
+      "firstName": "Elena",
+      "lastName": "Rojas",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Nuestra Tierra",
+        "grado_ano": "5to ano",
+        "localidad": "Ezeiza"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "malena.arce.recrear0608a.081@outlook.com",
+      "firstName": "Malena",
+      "lastName": "Arce",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Modelo de Banfield",
+        "grado_ano": "6to grado",
+        "localidad": "Ezeiza"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "dylan.ramos.recrear0608a.082@gmail.com",
+      "firstName": "Dylan",
+      "lastName": "Ramos",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Belgrano",
+        "grado_ano": "4to ano",
+        "localidad": "CABA"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "ariana.arce.recrear0608a.083@hotmail.com",
+      "firstName": "Ariana",
+      "lastName": "Arce",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Inmaculada Concepcion",
+        "grado_ano": "2do grado",
+        "localidad": "San Vicente"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "paula.farias.recrear0608a.084@outlook.com",
+      "firstName": "Paula",
+      "lastName": "Farias",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Nuestra Tierra",
+        "grado_ano": "3er ano",
+        "localidad": "Temperley"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "ariana.benitez.recrear0608a.085@gmail.com",
+      "firstName": "Ariana",
+      "lastName": "Benitez Tevez",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Santa Ana",
+        "grado_ano": "3er ano",
+        "localidad": "Adrogue"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "candela.miranda.recrear0608a.086@hotmail.com",
+      "firstName": "Candela",
+      "lastName": "Miranda",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Nuestra Senora de la Merced",
+        "grado_ano": "2do grado",
+        "localidad": "Ezeiza"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "benjamin.villalba.recrear0608a.087@outlook.com",
+      "firstName": "Benjamin",
+      "lastName": "Villalba",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Nacional de Adrogue",
+        "grado_ano": "6to ano",
+        "localidad": "La Plata"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "mora.farias.recrear0608a.088@gmail.com",
+      "firstName": "Mora",
+      "lastName": "Farias",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Don Bosco",
+        "grado_ano": "5to ano",
+        "localidad": "Avellaneda"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "ramiro.correa.recrear0608a.089@hotmail.com",
+      "firstName": "Ramiro",
+      "lastName": "Correa",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Inmaculada Concepcion",
+        "grado_ano": "3er ano",
+        "localidad": "La Plata"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "josefina.rojas.recrear0608a.090@outlook.com",
+      "firstName": "Josefina",
+      "lastName": "Rojas",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Belgrano",
+        "grado_ano": "4to grado",
+        "localidad": "Quilmes"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "clara.ledesma.recrear0608a.091@gmail.com",
+      "firstName": "Clara",
+      "lastName": "Ledesma Cardozo",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Nuestra Tierra",
+        "grado_ano": "4to grado",
+        "localidad": "Temperley"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "bautista.campos.recrear0608a.092@hotmail.com",
+      "firstName": "Bautista",
+      "lastName": "Campos",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Belgrano",
+        "grado_ano": "1er grado",
+        "localidad": "Avellaneda"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "tiziano.godoy.recrear0608a.093@outlook.com",
+      "firstName": "Tiziano",
+      "lastName": "Godoy",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio San Martin",
+        "grado_ano": "3er ano",
+        "localidad": "Monte Grande"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "brisa.herrera.recrear0608a.094@gmail.com",
+      "firstName": "Brisa",
+      "lastName": "Herrera",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Nacional de Adrogue",
+        "grado_ano": "5to grado",
+        "localidad": "Lanus"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "amparo.castro.recrear0608a.095@hotmail.com",
+      "firstName": "Amparo",
+      "lastName": "Castro Correa",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Inmaculada Concepcion",
+        "grado_ano": "4to grado",
+        "localidad": "Adrogue"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "lautaro.roldan.recrear0608a.096@outlook.com",
+      "firstName": "Lautaro",
+      "lastName": "Roldan",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Jose Hernandez",
+        "grado_ano": "5to ano",
+        "localidad": "Avellaneda"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "juan.paz.recrear0608a.097@gmail.com",
+      "firstName": "Juan",
+      "lastName": "Paz",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Nuestra Senora de la Merced",
+        "grado_ano": "5to ano",
+        "localidad": "Sarandi"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "felipe.gonzalez.recrear0608a.098@hotmail.com",
+      "firstName": "Felipe",
+      "lastName": "Gonzalez",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Nuestra Tierra",
+        "grado_ano": "4to grado",
+        "localidad": "La Plata"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "nina.godoy.recrear0608a.099@outlook.com",
+      "firstName": "Nina",
+      "lastName": "Godoy",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Modelo de Banfield",
+        "grado_ano": "5to grado",
+        "localidad": "Lanus"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "bautista.vera.recrear0608a.100@gmail.com",
+      "firstName": "Bautista",
+      "lastName": "Vera",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Don Bosco",
+        "grado_ano": "2do grado",
+        "localidad": "Quilmes"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "bautista.alvarez.recrear0608a.101@hotmail.com",
+      "firstName": "Bautista",
+      "lastName": "Alvarez",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Belgrano",
+        "grado_ano": "6to ano",
+        "localidad": "Avellaneda"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "bianca.martinez.recrear0608a.102@outlook.com",
+      "firstName": "Bianca",
+      "lastName": "Martinez",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Jose Hernandez",
+        "grado_ano": "1er grado",
+        "localidad": "Temperley"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "mia.rojas.recrear0608a.103@gmail.com",
+      "firstName": "Mia",
+      "lastName": "Rojas",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Don Bosco",
+        "grado_ano": "5to grado",
+        "localidad": "Monte Grande"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "elena.quiroga.recrear0608a.104@hotmail.com",
+      "firstName": "Elena",
+      "lastName": "Quiroga",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Nacional de Adrogue",
+        "grado_ano": "5to ano",
+        "localidad": "Lanus"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "vicente.romero.recrear0608a.105@outlook.com",
+      "firstName": "Vicente",
+      "lastName": "Romero",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Modelo de Banfield",
+        "grado_ano": "5to grado",
+        "localidad": "Lomas de Zamora"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "vicente.navarro.recrear0608a.106@gmail.com",
+      "firstName": "Vicente",
+      "lastName": "Navarro",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio San Martin",
+        "grado_ano": "4to ano",
+        "localidad": "CABA"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "tiziano.navarro.recrear0608a.107@hotmail.com",
+      "firstName": "Tiziano",
+      "lastName": "Navarro Villalba",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Santa Ana",
+        "grado_ano": "6to ano",
+        "localidad": "Lanus"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "valentina.quiroga.recrear0608a.108@outlook.com",
+      "firstName": "Valentina",
+      "lastName": "Quiroga",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Nacional de Adrogue",
+        "grado_ano": "3er grado",
+        "localidad": "Burzaco"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "facundo.tevez.recrear0608a.109@gmail.com",
+      "firstName": "Facundo",
+      "lastName": "Tevez",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Don Bosco",
+        "grado_ano": "3er ano",
+        "localidad": "Quilmes"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "mateo.fernandez.recrear0608a.110@hotmail.com",
+      "firstName": "Mateo",
+      "lastName": "Fernandez",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio San Martin",
+        "grado_ano": "5to grado",
+        "localidad": "Lomas de Zamora"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "elena.miranda.recrear0608a.111@outlook.com",
+      "firstName": "Elena",
+      "lastName": "Miranda",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Nuestra Tierra",
+        "grado_ano": "2do grado",
+        "localidad": "Quilmes"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "delfina.ojeda.recrear0608a.112@gmail.com",
+      "firstName": "Delfina",
+      "lastName": "Ojeda Correa",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio San Jose",
+        "grado_ano": "1er ano",
+        "localidad": "Avellaneda"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "bruno.aguirre.recrear0608a.113@hotmail.com",
+      "firstName": "Bruno",
+      "lastName": "Aguirre",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Jose Hernandez",
+        "grado_ano": "2do ano",
+        "localidad": "Ezeiza"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "nicolas.cardozo.recrear0608a.114@outlook.com",
+      "firstName": "Nicolas",
+      "lastName": "Cardozo",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Jose Hernandez",
+        "grado_ano": "3er ano",
+        "localidad": "Banfield"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "tomas.lopez.recrear0608a.115@gmail.com",
+      "firstName": "Tomas",
+      "lastName": "Lopez",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Nuestra Tierra",
+        "grado_ano": "6to grado",
+        "localidad": "Adrogue"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "emilia.acosta.recrear0608a.116@hotmail.com",
+      "firstName": "Emilia",
+      "lastName": "Acosta",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio San Jose",
+        "grado_ano": "6to grado",
+        "localidad": "Ezeiza"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "pilar.campos.recrear0608a.117@outlook.com",
+      "firstName": "Pilar",
+      "lastName": "Campos",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Nacional de Adrogue",
+        "grado_ano": "1er ano",
+        "localidad": "Avellaneda"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "mora.campos.recrear0608a.118@gmail.com",
+      "firstName": "Mora",
+      "lastName": "Campos",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Belgrano",
+        "grado_ano": "1er ano",
+        "localidad": "Avellaneda"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "bautista.cabrera.recrear0608a.119@hotmail.com",
+      "firstName": "Bautista",
+      "lastName": "Cabrera",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Nuestra Tierra",
+        "grado_ano": "6to ano",
+        "localidad": "Monte Grande"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "felipe.rojas.recrear0608a.120@outlook.com",
+      "firstName": "Felipe",
+      "lastName": "Rojas",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio San Jose",
+        "grado_ano": "5to grado",
+        "localidad": "Lanus"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "camila.ponce.recrear0608a.121@gmail.com",
+      "firstName": "Camila",
+      "lastName": "Ponce",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Nuestra Senora de la Merced",
+        "grado_ano": "2do ano",
+        "localidad": "Berazategui"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "ailen.ortiz.recrear0608a.122@hotmail.com",
+      "firstName": "Ailen",
+      "lastName": "Ortiz",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Jose Hernandez",
+        "grado_ano": "3er ano",
+        "localidad": "Burzaco"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "joaquin.cabrera.recrear0608a.123@outlook.com",
+      "firstName": "Joaquin",
+      "lastName": "Cabrera",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Jose Hernandez",
+        "grado_ano": "4to grado",
+        "localidad": "Temperley"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "zoe.ledesma.recrear0608a.124@gmail.com",
+      "firstName": "Zoe",
+      "lastName": "Ledesma",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Jose Hernandez",
+        "grado_ano": "4to ano",
+        "localidad": "Berazategui"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "amparo.ojeda.recrear0608a.125@hotmail.com",
+      "firstName": "Amparo",
+      "lastName": "Ojeda",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Belgrano",
+        "grado_ano": "5to grado",
+        "localidad": "Temperley"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "josefina.suarez.recrear0608a.126@outlook.com",
+      "firstName": "Josefina",
+      "lastName": "Suarez",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Nuestra Senora de la Merced",
+        "grado_ano": "6to ano",
+        "localidad": "Quilmes"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "salvador.diaz.recrear0608a.127@gmail.com",
+      "firstName": "Salvador",
+      "lastName": "Diaz",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Jose Hernandez",
+        "grado_ano": "6to ano",
+        "localidad": "Burzaco"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "ignacio.arce.recrear0608a.128@hotmail.com",
+      "firstName": "Ignacio",
+      "lastName": "Arce Villalba",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Santa Ana",
+        "grado_ano": "1er ano",
+        "localidad": "Sarandi"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "agustina.quiroga.recrear0608a.129@outlook.com",
+      "firstName": "Agustina",
+      "lastName": "Quiroga",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio San Jose",
+        "grado_ano": "2do grado",
+        "localidad": "Monte Grande"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "juan.suarez.recrear0608a.130@gmail.com",
+      "firstName": "Juan",
+      "lastName": "Suarez",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Jose Hernandez",
+        "grado_ano": "4to ano",
+        "localidad": "Burzaco"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "simon.lopez.recrear0608a.131@hotmail.com",
+      "firstName": "Simón",
+      "lastName": "Lopez",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Nuestra Senora de la Merced",
+        "grado_ano": "3er ano",
+        "localidad": "Avellaneda"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "mora.aguirre.recrear0608a.132@outlook.com",
+      "firstName": "Mora",
+      "lastName": "Aguirre Correa",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Sagrado Corazon",
+        "grado_ano": "1er ano",
+        "localidad": "Avellaneda"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "nahuel.vera.recrear0608a.133@gmail.com",
+      "firstName": "Nahuel",
+      "lastName": "Vera",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Inmaculada Concepcion",
+        "grado_ano": "6to ano",
+        "localidad": "Ramos Mejia"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "amparo.barrios.recrear0608a.134@hotmail.com",
+      "firstName": "Amparo",
+      "lastName": "Barrios",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Belgrano",
+        "grado_ano": "3er grado",
+        "localidad": "Lomas de Zamora"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "gael.miranda.recrear0608a.135@outlook.com",
+      "firstName": "Gael",
+      "lastName": "Miranda",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Santa Ana",
+        "grado_ano": "5to ano",
+        "localidad": "CABA"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "benjamin.silva.recrear0608a.136@gmail.com",
+      "firstName": "Benjamin",
+      "lastName": "Silva",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Nuestra Senora de la Merced",
+        "grado_ano": "4to ano",
+        "localidad": "Ramos Mejia"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "malena.martinez.recrear0608a.137@hotmail.com",
+      "firstName": "Malena",
+      "lastName": "Martinez Rojas",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Sagrado Corazon",
+        "grado_ano": "1er grado",
+        "localidad": "Ezeiza"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "uma.aguirre.recrear0608a.138@outlook.com",
+      "firstName": "Uma",
+      "lastName": "Aguirre",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Santa Ana",
+        "grado_ano": "4to grado",
+        "localidad": "Avellaneda"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "agustina.villalba.recrear0608a.139@gmail.com",
+      "firstName": "Agustina",
+      "lastName": "Villalba Godoy",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Don Bosco",
+        "grado_ano": "3er ano",
+        "localidad": "Ezeiza"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "emilia.miranda.recrear0608a.140@hotmail.com",
+      "firstName": "Emilia",
+      "lastName": "Miranda",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio San Martin",
+        "grado_ano": "1er ano",
+        "localidad": "Temperley"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "dylan.campos.recrear0608a.141@outlook.com",
+      "firstName": "Dylan",
+      "lastName": "Campos",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Jose Hernandez",
+        "grado_ano": "3er ano",
+        "localidad": "CABA"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "delfina.gonzalez.recrear0608a.142@gmail.com",
+      "firstName": "Delfina",
+      "lastName": "Gonzalez",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Nuestra Tierra",
+        "grado_ano": "5to ano",
+        "localidad": "Quilmes"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "vicente.torres.recrear0608a.143@hotmail.com",
+      "firstName": "Vicente",
+      "lastName": "Torres",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Sagrado Corazon",
+        "grado_ano": "6to ano",
+        "localidad": "CABA"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "candela.tevez.recrear0608a.144@outlook.com",
+      "firstName": "Candela",
+      "lastName": "Tevez",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Inmaculada Concepcion",
+        "grado_ano": "4to grado",
+        "localidad": "Burzaco"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "facundo.villalba.recrear0608a.145@gmail.com",
+      "firstName": "Facundo",
+      "lastName": "Villalba",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Nuestra Senora de la Merced",
+        "grado_ano": "4to ano",
+        "localidad": "Monte Grande"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "santiago.aguirre.recrear0608a.146@hotmail.com",
+      "firstName": "Santiago",
+      "lastName": "Aguirre",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Modelo de Banfield",
+        "grado_ano": "6to ano",
+        "localidad": "Banfield"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "uma.suarez.recrear0608a.147@outlook.com",
+      "firstName": "Uma",
+      "lastName": "Suarez",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Nacional de Adrogue",
+        "grado_ano": "4to ano",
+        "localidad": "San Vicente"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "franco.gomez.recrear0608a.148@gmail.com",
+      "firstName": "Franco",
+      "lastName": "Gomez",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Jose Hernandez",
+        "grado_ano": "2do ano",
+        "localidad": "Lomas de Zamora"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "lucia.ortiz.recrear0608a.149@hotmail.com",
+      "firstName": "Lucia",
+      "lastName": "Ortiz",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio San Martin",
+        "grado_ano": "1er ano",
+        "localidad": "Ramos Mejia"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "olivia.gomez.recrear0608a.150@outlook.com",
+      "firstName": "Olivia",
+      "lastName": "Gomez Silva",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Sagrado Corazon",
+        "grado_ano": "6to grado",
+        "localidad": "San Vicente"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "gael.diaz.recrear0608a.151@gmail.com",
+      "firstName": "Gael",
+      "lastName": "Diaz",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio San Martin",
+        "grado_ano": "6to grado",
+        "localidad": "Burzaco"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "benjamin.juarez.recrear0608a.152@hotmail.com",
+      "firstName": "Benjamin",
+      "lastName": "Juarez Castro",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Sagrado Corazon",
+        "grado_ano": "2do grado",
+        "localidad": "Banfield"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "ailen.ojeda.recrear0608a.153@outlook.com",
+      "firstName": "Ailen",
+      "lastName": "Ojeda",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Jose Hernandez",
+        "grado_ano": "3er ano",
+        "localidad": "Avellaneda"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "bautista.benitez.recrear0608a.154@gmail.com",
+      "firstName": "Bautista",
+      "lastName": "Benitez",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio San Martin",
+        "grado_ano": "4to grado",
+        "localidad": "Lomas de Zamora"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "amparo.farias.recrear0608a.155@hotmail.com",
+      "firstName": "Amparo",
+      "lastName": "Farias",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Sagrado Corazon",
+        "grado_ano": "6to grado",
+        "localidad": "Lomas de Zamora"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "zoe.aguirre.recrear0608a.156@outlook.com",
+      "firstName": "Zoe",
+      "lastName": "Aguirre",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Santa Ana",
+        "grado_ano": "6to grado",
+        "localidad": "Monte Grande"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "ramiro.barrios.recrear0608a.157@gmail.com",
+      "firstName": "Ramiro",
+      "lastName": "Barrios",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio San Martin",
+        "grado_ano": "6to grado",
+        "localidad": "Ramos Mejia"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "tomas.suarez.recrear0608a.158@hotmail.com",
+      "firstName": "Tomas",
+      "lastName": "Suarez",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio San Jose",
+        "grado_ano": "6to ano",
+        "localidad": "Burzaco"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "franco.rodriguez.recrear0608a.159@outlook.com",
+      "firstName": "Franco",
+      "lastName": "Rodriguez",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Sagrado Corazon",
+        "grado_ano": "1er grado",
+        "localidad": "Temperley"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "uma.villalba.recrear0608a.160@gmail.com",
+      "firstName": "Uma",
+      "lastName": "Villalba",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio San Jose",
+        "grado_ano": "6to ano",
+        "localidad": "Lanus"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "julieta.lopez.recrear0608a.161@hotmail.com",
+      "firstName": "Julieta",
+      "lastName": "Lopez",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Nuestra Senora de la Merced",
+        "grado_ano": "4to ano",
+        "localidad": "Quilmes"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "josefina.ponce.recrear0608a.162@outlook.com",
+      "firstName": "Josefina",
+      "lastName": "Ponce",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio San Martin",
+        "grado_ano": "3er ano",
+        "localidad": "CABA"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "sofia.lopez.recrear0608a.163@gmail.com",
+      "firstName": "Sofia",
+      "lastName": "Lopez",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Belgrano",
+        "grado_ano": "4to ano",
+        "localidad": "La Plata"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "nina.mansilla.recrear0608a.164@hotmail.com",
+      "firstName": "Nina",
+      "lastName": "Mansilla Leiva",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Modelo de Banfield",
+        "grado_ano": "4to grado",
+        "localidad": "Burzaco"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "clara.fernandez.recrear0608a.165@outlook.com",
+      "firstName": "Clara",
+      "lastName": "Fernandez",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Nuestra Tierra",
+        "grado_ano": "4to grado",
+        "localidad": "Sarandi"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "bautista.medina.recrear0608a.166@gmail.com",
+      "firstName": "Bautista",
+      "lastName": "Medina",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Modelo de Banfield",
+        "grado_ano": "6to ano",
+        "localidad": "Ramos Mejia"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "bautista.romero.recrear0608a.167@hotmail.com",
+      "firstName": "Bautista",
+      "lastName": "Romero",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Belgrano",
+        "grado_ano": "2do ano",
+        "localidad": "Ezeiza"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "paula.gomez.recrear0608a.168@outlook.com",
+      "firstName": "Paula",
+      "lastName": "Gomez",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Belgrano",
+        "grado_ano": "4to ano",
+        "localidad": "Lanus"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "paula.aguirre.recrear0608a.169@gmail.com",
+      "firstName": "Paula",
+      "lastName": "Aguirre",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Jose Hernandez",
+        "grado_ano": "5to grado",
+        "localidad": "Berazategui"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "amparo.perez.recrear0608a.170@hotmail.com",
+      "firstName": "Amparo",
+      "lastName": "Perez",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Don Bosco",
+        "grado_ano": "1er grado",
+        "localidad": "San Vicente"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "brisa.ledesma.recrear0608a.171@outlook.com",
+      "firstName": "Brisa",
+      "lastName": "Ledesma Farias",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio San Jose",
+        "grado_ano": "6to grado",
+        "localidad": "Banfield"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "valentino.aguirre.recrear0608a.172@gmail.com",
+      "firstName": "Valentino",
+      "lastName": "Aguirre",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Inmaculada Concepcion",
+        "grado_ano": "4to grado",
+        "localidad": "Sarandi"
+      }
+    }
+  ]
+}

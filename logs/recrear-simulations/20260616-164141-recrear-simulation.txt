@@ -1,0 +1,33 @@
+Empresa: Turismo Recrear (recrear)
+Area: Administración (1ab6476e-88a3-4fe5-87e8-0e75d3f7b3a8)
+Prode: Mundial 2026 (f3d5c87b-09ce-4b49-81ce-207a5832756d)
+Competencia: Mundial 2026
+Partidos futuros con prediccion: 55
+Dry run: si
+Count objetivo: 12
+Batch tag: recrear20260616test
+Seed: 260616
+Profile: batch3
+Password: ********026@
+
+Resumen:
+- requested: 12
+- created: 0
+- ready_in_dry_run: 12
+- skipped_existing_email: 0
+- errors: 0
+- total_predictions_created: 660
+
+Detalle:
+- dry_run_ready | torres_mateo597@hotmail.com | Mateo Torres | Listo para crear con 55 predicciones
+- dry_run_ready | florencia.serrano96@outlook.com | Florencia Serrano | Listo para crear con 55 predicciones
+- dry_run_ready | franco99monzon@yahoo.com.ar | Franco Monzon | Listo para crear con 55 predicciones
+- dry_run_ready | sarmiento.d06@gmail.com | Dylan Sarmiento Gonzalez | Listo para crear con 55 predicciones
+- dry_run_ready | dominguez.l477@yahoo.com.ar | Lucia Dominguez | Listo para crear con 55 predicciones
+- dry_run_ready | biancacoronel57@outlook.com | Bianca Coronel | Listo para crear con 55 predicciones
+- dry_run_ready | pazp5704@yahoo.com.ar | Pilar Paz | Listo para crear con 55 predicciones
+- dry_run_ready | cabrera_nicolas7@hotmail.com | Nicolas Cabrera | Listo para crear con 55 predicciones
+- dry_run_ready | agustina89tevez@yahoo.com.ar | Agustina Tevez | Listo para crear con 55 predicciones
+- dry_run_ready | alvarez.p50@yahoo.com.ar | Paula Alvarez | Listo para crear con 55 predicciones
+- dry_run_ready | ledesma.a89@hotmail.com | Aldana Ledesma Nuñez | Listo para crear con 55 predicciones
+- dry_run_ready | miloperalta26@yahoo.com.ar | Milo Peralta Gauna | Listo para crear con 55 predicciones

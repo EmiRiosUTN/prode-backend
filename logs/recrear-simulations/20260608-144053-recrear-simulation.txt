@@ -1,0 +1,25 @@
+Empresa: Turismo Recrear (recrear)
+Area: Administración (1ab6476e-88a3-4fe5-87e8-0e75d3f7b3a8)
+Prode: Mundial 2026 (f3d5c87b-09ce-4b49-81ce-207a5832756d)
+Competencia: Mundial 2026
+Partidos futuros con prediccion: 54
+Dry run: si
+Count objetivo: 5
+Batch tag: recprueba0608
+Seed: 260608
+Password: ********026@
+
+Resumen:
+- requested: 5
+- created: 0
+- ready_in_dry_run: 5
+- skipped_existing_email: 0
+- errors: 0
+- total_predictions_created: 270
+
+Detalle:
+- dry_run_ready | brisa.herrera.recprueba0608.001@gmail.com | Brisa Herrera | Listo para crear con 54 predicciones
+- dry_run_ready | julieta.castro.recprueba0608.002@hotmail.com | Julieta Castro | Listo para crear con 54 predicciones
+- dry_run_ready | elena.campos.recprueba0608.003@outlook.com | Elena Campos | Listo para crear con 54 predicciones
+- dry_run_ready | bruno.peralta.recprueba0608.004@gmail.com | Bruno Peralta | Listo para crear con 54 predicciones
+- dry_run_ready | nahuel.silva.recprueba0608.005@hotmail.com | Nahuel Silva | Listo para crear con 54 predicciones

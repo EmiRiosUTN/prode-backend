@@ -1,0 +1,94 @@
+{
+  "generatedAt": "2026-06-08T17:40:53.468Z",
+  "company": {
+    "id": "1a645723-5fb5-4249-b3cb-ca132aa32b78",
+    "slug": "recrear",
+    "name": "Turismo Recrear"
+  },
+  "area": {
+    "id": "1ab6476e-88a3-4fe5-87e8-0e75d3f7b3a8",
+    "name": "Administración"
+  },
+  "prode": {
+    "id": "f3d5c87b-09ce-4b49-81ce-207a5832756d",
+    "name": "Mundial 2026",
+    "competition": "Mundial 2026"
+  },
+  "options": {
+    "dryRun": true,
+    "count": 5,
+    "seed": 260608,
+    "batchTag": "recprueba0608",
+    "passwordMasked": "********026@"
+  },
+  "summary": {
+    "requested": 5,
+    "created": 0,
+    "readyInDryRun": 5,
+    "skippedExistingEmail": 0,
+    "errors": 0,
+    "totalPredictionsCreated": 270
+  },
+  "results": [
+    {
+      "status": "dry_run_ready",
+      "email": "brisa.herrera.recprueba0608.001@gmail.com",
+      "firstName": "Brisa",
+      "lastName": "Herrera",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Santa Ana",
+        "grado_ano": "4to ano",
+        "localidad": "CABA"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "julieta.castro.recprueba0608.002@hotmail.com",
+      "firstName": "Julieta",
+      "lastName": "Castro",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Santa Ana",
+        "grado_ano": "3er grado",
+        "localidad": "Ezeiza"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "elena.campos.recprueba0608.003@outlook.com",
+      "firstName": "Elena",
+      "lastName": "Campos",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Colegio Modelo de Banfield",
+        "grado_ano": "5to grado",
+        "localidad": "Temperley"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "bruno.peralta.recprueba0608.004@gmail.com",
+      "firstName": "Bruno",
+      "lastName": "Peralta",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Inmaculada Concepcion",
+        "grado_ano": "2do grado",
+        "localidad": "Temperley"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "nahuel.silva.recprueba0608.005@hotmail.com",
+      "firstName": "Nahuel",
+      "lastName": "Silva",
+      "reason": "Listo para crear con 54 predicciones",
+      "extraData": {
+        "colegio": "Instituto Nuestra Senora de la Merced",
+        "grado_ano": "6to ano",
+        "localidad": "Avellaneda"
+      }
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+Empresa: Turismo Recrear (recrear)
+Area: Administración (1ab6476e-88a3-4fe5-87e8-0e75d3f7b3a8)
+Prode: Mundial 2026 (f3d5c87b-09ce-4b49-81ce-207a5832756d)
+Competencia: Mundial 2026
+Partidos futuros con prediccion: 72
+Dry run: no
+Count objetivo: 50
+Batch tag: recrear20260610a
+Seed: 260610
+Profile: batch2
+Password: ********026@
+
+Resumen:
+- requested: 50
+- created: 50
+- ready_in_dry_run: 0
+- skipped_existing_email: 0
+- errors: 0
+- total_predictions_created: 3600
+
+Detalle:
+- created | vera722@gmail.com | Brisa Vera | ok
+- created | uma.cabrera_32@hotmail.com | Uma Cabrera | ok
+- created | lvalentina50@outlook.com | Valentina Lopez | ok
+- created | a.paz358@gmail.com | Ariana Paz | ok
+- created | lcatalina40@hotmail.com | Catalina Leiva | ok
+- created | ariana_2000@outlook.com | Ariana Barrios | ok
+- created | cabrera261@gmail.com | Nicolas Cabrera | ok
+- created | aguirrebrisa@hotmail.com | Brisa Aguirre | ok
+- created | francoromero486@outlook.com | Franco Romero | ok
+- created | mansilla.b42@gmail.com | Bruno Mansilla | ok
+- created | milagros22r@hotmail.com | Milagros Ruiz | ok
+- created | martinez.agustina8@outlook.com | Agustina Martinez | ok
+- created | slola76@gmail.com | Lola Sosa | ok
+- created | t.aguirre91@hotmail.com | Tiziano Aguirre | ok
+- created | nroldan2523@outlook.com | Nicolas Roldan | ok
+- created | miranda78@gmail.com | Malena Miranda | ok
+- created | vera.santino1@hotmail.com | Santino Vera | ok
+- created | a.benitez032@outlook.com | Abril Benitez Rodriguez | ok
+- created | clara_2002@gmail.com | Clara Gomez | ok
+- created | jarce74@hotmail.com | Julieta Arce | ok
+- created | perez_lola@outlook.com | Lola Perez | ok
+- created | felipe.bustos_86@gmail.com | Felipe Bustos | ok
+- created | josefina.castro_11@hotmail.com | Josefina Castro | ok
+- created | suarez1090@outlook.com | Delfina Suarez | ok
+- created | mendez.thiago@gmail.com | Thiago Mendez | ok
+- created | cp181@hotmail.com | Clara Perez | ok
+- created | j.sosa40@outlook.com | Juan Sosa | ok
+- created | martinez.paula8@gmail.com | Paula Martinez | ok
+- created | mateo5p@hotmail.com | Mateo Peralta Romero | ok
+- created | rodriguez.e1@outlook.com | Emilia Rodriguez | ok
+- created | franco.farias_14@gmail.com | Franco Farias | ok
+- created | gael86p@hotmail.com | Gael Ponce | ok
+- created | barrios.m72@outlook.com | Malena Barrios | ok
+- created | smansilla628@gmail.com | Santiago Mansilla | ok
+- created | lopez.p2@hotmail.com | Paula Lopez | ok
+- created | lthiago34@outlook.com | Thiago Lopez | ok
+- created | felipemendez071@gmail.com | Felipe Mendez | ok
+- created | joaquin_2001@hotmail.com | Joaquin Ponce | ok
+- created | villalbajulieta@outlook.com | Julieta Villalba | ok
+- created | dg2169@gmail.com | Delfina Gonzalez Villalba | ok
+- created | torres41@hotmail.com | Renata Torres | ok
+- created | medinac2@outlook.com | Camila Medina | ok
+- created | vthiago419@gmail.com | Thiago Vera | ok
+- created | emilia.barrios_0@hotmail.com | Emilia Barrios | ok
+- created | farias45@outlook.com | Pilar Farias | ok
+- created | silva.n7@gmail.com | Nahuel Silva | ok
+- created | eroldan102@hotmail.com | Elena Roldan | ok
+- created | barrios48@outlook.com | Franco Barrios | ok
+- created | gonzalez.lautaro@gmail.com | Lautaro Gonzalez | ok
+- created | bautista8g@hotmail.com | Bautista Gomez | ok

@@ -1,0 +1,935 @@
+{
+  "generatedAt": "2026-06-10T03:41:14.088Z",
+  "company": {
+    "id": "1a645723-5fb5-4249-b3cb-ca132aa32b78",
+    "slug": "recrear",
+    "name": "Turismo Recrear"
+  },
+  "area": {
+    "id": "1ab6476e-88a3-4fe5-87e8-0e75d3f7b3a8",
+    "name": "Administración"
+  },
+  "prode": {
+    "id": "f3d5c87b-09ce-4b49-81ce-207a5832756d",
+    "name": "Mundial 2026",
+    "competition": "Mundial 2026"
+  },
+  "options": {
+    "dryRun": false,
+    "count": 50,
+    "seed": 260610,
+    "batchTag": "recrear20260610a",
+    "profile": "batch2",
+    "passwordMasked": "********026@"
+  },
+  "summary": {
+    "requested": 50,
+    "created": 50,
+    "readyInDryRun": 0,
+    "skippedExistingEmail": 0,
+    "errors": 0,
+    "totalPredictionsCreated": 3600
+  },
+  "results": [
+    {
+      "status": "created",
+      "email": "vera722@gmail.com",
+      "firstName": "Brisa",
+      "lastName": "Vera",
+      "reason": "",
+      "ids": {
+        "userId": "4e6b765c-4853-48d2-ac43-1d2f129f72ad",
+        "employeeId": "0e723aeb-2f6d-45e4-9d1c-707c0954f919",
+        "participantId": "e5d67b07-6aad-4489-ac0a-116bb2ba9aaf",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "dante alighieri",
+        "grado_ano": "5to",
+        "localidad": "Lomas de Zamora"
+      }
+    },
+    {
+      "status": "created",
+      "email": "uma.cabrera_32@hotmail.com",
+      "firstName": "Uma",
+      "lastName": "Cabrera",
+      "reason": "",
+      "ids": {
+        "userId": "2810b7f5-7ede-401e-b148-5d205a385d1c",
+        "employeeId": "85f7ca8f-8476-47db-a024-79f62848f1ba",
+        "participantId": "f2697b81-f32d-4839-8ae2-7dc2aa016a61",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Escuela Nro 19",
+        "grado_ano": "4to",
+        "localidad": "Laferrere"
+      }
+    },
+    {
+      "status": "created",
+      "email": "lvalentina50@outlook.com",
+      "firstName": "Valentina",
+      "lastName": "Lopez",
+      "reason": "",
+      "ids": {
+        "userId": "84cf160d-c5fe-48fc-85fb-a09d02cb39f3",
+        "employeeId": "77625176-6fbe-40e6-bf05-e61a9b8f93d4",
+        "participantId": "aa2baf76-1b6d-4eaf-8ff4-78d7c32a3f5a",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Jose Manuel Estrada",
+        "grado_ano": "4c",
+        "localidad": "CABA"
+      }
+    },
+    {
+      "status": "created",
+      "email": "a.paz358@gmail.com",
+      "firstName": "Ariana",
+      "lastName": "Paz",
+      "reason": "",
+      "ids": {
+        "userId": "963daa51-1c37-4851-8a07-a765d7509906",
+        "employeeId": "7850075c-1e73-4ab9-9762-cc23c7591a6a",
+        "participantId": "4dce48d8-eb60-4cab-b078-3d078c92d2ae",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "E.T. 17 Brigadier General Cornelio Saavedra",
+        "grado_ano": "5 año",
+        "localidad": "Cordoba"
+      }
+    },
+    {
+      "status": "created",
+      "email": "lcatalina40@hotmail.com",
+      "firstName": "Catalina",
+      "lastName": "Leiva",
+      "reason": "",
+      "ids": {
+        "userId": "a4ce18d0-bd27-462f-92cb-0907a3298d07",
+        "employeeId": "a7af7fca-6f7c-47c8-9a04-d115e3e244b1",
+        "participantId": "a6178796-fadc-421b-8c16-75ed36d98368",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Isaac Newron",
+        "grado_ano": "6to ano",
+        "localidad": "Valentin Alsina"
+      }
+    },
+    {
+      "status": "created",
+      "email": "ariana_2000@outlook.com",
+      "firstName": "Ariana",
+      "lastName": "Barrios",
+      "reason": "",
+      "ids": {
+        "userId": "8b8b3e33-f3a7-4fd5-b533-b7c2d6d38522",
+        "employeeId": "5f5beec2-1e74-4bda-883d-47b61bf7f6e5",
+        "participantId": "70f8f0b1-a098-409a-a685-09f9a72fc5d1",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Santa Marta",
+        "grado_ano": "4to 1ra",
+        "localidad": "Zarate"
+      }
+    },
+    {
+      "status": "created",
+      "email": "cabrera261@gmail.com",
+      "firstName": "Nicolas",
+      "lastName": "Cabrera",
+      "reason": "",
+      "ids": {
+        "userId": "83a43f7f-14ac-4bd0-96aa-e274a856cd08",
+        "employeeId": "1b7f2c34-efe4-4789-aacf-5d18c121727f",
+        "participantId": "1810089a-d398-4519-abf0-c9915003906e",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Isaac Newron",
+        "grado_ano": "Sexto",
+        "localidad": "San Miguel"
+      }
+    },
+    {
+      "status": "created",
+      "email": "aguirrebrisa@hotmail.com",
+      "firstName": "Brisa",
+      "lastName": "Aguirre",
+      "reason": "",
+      "ids": {
+        "userId": "a47bbaba-12c6-4175-8d12-571a22ab0693",
+        "employeeId": "ecefa9a9-6c13-4326-80b3-298029f55973",
+        "participantId": "4fa00b77-0f68-494f-976a-7929362da463",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Escuela de comercio",
+        "grado_ano": "1 ano",
+        "localidad": "Zarate"
+      }
+    },
+    {
+      "status": "created",
+      "email": "francoromero486@outlook.com",
+      "firstName": "Franco",
+      "lastName": "Romero",
+      "reason": "",
+      "ids": {
+        "userId": "46c40b8b-cc22-4ad9-a27d-bf4606630c92",
+        "employeeId": "dee9a3e0-98ce-4a6f-9821-f9649856a9a7",
+        "participantId": "72238f07-26bf-47de-b43e-2520666d0a01",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Escuela Integral Jorge Luis Borges",
+        "grado_ano": "4to",
+        "localidad": "Arturo Segui"
+      }
+    },
+    {
+      "status": "created",
+      "email": "mansilla.b42@gmail.com",
+      "firstName": "Bruno",
+      "lastName": "Mansilla",
+      "reason": "",
+      "ids": {
+        "userId": "dc4b4c8e-7f8c-4bb6-b11b-57a8d8fb09d2",
+        "employeeId": "54e06795-9c81-477c-8510-4982cd9fa149",
+        "participantId": "df6ebb5c-f8dd-4805-b449-0712f84e20a5",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Secundaria 73",
+        "grado_ano": "4",
+        "localidad": "Cordoba"
+      }
+    },
+    {
+      "status": "created",
+      "email": "milagros22r@hotmail.com",
+      "firstName": "Milagros",
+      "lastName": "Ruiz",
+      "reason": "",
+      "ids": {
+        "userId": "8d16edcf-9396-45df-b07d-4b81258e245c",
+        "employeeId": "886afdde-59ee-4d2b-9bb0-cfa9df8b4c01",
+        "participantId": "3f3f8b25-1cfe-4258-9cac-02a159a26772",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Mariano Acosta",
+        "grado_ano": "5to",
+        "localidad": "Jose C. Paz"
+      }
+    },
+    {
+      "status": "created",
+      "email": "martinez.agustina8@outlook.com",
+      "firstName": "Agustina",
+      "lastName": "Martinez",
+      "reason": "",
+      "ids": {
+        "userId": "6f06b207-5e84-4247-9361-aabc2f2e1797",
+        "employeeId": "908bf26a-5c0b-4d28-b6d8-08c0e9e721fd",
+        "participantId": "b4de42ba-1829-4d6e-904d-5596561617e7",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "jose manuel estrada",
+        "grado_ano": "6 grado",
+        "localidad": "CABA"
+      }
+    },
+    {
+      "status": "created",
+      "email": "slola76@gmail.com",
+      "firstName": "Lola",
+      "lastName": "Sosa",
+      "reason": "",
+      "ids": {
+        "userId": "ab4ead73-c67a-44d5-889d-37af529cea94",
+        "employeeId": "eb4a5ea5-48ea-4d53-b6d3-edd872a58694",
+        "participantId": "efe6a433-c1e5-4c04-abf3-21f137deb481",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Domingo Savio",
+        "grado_ano": "5to A",
+        "localidad": "Caba"
+      }
+    },
+    {
+      "status": "created",
+      "email": "t.aguirre91@hotmail.com",
+      "firstName": "Tiziano",
+      "lastName": "Aguirre",
+      "reason": "",
+      "ids": {
+        "userId": "c1a7243a-4b34-4532-80b1-76bc13865c65",
+        "employeeId": "e2565f76-f203-4bc9-a84b-a106a096bf6d",
+        "participantId": "c6f89d33-2206-46fc-8265-6b0eadb9572e",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "jose manuel estrada",
+        "grado_ano": "6to ano",
+        "localidad": "CABA"
+      }
+    },
+    {
+      "status": "created",
+      "email": "nroldan2523@outlook.com",
+      "firstName": "Nicolas",
+      "lastName": "Roldan",
+      "reason": "",
+      "ids": {
+        "userId": "276c6ed3-a2f3-4273-bcb6-334778f50bca",
+        "employeeId": "cc7d6115-590d-43fe-b272-0e288c4b875b",
+        "participantId": "020ea5c5-a90d-43ab-97b5-b0ce5aa68bb8",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Mariano Moreno",
+        "grado_ano": "7B",
+        "localidad": "San Miguel"
+      }
+    },
+    {
+      "status": "created",
+      "email": "miranda78@gmail.com",
+      "firstName": "Malena",
+      "lastName": "Miranda",
+      "reason": "",
+      "ids": {
+        "userId": "cd6a0a1b-ef17-4ad7-ae58-ea10b4f5a554",
+        "employeeId": "386fb208-fea0-4275-9eab-6d382c642e0f",
+        "participantId": "4caf36c7-f5f3-4997-8532-5b5665d4bf1f",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Secundaria 70",
+        "grado_ano": "4c",
+        "localidad": "Jose C. Paz"
+      }
+    },
+    {
+      "status": "created",
+      "email": "vera.santino1@hotmail.com",
+      "firstName": "Santino",
+      "lastName": "Vera",
+      "reason": "",
+      "ids": {
+        "userId": "8904ee98-a276-4459-9c03-d1b6c91d408d",
+        "employeeId": "bbfb93bb-16c1-4eeb-bf57-63dfa0cae584",
+        "participantId": "b7daf962-ed88-4d5f-a0c0-bdcb4614b354",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Media 7",
+        "grado_ano": "7",
+        "localidad": "Oncativo"
+      }
+    },
+    {
+      "status": "created",
+      "email": "a.benitez032@outlook.com",
+      "firstName": "Abril",
+      "lastName": "Benitez Rodriguez",
+      "reason": "",
+      "ids": {
+        "userId": "df3ac005-5c82-41d2-975e-296cf6e626b4",
+        "employeeId": "e0ce4e8f-46cf-4afa-99f9-713ec4c175f9",
+        "participantId": "b5f86ddd-e4e8-4fba-b49c-d2fe9815e1db",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "la inmaculada",
+        "grado_ano": "4to 1ra",
+        "localidad": "Arturo Segui"
+      }
+    },
+    {
+      "status": "created",
+      "email": "clara_2002@gmail.com",
+      "firstName": "Clara",
+      "lastName": "Gomez",
+      "reason": "",
+      "ids": {
+        "userId": "04f2863a-c745-4fd1-9216-6a3a97b335eb",
+        "employeeId": "bb6bfae0-5fb0-49f3-868d-1e9bfa521c05",
+        "participantId": "061c28bc-87f9-4bb4-b14b-00cbb81c5e8c",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Escuela de comercio",
+        "grado_ano": "7 A",
+        "localidad": "Caba"
+      }
+    },
+    {
+      "status": "created",
+      "email": "jarce74@hotmail.com",
+      "firstName": "Julieta",
+      "lastName": "Arce",
+      "reason": "",
+      "ids": {
+        "userId": "259073dd-83a1-4ddb-9333-b0ee23e4d676",
+        "employeeId": "d5ca5af0-a193-40c6-9c86-430b6d9fdc5c",
+        "participantId": "94365a36-93d5-4f7e-a221-aca2e77874f0",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Isaac Newron",
+        "grado_ano": "4to",
+        "localidad": "Avellaneda"
+      }
+    },
+    {
+      "status": "created",
+      "email": "perez_lola@outlook.com",
+      "firstName": "Lola",
+      "lastName": "Perez",
+      "reason": "",
+      "ids": {
+        "userId": "402d0c9a-3f8e-482d-92dc-9003a1b7a3a1",
+        "employeeId": "ec16b869-08db-47ef-9f1a-0ed80c81c04e",
+        "participantId": "e1d6f415-dd5e-406f-90c5-3a776f8c4661",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "ET 17 Cornelio Saavedra",
+        "grado_ano": "7 A",
+        "localidad": "La Plata"
+      }
+    },
+    {
+      "status": "created",
+      "email": "felipe.bustos_86@gmail.com",
+      "firstName": "Felipe",
+      "lastName": "Bustos",
+      "reason": "",
+      "ids": {
+        "userId": "7b1ccd12-7c19-4bee-8b90-00cee52874fe",
+        "employeeId": "4005a48a-9907-4ecd-9be2-6f9004e19a77",
+        "participantId": "751da5f2-105c-4261-a2c1-22a7a23a2ee4",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Dante Alighieri",
+        "grado_ano": "4to 1ra",
+        "localidad": "San Miguel"
+      }
+    },
+    {
+      "status": "created",
+      "email": "josefina.castro_11@hotmail.com",
+      "firstName": "Josefina",
+      "lastName": "Castro",
+      "reason": "",
+      "ids": {
+        "userId": "fd44ea82-662a-4baf-b1aa-e563a2b2c95e",
+        "employeeId": "c1149168-274c-4423-bf4a-4e15c242e50f",
+        "participantId": "90ed8c2f-0870-45de-9af7-795468c3d3a7",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Mariano Moreno",
+        "grado_ano": "3ro",
+        "localidad": "Wilde"
+      }
+    },
+    {
+      "status": "created",
+      "email": "suarez1090@outlook.com",
+      "firstName": "Delfina",
+      "lastName": "Suarez",
+      "reason": "",
+      "ids": {
+        "userId": "7fe11baf-a06f-4399-b4e3-5a92550f2224",
+        "employeeId": "1e27d024-064d-401d-8f3c-661de705425f",
+        "participantId": "d6d41e51-f473-4b44-b61b-da9c256b8a5f",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Instituto Educativo Modelo",
+        "grado_ano": "6to ano",
+        "localidad": "Berisso"
+      }
+    },
+    {
+      "status": "created",
+      "email": "mendez.thiago@gmail.com",
+      "firstName": "Thiago",
+      "lastName": "Mendez",
+      "reason": "",
+      "ids": {
+        "userId": "98f450aa-6d72-41ff-bee3-804323f7e8a7",
+        "employeeId": "8e99d43f-8eb9-406c-a0f3-b00d7eac73af",
+        "participantId": "eff69c53-dcf7-44af-baf0-892c94f62008",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Escuela Integral Jorge Luis Borges",
+        "grado_ano": "4",
+        "localidad": "San Miguel"
+      }
+    },
+    {
+      "status": "created",
+      "email": "cp181@hotmail.com",
+      "firstName": "Clara",
+      "lastName": "Perez",
+      "reason": "",
+      "ids": {
+        "userId": "fa167aeb-9f0e-42dc-94d5-967ebc01ecbc",
+        "employeeId": "3d947fbc-c450-4115-8298-72f073841250",
+        "participantId": "a02fe791-80e1-46bc-a814-e33a6b1aefd6",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Santa Marta",
+        "grado_ano": "Cuarto año",
+        "localidad": "Cordoba"
+      }
+    },
+    {
+      "status": "created",
+      "email": "j.sosa40@outlook.com",
+      "firstName": "Juan",
+      "lastName": "Sosa",
+      "reason": "",
+      "ids": {
+        "userId": "1425284f-0789-4536-9d5a-ab5ea70b7f2e",
+        "employeeId": "5b811ca3-e0b3-4603-b4d7-27fbf45d5c3d",
+        "participantId": "2012a514-5353-4a6b-bf1c-48e8edd44e42",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Escuela Integral Jorge Luis Borges",
+        "grado_ano": "6to ano",
+        "localidad": "Avellaneda"
+      }
+    },
+    {
+      "status": "created",
+      "email": "martinez.paula8@gmail.com",
+      "firstName": "Paula",
+      "lastName": "Martinez",
+      "reason": "",
+      "ids": {
+        "userId": "694caa34-d7ed-43c0-82c0-a99671175666",
+        "employeeId": "d62a3162-0726-4125-b677-ba3481df6fe3",
+        "participantId": "85e48cf4-ca18-4585-933f-7df1cc457521",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Puertas del Sol",
+        "grado_ano": "7 A",
+        "localidad": "Laferrere"
+      }
+    },
+    {
+      "status": "created",
+      "email": "mateo5p@hotmail.com",
+      "firstName": "Mateo",
+      "lastName": "Peralta Romero",
+      "reason": "",
+      "ids": {
+        "userId": "d28637b5-ed0e-4e80-a4b5-d1c75b08b0c8",
+        "employeeId": "6b7af6c1-d981-4b6d-945b-19e3562c5940",
+        "participantId": "c95e966f-a2fa-4140-bef6-bc4486a61e9c",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "instituto educativo modelo",
+        "grado_ano": "4to",
+        "localidad": "Oncativo"
+      }
+    },
+    {
+      "status": "created",
+      "email": "rodriguez.e1@outlook.com",
+      "firstName": "Emilia",
+      "lastName": "Rodriguez",
+      "reason": "",
+      "ids": {
+        "userId": "373b7895-17d6-4bc3-80d9-89bcc4ce55d5",
+        "employeeId": "91398009-8ffb-454a-a43b-12713df9f5fe",
+        "participantId": "01807d7e-5216-4e05-bd63-603b37fb163f",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Puertas del Sol",
+        "grado_ano": "1 ano",
+        "localidad": "Wilde"
+      }
+    },
+    {
+      "status": "created",
+      "email": "franco.farias_14@gmail.com",
+      "firstName": "Franco",
+      "lastName": "Farias",
+      "reason": "",
+      "ids": {
+        "userId": "a50e68e2-0f18-4871-84e3-48d2ee20b61b",
+        "employeeId": "32f8c28f-2eca-4e60-9225-e692d70fa33a",
+        "participantId": "9f6e64ca-c2be-48f0-a1fb-d94dd15981be",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Escuela Nro 19 Zárate",
+        "grado_ano": "7 A",
+        "localidad": "Ensenada"
+      }
+    },
+    {
+      "status": "created",
+      "email": "gael86p@hotmail.com",
+      "firstName": "Gael",
+      "lastName": "Ponce",
+      "reason": "",
+      "ids": {
+        "userId": "38060656-7a97-46bb-8408-958dee1174cd",
+        "employeeId": "2ae237d9-3707-489b-9027-0afab16df872",
+        "participantId": "8fb632e3-6b8e-4845-8107-cd0226960a6a",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "media 7",
+        "grado_ano": "5A",
+        "localidad": "Avellaneda"
+      }
+    },
+    {
+      "status": "created",
+      "email": "barrios.m72@outlook.com",
+      "firstName": "Malena",
+      "lastName": "Barrios",
+      "reason": "",
+      "ids": {
+        "userId": "1f8f5695-670c-43db-85c4-815c2ec0dd66",
+        "employeeId": "7497dd80-2a8c-4a84-8316-70b24ff3298f",
+        "participantId": "ba2e981e-fc95-43f4-aca1-4bcda1bee12b",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "mariano moreno",
+        "grado_ano": "5to año",
+        "localidad": "Villa Allende"
+      }
+    },
+    {
+      "status": "created",
+      "email": "smansilla628@gmail.com",
+      "firstName": "Santiago",
+      "lastName": "Mansilla",
+      "reason": "",
+      "ids": {
+        "userId": "3dfd2517-7214-415b-9e8d-c32cfc2d7e31",
+        "employeeId": "868d28a2-6ea1-4898-b8d8-9e9d563a1333",
+        "participantId": "0d648a60-4810-468d-9323-b156a4754ab7",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "escuela integral jorge luis borges",
+        "grado_ano": "6to ano",
+        "localidad": "Zarate"
+      }
+    },
+    {
+      "status": "created",
+      "email": "lopez.p2@hotmail.com",
+      "firstName": "Paula",
+      "lastName": "Lopez",
+      "reason": "",
+      "ids": {
+        "userId": "2d21d3d5-bf78-4631-8498-f368d577841a",
+        "employeeId": "f692af0c-d212-48bb-be46-d01bf3343c22",
+        "participantId": "59cb05d8-5486-4137-b741-cc7b34a26856",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Esc. de Comercio",
+        "grado_ano": "7",
+        "localidad": "La plata"
+      }
+    },
+    {
+      "status": "created",
+      "email": "lthiago34@outlook.com",
+      "firstName": "Thiago",
+      "lastName": "Lopez",
+      "reason": "",
+      "ids": {
+        "userId": "14007584-b492-435a-9233-7cd151386a70",
+        "employeeId": "e45b7724-59a5-4706-8e3b-6e0efd61a52a",
+        "participantId": "bed35d42-842b-4aed-9f64-711ed4c6e737",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Colegio Nacional",
+        "grado_ano": "4to ano",
+        "localidad": "Ensenada"
+      }
+    },
+    {
+      "status": "created",
+      "email": "felipemendez071@gmail.com",
+      "firstName": "Felipe",
+      "lastName": "Mendez",
+      "reason": "",
+      "ids": {
+        "userId": "053c4d27-57c9-4624-8ebf-75f6a857516f",
+        "employeeId": "1e5cb41d-3ab0-44ea-9525-da9f5490f3ba",
+        "participantId": "c8d8501c-1393-4f5f-b8f0-1dd7099bec6b",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Secundaria 73",
+        "grado_ano": "3er año",
+        "localidad": "Jose c paz"
+      }
+    },
+    {
+      "status": "created",
+      "email": "joaquin_2001@hotmail.com",
+      "firstName": "Joaquin",
+      "lastName": "Ponce",
+      "reason": "",
+      "ids": {
+        "userId": "e9f76626-d164-4fce-be23-95e58a2f0696",
+        "employeeId": "872dc465-197e-4063-8bcc-4e28ba236906",
+        "participantId": "516e8cc6-82dc-4c92-8f9d-a71e5aceb331",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Escuela Secundaria N 7",
+        "grado_ano": "6",
+        "localidad": "Caba"
+      }
+    },
+    {
+      "status": "created",
+      "email": "villalbajulieta@outlook.com",
+      "firstName": "Julieta",
+      "lastName": "Villalba",
+      "reason": "",
+      "ids": {
+        "userId": "fb56c9e0-f2c6-4abc-8243-1c7e3fa0e91a",
+        "employeeId": "2afe1b88-8d6b-44f1-9698-8ae000b53c54",
+        "participantId": "aa533a83-7124-4354-b78f-1eae0e2b90d9",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "instituto educativo modelo",
+        "grado_ano": "7B",
+        "localidad": "Balcarce"
+      }
+    },
+    {
+      "status": "created",
+      "email": "dg2169@gmail.com",
+      "firstName": "Delfina",
+      "lastName": "Gonzalez Villalba",
+      "reason": "",
+      "ids": {
+        "userId": "0df4ab72-7d95-47b7-8f62-3a56bdd2f15b",
+        "employeeId": "1b3807fc-3c56-4e30-b1f9-5e9bd1d08058",
+        "participantId": "3f81b346-1ce1-4ced-905e-4bdd5b5dd2d9",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "San Juan Bautista",
+        "grado_ano": "1 año",
+        "localidad": "Cordoba"
+      }
+    },
+    {
+      "status": "created",
+      "email": "torres41@hotmail.com",
+      "firstName": "Renata",
+      "lastName": "Torres",
+      "reason": "",
+      "ids": {
+        "userId": "3448bbc0-65bb-4b03-9ad9-e7c950cffa5b",
+        "employeeId": "62eff11b-215a-43c7-b8b2-9c94583608b7",
+        "participantId": "6bd0ad77-b077-4e63-a631-902f0edf89d4",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Escuela Nro 19",
+        "grado_ano": "5to",
+        "localidad": "Ensenada"
+      }
+    },
+    {
+      "status": "created",
+      "email": "medinac2@outlook.com",
+      "firstName": "Camila",
+      "lastName": "Medina",
+      "reason": "",
+      "ids": {
+        "userId": "26ad158d-740c-4ac2-9eb7-93a379d924f4",
+        "employeeId": "dfe6ec09-11a5-4fd0-951d-227e665990ae",
+        "participantId": "26462a5f-1737-4e7d-8ba6-a2ac56ef26cd",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Mariano Acosta",
+        "grado_ano": "6",
+        "localidad": "Concepcion Tucuman"
+      }
+    },
+    {
+      "status": "created",
+      "email": "vthiago419@gmail.com",
+      "firstName": "Thiago",
+      "lastName": "Vera",
+      "reason": "",
+      "ids": {
+        "userId": "28859110-5bc5-4289-a396-34ef3c7048dc",
+        "employeeId": "32099618-2c5e-4a00-af7f-4124c207dde9",
+        "participantId": "5777eca1-92d3-4c80-8887-80b6d90ee9cc",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Isaac Newton",
+        "grado_ano": "5A",
+        "localidad": "Jose C. Paz"
+      }
+    },
+    {
+      "status": "created",
+      "email": "emilia.barrios_0@hotmail.com",
+      "firstName": "Emilia",
+      "lastName": "Barrios",
+      "reason": "",
+      "ids": {
+        "userId": "dfd406ec-961a-4cc3-b57f-0a978ad1bbb1",
+        "employeeId": "b7f97834-9d5f-4414-9cd8-50ddbceba526",
+        "participantId": "e2be17e9-02ee-4721-adc0-9de17c0b41da",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Esc de Comercio",
+        "grado_ano": "1 ano",
+        "localidad": "La Plata"
+      }
+    },
+    {
+      "status": "created",
+      "email": "farias45@outlook.com",
+      "firstName": "Pilar",
+      "lastName": "Farias",
+      "reason": "",
+      "ids": {
+        "userId": "dd457c11-a626-4c1e-bd9e-ea8d8bd94ba8",
+        "employeeId": "c39275aa-6ea8-4740-bc3a-8f9a9ba1a823",
+        "participantId": "881e4224-4a5e-4bf3-828f-28601e41fb40",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Colegio Nacional",
+        "grado_ano": "1 ano",
+        "localidad": "Villa Allende"
+      }
+    },
+    {
+      "status": "created",
+      "email": "silva.n7@gmail.com",
+      "firstName": "Nahuel",
+      "lastName": "Silva",
+      "reason": "",
+      "ids": {
+        "userId": "08023c61-799b-4b01-86fa-37bafaf52bff",
+        "employeeId": "5758426d-7ee7-4e91-a510-9b6469aaf338",
+        "participantId": "f9931cb2-1467-44ba-83ae-59e55e3ab682",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Colegio Nacional",
+        "grado_ano": "4to 1ra",
+        "localidad": "La plata"
+      }
+    },
+    {
+      "status": "created",
+      "email": "eroldan102@hotmail.com",
+      "firstName": "Elena",
+      "lastName": "Roldan",
+      "reason": "",
+      "ids": {
+        "userId": "40bdeb56-c670-4709-8ded-6e48ad76d253",
+        "employeeId": "c7cc013c-e711-49de-ba76-8a4080087e6d",
+        "participantId": "d15e315d-233d-42f4-80b8-bf561af55ec3",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "escuela integral jorge luis borges",
+        "grado_ano": "7 A",
+        "localidad": "San Miguel"
+      }
+    },
+    {
+      "status": "created",
+      "email": "barrios48@outlook.com",
+      "firstName": "Franco",
+      "lastName": "Barrios",
+      "reason": "",
+      "ids": {
+        "userId": "3e2308d7-4085-4cb0-ad8e-57b798154972",
+        "employeeId": "2b57f25e-4fd7-4c91-85f6-ef8717d38c95",
+        "participantId": "d4b31a86-8adf-4aa4-8515-b064baf66371",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "San Juan Bautista",
+        "grado_ano": "5 año",
+        "localidad": "Jose C. Paz"
+      }
+    },
+    {
+      "status": "created",
+      "email": "gonzalez.lautaro@gmail.com",
+      "firstName": "Lautaro",
+      "lastName": "Gonzalez",
+      "reason": "",
+      "ids": {
+        "userId": "40c053b6-aceb-4cae-9608-1f41b9c9718a",
+        "employeeId": "9f63a74b-a932-4331-9371-c11925447204",
+        "participantId": "88141e8b-8566-4128-bc2c-cb3d9090ae47",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Domingo Savio",
+        "grado_ano": "6to",
+        "localidad": "San Miguel"
+      }
+    },
+    {
+      "status": "created",
+      "email": "bautista8g@hotmail.com",
+      "firstName": "Bautista",
+      "lastName": "Gomez",
+      "reason": "",
+      "ids": {
+        "userId": "e24fe77f-6336-4910-9088-1065508cc296",
+        "employeeId": "c9b61032-fd77-4242-ab89-c9e12a08f8cc",
+        "participantId": "5064651c-11c7-46f4-831e-2203d4180c2b",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "puertas del sol",
+        "grado_ano": "6 grado",
+        "localidad": "Caba"
+      }
+    }
+  ]
+}

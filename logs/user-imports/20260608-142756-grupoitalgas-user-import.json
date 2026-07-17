@@ -1,0 +1,377 @@
+{
+  "generatedAt": "2026-06-08T17:27:56.866Z",
+  "company": {
+    "id": "81194a04-7616-4dae-bd29-15e8c88b1303",
+    "name": "Grupo Italgas",
+    "slug": "grupoitalgas"
+  },
+  "area": {
+    "id": "f46cd76a-fee2-48d2-aadb-170a5e66ffb9",
+    "name": "Grupo Italgas"
+  },
+  "csvPath": "D:\\Trabajo\\Prode\\back-produ\\prode-backend\\Cuentas prodemax Italgas - Hoja 1.csv",
+  "options": {
+    "dryRun": true,
+    "forceVerified": false,
+    "passwordMasked": "*********026@"
+  },
+  "summary": {
+    "total": 29,
+    "created": 0,
+    "dry_run_ready": 16,
+    "duplicate_in_csv": 0,
+    "already_exists": 13,
+    "invalid": 0,
+    "error": 0
+  },
+  "results": [
+    {
+      "rowNumber": 2,
+      "rawName": "AVENDAÑO NADIA DANIELA",
+      "email": "nadia.avendano@gmail.com",
+      "status": "already_exists",
+      "reason": "El email ya existe en el sistema",
+      "details": {
+        "nameStrategy": "first-token-last-name"
+      },
+      "firstName": "Nadia Daniela",
+      "lastName": "Avendaño"
+    },
+    {
+      "rowNumber": 3,
+      "rawName": "DIAZ FRANCO NICOLAS",
+      "email": "aronemanuelperalta@gmail.com",
+      "status": "already_exists",
+      "reason": "El email ya existe en el sistema",
+      "details": {
+        "nameStrategy": "first-token-last-name"
+      },
+      "firstName": "Franco Nicolas",
+      "lastName": "Diaz"
+    },
+    {
+      "rowNumber": 4,
+      "rawName": "MARKIEWICZ MIGUEL SIMON",
+      "email": "markiewiczmiguelsimon@gmail.com",
+      "status": "already_exists",
+      "reason": "El email ya existe en el sistema",
+      "details": {
+        "nameStrategy": "first-token-last-name"
+      },
+      "firstName": "Miguel Simon",
+      "lastName": "Markiewicz"
+    },
+    {
+      "rowNumber": 5,
+      "rawName": "VERA LAUTARO DARIO",
+      "email": "veralautrox@gmail.com",
+      "status": "already_exists",
+      "reason": "El email ya existe en el sistema",
+      "details": {
+        "nameStrategy": "first-token-last-name"
+      },
+      "firstName": "Lautaro Dario",
+      "lastName": "Vera"
+    },
+    {
+      "rowNumber": 6,
+      "rawName": "BARRAL JESUS MAXIMILIANO NICOLAS",
+      "email": "barralmaximiliano2@gmail.com",
+      "status": "dry_run_ready",
+      "reason": "Listo para crear",
+      "details": {
+        "nameStrategy": "first-token-last-name"
+      },
+      "firstName": "Jesus Maximiliano Nicolas",
+      "lastName": "Barral"
+    },
+    {
+      "rowNumber": 7,
+      "rawName": "TOLEDO MARCELO EMMANUEL",
+      "email": "toledomarceloemmanuel@gmail.com",
+      "status": "dry_run_ready",
+      "reason": "Listo para crear",
+      "details": {
+        "nameStrategy": "first-token-last-name"
+      },
+      "firstName": "Marcelo Emmanuel",
+      "lastName": "Toledo"
+    },
+    {
+      "rowNumber": 8,
+      "rawName": "PATTERER DAVID IGNACIO",
+      "email": "davidpatterer14@gmail.com",
+      "status": "already_exists",
+      "reason": "El email ya existe en el sistema",
+      "details": {
+        "nameStrategy": "first-token-last-name"
+      },
+      "firstName": "David Ignacio",
+      "lastName": "Patterer"
+    },
+    {
+      "rowNumber": 9,
+      "rawName": "SIMON JULIAN TELMO",
+      "email": "juliansimon96@hotmail.com",
+      "status": "already_exists",
+      "reason": "El email ya existe en el sistema",
+      "details": {
+        "nameStrategy": "first-token-last-name"
+      },
+      "firstName": "Julian Telmo",
+      "lastName": "Simon"
+    },
+    {
+      "rowNumber": 10,
+      "rawName": "TARDIVO MARCELO EMILIANO",
+      "email": "marcelotardivo@hotmail.com",
+      "status": "already_exists",
+      "reason": "El email ya existe en el sistema",
+      "details": {
+        "nameStrategy": "first-token-last-name"
+      },
+      "firstName": "Marcelo Emiliano",
+      "lastName": "Tardivo"
+    },
+    {
+      "rowNumber": 11,
+      "rawName": "FAZZINI ESTEBAN OSCAR",
+      "email": "estebanfazzini64@gmail.com",
+      "status": "already_exists",
+      "reason": "El email ya existe en el sistema",
+      "details": {
+        "nameStrategy": "first-token-last-name"
+      },
+      "firstName": "Esteban Oscar",
+      "lastName": "Fazzini"
+    },
+    {
+      "rowNumber": 12,
+      "rawName": "QUIÑONES JULIAN IGNACIO",
+      "email": "julianignacio2296@gmail.com",
+      "status": "already_exists",
+      "reason": "El email ya existe en el sistema",
+      "details": {
+        "nameStrategy": "first-token-last-name"
+      },
+      "firstName": "Julian Ignacio",
+      "lastName": "Quiñones"
+    },
+    {
+      "rowNumber": 13,
+      "rawName": "CAVALLERO BRAIAN ALEJANDRO",
+      "email": "braiancavallero@gmail.com",
+      "status": "already_exists",
+      "reason": "El email ya existe en el sistema",
+      "details": {
+        "nameStrategy": "first-token-last-name"
+      },
+      "firstName": "Braian Alejandro",
+      "lastName": "Cavallero"
+    },
+    {
+      "rowNumber": 14,
+      "rawName": "AIASSA ALEXIS ARIEL",
+      "email": "aleshi3436@gmail.com",
+      "status": "already_exists",
+      "reason": "El email ya existe en el sistema",
+      "details": {
+        "nameStrategy": "first-token-last-name"
+      },
+      "firstName": "Alexis Ariel",
+      "lastName": "Aiassa"
+    },
+    {
+      "rowNumber": 15,
+      "rawName": "TORRES LUCAS EZEQUIEL",
+      "email": "lucastorres89080@gmail.com",
+      "status": "already_exists",
+      "reason": "El email ya existe en el sistema",
+      "details": {
+        "nameStrategy": "first-token-last-name"
+      },
+      "firstName": "Lucas Ezequiel",
+      "lastName": "Torres"
+    },
+    {
+      "rowNumber": 16,
+      "rawName": "SILVA DIEGO EDUARDO",
+      "email": "diegogianna21@gmail.com",
+      "status": "already_exists",
+      "reason": "El email ya existe en el sistema",
+      "details": {
+        "nameStrategy": "first-token-last-name"
+      },
+      "firstName": "Diego Eduardo",
+      "lastName": "Silva"
+    },
+    {
+      "rowNumber": 17,
+      "rawName": "GALLARDO LUIS HERNAN",
+      "email": "gallardoluishernan28@gmail.com",
+      "status": "dry_run_ready",
+      "reason": "Listo para crear",
+      "details": {
+        "nameStrategy": "first-token-last-name"
+      },
+      "firstName": "Luis Hernan",
+      "lastName": "Gallardo"
+    },
+    {
+      "rowNumber": 18,
+      "rawName": "GOMEZ MARTIN NICOLAS",
+      "email": "tinchogomez7@gmail.com",
+      "status": "dry_run_ready",
+      "reason": "Listo para crear",
+      "details": {
+        "nameStrategy": "first-token-last-name"
+      },
+      "firstName": "Martin Nicolas",
+      "lastName": "Gomez"
+    },
+    {
+      "rowNumber": 19,
+      "rawName": "RODRIGUEZ SERGIO ROBERTO",
+      "email": "rr0092289@gmail.com",
+      "status": "dry_run_ready",
+      "reason": "Listo para crear",
+      "details": {
+        "nameStrategy": "first-token-last-name"
+      },
+      "firstName": "Sergio Roberto",
+      "lastName": "Rodriguez"
+    },
+    {
+      "rowNumber": 20,
+      "rawName": "GOMEZ AGUSTIN DANTE",
+      "email": "agustingomez6908@gmail.com",
+      "status": "dry_run_ready",
+      "reason": "Listo para crear",
+      "details": {
+        "nameStrategy": "first-token-last-name"
+      },
+      "firstName": "Agustin Dante",
+      "lastName": "Gomez"
+    },
+    {
+      "rowNumber": 21,
+      "rawName": "FERNANDEZ CRISTIAN MATIAS",
+      "email": "gitano3226@gmail.com",
+      "status": "dry_run_ready",
+      "reason": "Listo para crear",
+      "details": {
+        "nameStrategy": "first-token-last-name"
+      },
+      "firstName": "Cristian Matias",
+      "lastName": "Fernandez"
+    },
+    {
+      "rowNumber": 22,
+      "rawName": "BARRIOS AGUSTIN HERNAN",
+      "email": "barriosagus210618@gmail.com",
+      "status": "dry_run_ready",
+      "reason": "Listo para crear",
+      "details": {
+        "nameStrategy": "first-token-last-name"
+      },
+      "firstName": "Agustin Hernan",
+      "lastName": "Barrios"
+    },
+    {
+      "rowNumber": 23,
+      "rawName": "GARCIA MATIAS SEBASTIAN",
+      "email": "matiasgarcia1994.mg@gmail.com",
+      "status": "dry_run_ready",
+      "reason": "Listo para crear",
+      "details": {
+        "nameStrategy": "first-token-last-name"
+      },
+      "firstName": "Matias Sebastian",
+      "lastName": "Garcia"
+    },
+    {
+      "rowNumber": 24,
+      "rawName": "GONZALEZ JUAN CARLOS",
+      "email": "juangonza2103@gmail.com",
+      "status": "dry_run_ready",
+      "reason": "Listo para crear",
+      "details": {
+        "nameStrategy": "first-token-last-name"
+      },
+      "firstName": "Juan Carlos",
+      "lastName": "Gonzalez"
+    },
+    {
+      "rowNumber": 25,
+      "rawName": "VALENZUELA JOSÉ MARTÍN",
+      "email": "valenzuelajosemartin02@gmail.com",
+      "status": "dry_run_ready",
+      "reason": "Listo para crear",
+      "details": {
+        "nameStrategy": "first-token-last-name"
+      },
+      "firstName": "José Martín",
+      "lastName": "Valenzuela"
+    },
+    {
+      "rowNumber": 26,
+      "rawName": "LARRABURU LEONEL NICOLAS",
+      "email": "lnob73@gmail.com",
+      "status": "dry_run_ready",
+      "reason": "Listo para crear",
+      "details": {
+        "nameStrategy": "first-token-last-name"
+      },
+      "firstName": "Leonel Nicolas",
+      "lastName": "Larraburu"
+    },
+    {
+      "rowNumber": 27,
+      "rawName": "CARNERO NICOLAS EMILIANO",
+      "email": "ncarnero41@gmail.com",
+      "status": "dry_run_ready",
+      "reason": "Listo para crear",
+      "details": {
+        "nameStrategy": "first-token-last-name"
+      },
+      "firstName": "Nicolas Emiliano",
+      "lastName": "Carnero"
+    },
+    {
+      "rowNumber": 28,
+      "rawName": "RISODÉ NAHUEL ALEJANDRO",
+      "email": "nahuelalejandro94@gmail.com",
+      "status": "dry_run_ready",
+      "reason": "Listo para crear",
+      "details": {
+        "nameStrategy": "first-token-last-name"
+      },
+      "firstName": "Nahuel Alejandro",
+      "lastName": "Risodé"
+    },
+    {
+      "rowNumber": 29,
+      "rawName": "KOVALCZYK LUCAS HERNAN",
+      "email": "lucaskovalczyk73@gmail.com",
+      "status": "dry_run_ready",
+      "reason": "Listo para crear",
+      "details": {
+        "nameStrategy": "first-token-last-name"
+      },
+      "firstName": "Lucas Hernan",
+      "lastName": "Kovalczyk"
+    },
+    {
+      "rowNumber": 30,
+      "rawName": "CARRIZO ARIEL LEONARDO",
+      "email": "arielcarrizo527@gmail.com",
+      "status": "dry_run_ready",
+      "reason": "Listo para crear",
+      "details": {
+        "nameStrategy": "first-token-last-name"
+      },
+      "firstName": "Ariel Leonardo",
+      "lastName": "Carrizo"
+    }
+  ]
+}

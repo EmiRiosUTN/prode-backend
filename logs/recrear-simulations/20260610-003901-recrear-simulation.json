@@ -1,0 +1,635 @@
+{
+  "generatedAt": "2026-06-10T03:39:01.215Z",
+  "company": {
+    "id": "1a645723-5fb5-4249-b3cb-ca132aa32b78",
+    "slug": "recrear",
+    "name": "Turismo Recrear"
+  },
+  "area": {
+    "id": "1ab6476e-88a3-4fe5-87e8-0e75d3f7b3a8",
+    "name": "Administración"
+  },
+  "prode": {
+    "id": "f3d5c87b-09ce-4b49-81ce-207a5832756d",
+    "name": "Mundial 2026",
+    "competition": "Mundial 2026"
+  },
+  "options": {
+    "dryRun": true,
+    "count": 50,
+    "seed": 260610,
+    "batchTag": "recrear20260610a",
+    "profile": "batch2",
+    "passwordMasked": "********026@"
+  },
+  "summary": {
+    "requested": 50,
+    "created": 0,
+    "readyInDryRun": 50,
+    "skippedExistingEmail": 0,
+    "errors": 0,
+    "totalPredictionsCreated": 3600
+  },
+  "results": [
+    {
+      "status": "dry_run_ready",
+      "email": "vera722@gmail.com",
+      "firstName": "Brisa",
+      "lastName": "Vera",
+      "reason": "Listo para crear con 72 predicciones",
+      "extraData": {
+        "colegio": "dante alighieri",
+        "grado_ano": "5to",
+        "localidad": "Lomas de Zamora"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "ailen_78@hotmail.com",
+      "firstName": "Ailen",
+      "lastName": "Rojas",
+      "reason": "Listo para crear con 72 predicciones",
+      "extraData": {
+        "colegio": "Escuela de Comercio",
+        "grado_ano": "6",
+        "localidad": "Jose C. Paz"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "sosa2001@outlook.com",
+      "firstName": "Ariana",
+      "lastName": "Sosa",
+      "reason": "Listo para crear con 72 predicciones",
+      "extraData": {
+        "colegio": "Nuestra Senora de Lujan",
+        "grado_ano": "4",
+        "localidad": "Arturo Segui"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "ruizsantiago@gmail.com",
+      "firstName": "Santiago",
+      "lastName": "Ruiz",
+      "reason": "Listo para crear con 72 predicciones",
+      "extraData": {
+        "colegio": "Nacional",
+        "grado_ano": "5to",
+        "localidad": "La Plata"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "rodriguezl06@hotmail.com",
+      "firstName": "Lorenzo",
+      "lastName": "Rodriguez",
+      "reason": "Listo para crear con 72 predicciones",
+      "extraData": {
+        "colegio": "Instituto San Pablo",
+        "grado_ano": "5to A",
+        "localidad": "Oncativo"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "lopezmilagros@outlook.com",
+      "firstName": "Milagros",
+      "lastName": "Lopez Ramos",
+      "reason": "Listo para crear con 72 predicciones",
+      "extraData": {
+        "colegio": "puertas del sol",
+        "grado_ano": "5to año",
+        "localidad": "San Miguel"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "l.cabrera13@gmail.com",
+      "firstName": "Lucia",
+      "lastName": "Cabrera",
+      "reason": "Listo para crear con 72 predicciones",
+      "extraData": {
+        "colegio": "Dante Alighieri",
+        "grado_ano": "6 grado",
+        "localidad": "Avellaneda"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "torres.lucia@hotmail.com",
+      "firstName": "Lucia",
+      "lastName": "Torres",
+      "reason": "Listo para crear con 72 predicciones",
+      "extraData": {
+        "colegio": "Media 7",
+        "grado_ano": "1 ano",
+        "localidad": "Lomas de Zamora"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "cabrera.josefina2@outlook.com",
+      "firstName": "Josefina",
+      "lastName": "Cabrera",
+      "reason": "Listo para crear con 72 predicciones",
+      "extraData": {
+        "colegio": "Isaac Newron",
+        "grado_ano": "Cuarto año",
+        "localidad": "Avellaneda"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "ruiz.santino46@gmail.com",
+      "firstName": "Santino",
+      "lastName": "Ruiz Suarez",
+      "reason": "Listo para crear con 72 predicciones",
+      "extraData": {
+        "colegio": "escuela secundaria n 7",
+        "grado_ano": "6to",
+        "localidad": "Arturo Segui"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "bustos_julieta@hotmail.com",
+      "firstName": "Julieta",
+      "lastName": "Bustos",
+      "reason": "Listo para crear con 72 predicciones",
+      "extraData": {
+        "colegio": "Instituto Educativo Modelo",
+        "grado_ano": "6to",
+        "localidad": "Valentin Alsina"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "rojas_653@outlook.com",
+      "firstName": "Martina",
+      "lastName": "Rojas",
+      "reason": "Listo para crear con 72 predicciones",
+      "extraData": {
+        "colegio": "la inmaculada",
+        "grado_ano": "6 grado",
+        "localidad": "Jose c paz"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "malena_89@gmail.com",
+      "firstName": "Malena",
+      "lastName": "Acosta",
+      "reason": "Listo para crear con 72 predicciones",
+      "extraData": {
+        "colegio": "puertas del sol",
+        "grado_ano": "7 A",
+        "localidad": "Concepcion Tucuman"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "torressantino@hotmail.com",
+      "firstName": "Santino",
+      "lastName": "Torres",
+      "reason": "Listo para crear con 72 predicciones",
+      "extraData": {
+        "colegio": "Escuela Secundaria N 7",
+        "grado_ano": "7 A",
+        "localidad": "Caba"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "pfelipe502@outlook.com",
+      "firstName": "Felipe",
+      "lastName": "Ponce",
+      "reason": "Listo para crear con 72 predicciones",
+      "extraData": {
+        "colegio": "jose manuel estrada",
+        "grado_ano": "4",
+        "localidad": "Concepcion Tucuman"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "ramosl21@gmail.com",
+      "firstName": "Lorenzo",
+      "lastName": "Ramos",
+      "reason": "Listo para crear con 72 predicciones",
+      "extraData": {
+        "colegio": "dante alighieri",
+        "grado_ano": "5to A",
+        "localidad": "Concepcion Tucuman"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "paz.cabreram@hotmail.com",
+      "firstName": "Mateo",
+      "lastName": "Paz Cabrera",
+      "reason": "Listo para crear con 72 predicciones",
+      "extraData": {
+        "colegio": "Puertas del Sol",
+        "grado_ano": "6to",
+        "localidad": "San Miguel"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "memilia764@outlook.com",
+      "firstName": "Emilia",
+      "lastName": "Mansilla",
+      "reason": "Listo para crear con 72 predicciones",
+      "extraData": {
+        "colegio": "Mariano Acosta",
+        "grado_ano": "1 año",
+        "localidad": "Zarate"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "bruno.silva_10@gmail.com",
+      "firstName": "Bruno",
+      "lastName": "Silva",
+      "reason": "Listo para crear con 72 predicciones",
+      "extraData": {
+        "colegio": "Nuestra Senora de Lujan de los Patriotas",
+        "grado_ano": "4to 1ra",
+        "localidad": "Lomas de Zamora"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "ledesmam1@hotmail.com",
+      "firstName": "Martina",
+      "lastName": "Ledesma",
+      "reason": "Listo para crear con 72 predicciones",
+      "extraData": {
+        "colegio": "escuela secundaria n 7",
+        "grado_ano": "4",
+        "localidad": "Jose C. Paz"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "leiva21@outlook.com",
+      "firstName": "Dylan",
+      "lastName": "Leiva",
+      "reason": "Listo para crear con 72 predicciones",
+      "extraData": {
+        "colegio": "Mariano Moreno",
+        "grado_ano": "5to",
+        "localidad": "Wilde"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "torres22@gmail.com",
+      "firstName": "Amparo",
+      "lastName": "Torres",
+      "reason": "Listo para crear con 72 predicciones",
+      "extraData": {
+        "colegio": "Isaac Newron",
+        "grado_ano": "7",
+        "localidad": "Villa Allende"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "mora.miranda_31@hotmail.com",
+      "firstName": "Mora",
+      "lastName": "Miranda",
+      "reason": "Listo para crear con 72 predicciones",
+      "extraData": {
+        "colegio": "escuela integral jorge luis borges",
+        "grado_ano": "5A",
+        "localidad": "Villa Allende"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "miranda_2262@outlook.com",
+      "firstName": "Camila",
+      "lastName": "Miranda",
+      "reason": "Listo para crear con 72 predicciones",
+      "extraData": {
+        "colegio": "Colegio Nacional",
+        "grado_ano": "5to",
+        "localidad": "San Miguel"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "ponce.agustina@gmail.com",
+      "firstName": "Agustina",
+      "lastName": "Ponce",
+      "reason": "Listo para crear con 72 predicciones",
+      "extraData": {
+        "colegio": "Escuela Secundaria N 7",
+        "grado_ano": "4to ano",
+        "localidad": "CABA"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "t.cardozo793@hotmail.com",
+      "firstName": "Thiago",
+      "lastName": "Cardozo",
+      "reason": "Listo para crear con 72 predicciones",
+      "extraData": {
+        "colegio": "Escuela Integral Jorge Luis Borges",
+        "grado_ano": "5to",
+        "localidad": "Valentin Alsina"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "u.mansilla89@outlook.com",
+      "firstName": "Uma",
+      "lastName": "Mansilla",
+      "reason": "Listo para crear con 72 predicciones",
+      "extraData": {
+        "colegio": "E.T. 17 Brigadier General Cornelio Saavedra",
+        "grado_ano": "7 A",
+        "localidad": "CABA"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "godoy.abril@gmail.com",
+      "firstName": "Abril",
+      "lastName": "Godoy",
+      "reason": "Listo para crear con 72 predicciones",
+      "extraData": {
+        "colegio": "Isaac Newton",
+        "grado_ano": "7mo",
+        "localidad": "Cordoba"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "ajosefina825@hotmail.com",
+      "firstName": "Josefina",
+      "lastName": "Arce",
+      "reason": "Listo para crear con 72 predicciones",
+      "extraData": {
+        "colegio": "Colegio Nacional",
+        "grado_ano": "5to ano",
+        "localidad": "Lomas de Zamora"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "villalba_5115@outlook.com",
+      "firstName": "Pilar",
+      "lastName": "Villalba",
+      "reason": "Listo para crear con 72 predicciones",
+      "extraData": {
+        "colegio": "Escuela Educativa Secundaria N 55",
+        "grado_ano": "3er año",
+        "localidad": "Villa Allende"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "romero_tiziano@gmail.com",
+      "firstName": "Tiziano",
+      "lastName": "Romero",
+      "reason": "Listo para crear con 72 predicciones",
+      "extraData": {
+        "colegio": "Isaac Newron",
+        "grado_ano": "6to ano",
+        "localidad": "Caba"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "tomasleiva09@hotmail.com",
+      "firstName": "Tomas",
+      "lastName": "Leiva",
+      "reason": "Listo para crear con 72 predicciones",
+      "extraData": {
+        "colegio": "media 7",
+        "grado_ano": "4to secundaria",
+        "localidad": "Wilde"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "godoy.delfina@outlook.com",
+      "firstName": "Delfina",
+      "lastName": "Godoy",
+      "reason": "Listo para crear con 72 predicciones",
+      "extraData": {
+        "colegio": "puertas del sol",
+        "grado_ano": "1 año",
+        "localidad": "Valentin Alsina"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "dylan.ruiz_75@gmail.com",
+      "firstName": "Dylan",
+      "lastName": "Ruiz",
+      "reason": "Listo para crear con 72 predicciones",
+      "extraData": {
+        "colegio": "Domingo Savio",
+        "grado_ano": "Sexto",
+        "localidad": "Cordoba"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "torres_22@hotmail.com",
+      "firstName": "Tiziano",
+      "lastName": "Torres",
+      "reason": "Listo para crear con 72 predicciones",
+      "extraData": {
+        "colegio": "Esc. de Comercio",
+        "grado_ano": "Cuarto año",
+        "localidad": "Jose C. Paz"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "emilia_91@outlook.com",
+      "firstName": "Emilia",
+      "lastName": "Campos",
+      "reason": "Listo para crear con 72 predicciones",
+      "extraData": {
+        "colegio": "escuela secundaria n 7",
+        "grado_ano": "4to ano",
+        "localidad": "Berisso"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "rojas89@gmail.com",
+      "firstName": "Bianca",
+      "lastName": "Rojas",
+      "reason": "Listo para crear con 72 predicciones",
+      "extraData": {
+        "colegio": "E.T. 17 Brigadier General Cornelio Saavedra",
+        "grado_ano": "7",
+        "localidad": "Arturo Segui"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "herrerai3@hotmail.com",
+      "firstName": "Ignacio",
+      "lastName": "Herrera",
+      "reason": "Listo para crear con 72 predicciones",
+      "extraData": {
+        "colegio": "Santa Marta",
+        "grado_ano": "Cuarto año",
+        "localidad": "Berisso"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "villalbai9@outlook.com",
+      "firstName": "Ignacio",
+      "lastName": "Villalba",
+      "reason": "Listo para crear con 72 predicciones",
+      "extraData": {
+        "colegio": "mariano moreno",
+        "grado_ano": "1 ano",
+        "localidad": "Berisso"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "perez_facundo@gmail.com",
+      "firstName": "Facundo",
+      "lastName": "Perez",
+      "reason": "Listo para crear con 72 predicciones",
+      "extraData": {
+        "colegio": "Escuela Educativa Secundaria N 55",
+        "grado_ano": "5to",
+        "localidad": "Balcarce"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "fernandez.t4@hotmail.com",
+      "firstName": "Tiziano",
+      "lastName": "Fernandez",
+      "reason": "Listo para crear con 72 predicciones",
+      "extraData": {
+        "colegio": "santa marta",
+        "grado_ano": "7mo",
+        "localidad": "Wilde"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "lopez.e3@outlook.com",
+      "firstName": "Emilia",
+      "lastName": "Lopez",
+      "reason": "Listo para crear con 72 predicciones",
+      "extraData": {
+        "colegio": "Esc de Comercio",
+        "grado_ano": "Sexto",
+        "localidad": "Valentin Alsina"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "bustos_47@gmail.com",
+      "firstName": "Paula",
+      "lastName": "Bustos",
+      "reason": "Listo para crear con 72 predicciones",
+      "extraData": {
+        "colegio": "Nuestra Senora de Lujan",
+        "grado_ano": "4",
+        "localidad": "Zarate"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "milagros96q@hotmail.com",
+      "firstName": "Milagros",
+      "lastName": "Quiroga",
+      "reason": "Listo para crear con 72 predicciones",
+      "extraData": {
+        "colegio": "La Inmaculada",
+        "grado_ano": "5to ano",
+        "localidad": "Arturo Segui"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "ortiz.bianca@outlook.com",
+      "firstName": "Bianca",
+      "lastName": "Perez Ortiz",
+      "reason": "Listo para crear con 72 predicciones",
+      "extraData": {
+        "colegio": "Escuela de Comercio",
+        "grado_ano": "1 ano",
+        "localidad": "Caba"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "lautarovillalba93@gmail.com",
+      "firstName": "Lautaro",
+      "lastName": "Villalba",
+      "reason": "Listo para crear con 72 predicciones",
+      "extraData": {
+        "colegio": "Escuela de comercio",
+        "grado_ano": "4to",
+        "localidad": "Cordoba"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "poncesofia@hotmail.com",
+      "firstName": "Sofia",
+      "lastName": "Ponce",
+      "reason": "Listo para crear con 72 predicciones",
+      "extraData": {
+        "colegio": "Instituto Educativo Modelo",
+        "grado_ano": "5to",
+        "localidad": "San Miguel"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "camposmilagros@outlook.com",
+      "firstName": "Milagros",
+      "lastName": "Campos Mendez",
+      "reason": "Listo para crear con 72 predicciones",
+      "extraData": {
+        "colegio": "E.T. 17 Brigadier General Cornelio Saavedra",
+        "grado_ano": "6to",
+        "localidad": "La Plata"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "gomez.dylan@gmail.com",
+      "firstName": "Dylan",
+      "lastName": "Gomez",
+      "reason": "Listo para crear con 72 predicciones",
+      "extraData": {
+        "colegio": "Nuestra Senora de Lujan de los Patriotas",
+        "grado_ano": "5to",
+        "localidad": "Wilde"
+      }
+    },
+    {
+      "status": "dry_run_ready",
+      "email": "renata.correa_49@hotmail.com",
+      "firstName": "Renata",
+      "lastName": "Correa Peralta",
+      "reason": "Listo para crear con 72 predicciones",
+      "extraData": {
+        "colegio": "La Inmaculada",
+        "grado_ano": "5 año",
+        "localidad": "Ensenada"
+      }
+    }
+  ]
+}

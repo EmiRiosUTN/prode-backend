@@ -1,0 +1,574 @@
+{
+  "generatedAt": "2026-06-09T04:24:41.263Z",
+  "company": {
+    "id": "1a645723-5fb5-4249-b3cb-ca132aa32b78",
+    "slug": "recrear",
+    "name": "Turismo Recrear"
+  },
+  "area": {
+    "id": "1ab6476e-88a3-4fe5-87e8-0e75d3f7b3a8",
+    "name": "Administración"
+  },
+  "prode": {
+    "id": "f3d5c87b-09ce-4b49-81ce-207a5832756d",
+    "name": "Mundial 2026",
+    "competition": "Mundial 2026"
+  },
+  "options": {
+    "dryRun": false,
+    "count": 30,
+    "seed": 260608,
+    "batchTag": "recrear0608a",
+    "passwordMasked": "********026@"
+  },
+  "summary": {
+    "requested": 30,
+    "created": 30,
+    "readyInDryRun": 0,
+    "skippedExistingEmail": 0,
+    "errors": 0,
+    "totalPredictionsCreated": 2160
+  },
+  "results": [
+    {
+      "status": "created",
+      "email": "brisa.herrera.recrear0608a.001@gmail.com",
+      "firstName": "Brisa",
+      "lastName": "Herrera",
+      "reason": "",
+      "ids": {
+        "userId": "fe9452c2-2b4d-4a88-8970-ba8db76e3f00",
+        "employeeId": "4216c3b9-ce32-4fc5-9c09-7ff973d4bdfa",
+        "participantId": "daad03e6-32b9-4832-9941-31b2e9bb85dc",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Colegio Santa Ana",
+        "grado_ano": "4to ano",
+        "localidad": "CABA"
+      }
+    },
+    {
+      "status": "created",
+      "email": "tomas.juarez.recrear0608a.002@hotmail.com",
+      "firstName": "Tomas",
+      "lastName": "Juarez",
+      "reason": "",
+      "ids": {
+        "userId": "9fd4e740-bf9a-4701-8b8c-a68288a4b22b",
+        "employeeId": "bdf1d458-e7e9-4f0d-a552-ef66caf56661",
+        "participantId": "cf780376-2236-42d1-b38f-a149e6f92d6b",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Colegio San Jose",
+        "grado_ano": "4to ano",
+        "localidad": "San Vicente"
+      }
+    },
+    {
+      "status": "created",
+      "email": "salvador.ponce.recrear0608a.003@outlook.com",
+      "firstName": "Salvador",
+      "lastName": "Ponce",
+      "reason": "",
+      "ids": {
+        "userId": "83687345-3986-4073-8cd0-d89aad4bd901",
+        "employeeId": "d8419519-85de-4706-8588-2d9131082937",
+        "participantId": "889937f9-2f7f-44b1-b6f4-bfa67e42001f",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Colegio Nuestra Tierra",
+        "grado_ano": "2do ano",
+        "localidad": "Quilmes"
+      }
+    },
+    {
+      "status": "created",
+      "email": "emilia.correa.recrear0608a.004@gmail.com",
+      "firstName": "Emilia",
+      "lastName": "Correa",
+      "reason": "",
+      "ids": {
+        "userId": "3f472c1e-46da-4ebc-911a-553b9765e7ec",
+        "employeeId": "4af98b1a-66b6-4f9d-a6ab-dffce0312759",
+        "participantId": "df3d3bf7-bd71-4d0f-891f-00343ae9db68",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Colegio Modelo de Banfield",
+        "grado_ano": "3er grado",
+        "localidad": "La Plata"
+      }
+    },
+    {
+      "status": "created",
+      "email": "joaquin.quiroga.recrear0608a.005@hotmail.com",
+      "firstName": "Joaquin",
+      "lastName": "Quiroga",
+      "reason": "",
+      "ids": {
+        "userId": "77e97a7d-2395-40a9-ae9b-e7f84bdfa55a",
+        "employeeId": "baea0946-c037-45aa-8e90-c8f26c1fb653",
+        "participantId": "4bd10f0f-4a92-4a3d-b34a-e60656ed98c5",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Colegio San Martin",
+        "grado_ano": "1er ano",
+        "localidad": "Sarandi"
+      }
+    },
+    {
+      "status": "created",
+      "email": "valentino.barrios.recrear0608a.006@outlook.com",
+      "firstName": "Valentino",
+      "lastName": "Barrios",
+      "reason": "",
+      "ids": {
+        "userId": "402ced9d-aa19-4053-b97c-16b13d85011a",
+        "employeeId": "80092899-bb21-4832-85a6-fdfc0c97f85b",
+        "participantId": "90dddcc1-20f3-4257-99a5-875e08977007",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Instituto Nuestra Senora de la Merced",
+        "grado_ano": "5to grado",
+        "localidad": "San Vicente"
+      }
+    },
+    {
+      "status": "created",
+      "email": "uma.campos.recrear0608a.007@gmail.com",
+      "firstName": "Uma",
+      "lastName": "Campos",
+      "reason": "",
+      "ids": {
+        "userId": "521be8e0-bb54-4fae-89be-a021e493a380",
+        "employeeId": "42b36ba4-3245-46d4-ba36-ce684feacd8d",
+        "participantId": "b52b443a-a431-40b9-92bd-63096de313a8",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Instituto Nuestra Senora de la Merced",
+        "grado_ano": "6to ano",
+        "localidad": "Ezeiza"
+      }
+    },
+    {
+      "status": "created",
+      "email": "simon.roldan.recrear0608a.008@hotmail.com",
+      "firstName": "Simón",
+      "lastName": "Roldan",
+      "reason": "",
+      "ids": {
+        "userId": "d912b177-bc05-4fbb-b325-ea82b5daebd9",
+        "employeeId": "810e9561-cce0-43c9-b7b1-62bda9469302",
+        "participantId": "0c49d13d-2a9d-4b7f-8f96-1f5cb1cdde35",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Colegio Nuestra Tierra",
+        "grado_ano": "4to ano",
+        "localidad": "Lanus"
+      }
+    },
+    {
+      "status": "created",
+      "email": "josefina.ortiz.recrear0608a.009@outlook.com",
+      "firstName": "Josefina",
+      "lastName": "Ortiz",
+      "reason": "",
+      "ids": {
+        "userId": "b2cbd499-23a0-4cbc-8126-97de8c683036",
+        "employeeId": "0a367839-e15b-43c4-9f7e-5dc5c2dc01b0",
+        "participantId": "dd878359-5fc7-4fa9-b5cd-0baf5002172f",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Colegio Modelo de Banfield",
+        "grado_ano": "6to ano",
+        "localidad": "Avellaneda"
+      }
+    },
+    {
+      "status": "created",
+      "email": "salvador.mendez.recrear0608a.010@gmail.com",
+      "firstName": "Salvador",
+      "lastName": "Mendez",
+      "reason": "",
+      "ids": {
+        "userId": "40f3014b-a143-49ea-92aa-9277407cfb80",
+        "employeeId": "22dede0e-7a16-4f30-a231-8aa3158896e3",
+        "participantId": "c067dc0b-ec2b-4219-a411-138128537200",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Colegio San Jose",
+        "grado_ano": "4to grado",
+        "localidad": "Adrogue"
+      }
+    },
+    {
+      "status": "created",
+      "email": "alma.cardozo.recrear0608a.011@hotmail.com",
+      "firstName": "Alma",
+      "lastName": "Cardozo",
+      "reason": "",
+      "ids": {
+        "userId": "5e4f2bba-e757-444d-819f-92d5769571b0",
+        "employeeId": "27ebcf0c-9618-49ca-a500-179be9dcf57a",
+        "participantId": "81ef0fd2-96ed-4efc-b82a-4fdcb650c419",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Instituto Jose Hernandez",
+        "grado_ano": "2do ano",
+        "localidad": "Sarandi"
+      }
+    },
+    {
+      "status": "created",
+      "email": "benjamin.bustos.recrear0608a.012@outlook.com",
+      "firstName": "Benjamin",
+      "lastName": "Bustos",
+      "reason": "",
+      "ids": {
+        "userId": "f69a3e34-aa37-4aaa-8f03-ba9038b300ef",
+        "employeeId": "a56bf570-2bcd-4de2-856e-3ce0f06625a3",
+        "participantId": "88c84fcb-199d-4392-9206-e9635272c35e",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Colegio Sagrado Corazon",
+        "grado_ano": "5to grado",
+        "localidad": "Lanus"
+      }
+    },
+    {
+      "status": "created",
+      "email": "benjamin.castro.recrear0608a.013@gmail.com",
+      "firstName": "Benjamin",
+      "lastName": "Castro Castro",
+      "reason": "",
+      "ids": {
+        "userId": "d5821157-f521-45c9-a8e4-a85c53e023f7",
+        "employeeId": "94350066-5aca-40ca-aa5a-1a6105537411",
+        "participantId": "322c1cf3-bcb1-4ee9-8b94-575ab151b0c5",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Colegio Modelo de Banfield",
+        "grado_ano": "3er grado",
+        "localidad": "Quilmes"
+      }
+    },
+    {
+      "status": "created",
+      "email": "mora.arce.recrear0608a.014@hotmail.com",
+      "firstName": "Mora",
+      "lastName": "Arce",
+      "reason": "",
+      "ids": {
+        "userId": "63dc3c7f-bc1f-4de4-9ab3-e55aa5e07b84",
+        "employeeId": "a158be92-ad5a-4f48-bd43-b214cd2a29e0",
+        "participantId": "bd8d362d-daf1-4e82-9cfa-0e95ecfd43ad",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Colegio Nuestra Tierra",
+        "grado_ano": "3er grado",
+        "localidad": "Lanus"
+      }
+    },
+    {
+      "status": "created",
+      "email": "clara.gomez.recrear0608a.015@outlook.com",
+      "firstName": "Clara",
+      "lastName": "Gomez Ruiz",
+      "reason": "",
+      "ids": {
+        "userId": "fb30de98-72e7-426e-a0b1-558004bdb75e",
+        "employeeId": "bb7ca710-3073-4e63-9a0b-7a4e65420977",
+        "participantId": "ba5c82dc-1b5b-4d9c-b5ff-fce76c24a4b0",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Colegio Santa Ana",
+        "grado_ano": "3er ano",
+        "localidad": "Lanus"
+      }
+    },
+    {
+      "status": "created",
+      "email": "camila.ruiz.recrear0608a.016@gmail.com",
+      "firstName": "Camila",
+      "lastName": "Ruiz",
+      "reason": "",
+      "ids": {
+        "userId": "475f4623-2b49-43cc-bf3d-e4dccca25212",
+        "employeeId": "d5c3dc92-eb16-4ea8-a37f-b1408c4535ae",
+        "participantId": "d84b165e-e800-4644-a671-ab8bc2200b8e",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Colegio Santa Ana",
+        "grado_ano": "6to grado",
+        "localidad": "Adrogue"
+      }
+    },
+    {
+      "status": "created",
+      "email": "malena.molina.recrear0608a.017@hotmail.com",
+      "firstName": "Malena",
+      "lastName": "Molina",
+      "reason": "",
+      "ids": {
+        "userId": "fea54d71-f746-46fb-b2d2-4576f30e8b76",
+        "employeeId": "3ae07276-24c5-42f9-9916-26f01f8e4c59",
+        "participantId": "1fb8aded-f825-460f-bbf7-df073d513102",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Instituto Belgrano",
+        "grado_ano": "6to grado",
+        "localidad": "La Plata"
+      }
+    },
+    {
+      "status": "created",
+      "email": "santino.medina.recrear0608a.018@outlook.com",
+      "firstName": "Santino",
+      "lastName": "Medina",
+      "reason": "",
+      "ids": {
+        "userId": "ca64a705-0e75-401e-978d-dcabd0b6ea3a",
+        "employeeId": "20e924f4-ef74-43ad-9e01-e224904473b0",
+        "participantId": "ae7294cc-487f-4996-8c8f-9ad014f1a82a",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Instituto Jose Hernandez",
+        "grado_ano": "6to grado",
+        "localidad": "Lanus"
+      }
+    },
+    {
+      "status": "created",
+      "email": "bianca.quiroga.recrear0608a.019@gmail.com",
+      "firstName": "Bianca",
+      "lastName": "Quiroga",
+      "reason": "",
+      "ids": {
+        "userId": "fb084e1e-2747-4ffc-9606-683dd3948618",
+        "employeeId": "da5359ae-ff4d-4c5a-ac08-309f3e555d38",
+        "participantId": "dbe2f541-7329-4209-8d2d-e6693e2d624d",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Instituto Nuestra Senora de la Merced",
+        "grado_ano": "4to grado",
+        "localidad": "Banfield"
+      }
+    },
+    {
+      "status": "created",
+      "email": "simon.roldan.recrear0608a.020@hotmail.com",
+      "firstName": "Simón",
+      "lastName": "Roldan",
+      "reason": "",
+      "ids": {
+        "userId": "a4918531-d5a1-4c29-a0ba-e93c461081e1",
+        "employeeId": "998bcebb-09eb-4c6f-9d8e-0c1ae0f3451d",
+        "participantId": "bee237c2-92d0-4f9b-b328-8d3edb8dedd3",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Colegio San Jose",
+        "grado_ano": "5to ano",
+        "localidad": "Lanus"
+      }
+    },
+    {
+      "status": "created",
+      "email": "dylan.ojeda.recrear0608a.021@outlook.com",
+      "firstName": "Dylan",
+      "lastName": "Ojeda",
+      "reason": "",
+      "ids": {
+        "userId": "2d0868a2-8b05-42ad-a51b-f86737276e5a",
+        "employeeId": "484430ea-b587-479b-a1ea-b1fea2f85dc1",
+        "participantId": "bdb86e47-de0e-4d6e-bb81-26ce292c3ada",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Instituto Belgrano",
+        "grado_ano": "6to grado",
+        "localidad": "Burzaco"
+      }
+    },
+    {
+      "status": "created",
+      "email": "emilia.mendez.recrear0608a.022@gmail.com",
+      "firstName": "Emilia",
+      "lastName": "Mendez",
+      "reason": "",
+      "ids": {
+        "userId": "fe6c5e02-88d3-4126-840a-258de59ad438",
+        "employeeId": "47441e99-6c1b-4867-92fd-d466e2d8992f",
+        "participantId": "57c79b1a-af13-4eb1-b85b-a7384b1f1e9a",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Colegio San Martin",
+        "grado_ano": "5to grado",
+        "localidad": "Avellaneda"
+      }
+    },
+    {
+      "status": "created",
+      "email": "delfina.benitez.recrear0608a.023@hotmail.com",
+      "firstName": "Delfina",
+      "lastName": "Benitez",
+      "reason": "",
+      "ids": {
+        "userId": "5706530f-6096-4ac4-8011-adc2c48ecba8",
+        "employeeId": "d002b21a-b5be-4f9e-9320-0c9aecf35c8b",
+        "participantId": "8f79b960-01f2-4e2b-b186-893b91445aba",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Colegio San Martin",
+        "grado_ano": "4to grado",
+        "localidad": "San Vicente"
+      }
+    },
+    {
+      "status": "created",
+      "email": "dylan.suarez.recrear0608a.024@outlook.com",
+      "firstName": "Dylan",
+      "lastName": "Suarez Roldan",
+      "reason": "",
+      "ids": {
+        "userId": "a22b28dd-b9de-48d8-b18b-9e23da02d67a",
+        "employeeId": "a94a5392-2160-4447-91b9-7201bd74fee2",
+        "participantId": "07c664da-f16f-4ce6-9a94-69f4c8a0b4e7",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Colegio Don Bosco",
+        "grado_ano": "4to grado",
+        "localidad": "Burzaco"
+      }
+    },
+    {
+      "status": "created",
+      "email": "delfina.quiroga.recrear0608a.025@gmail.com",
+      "firstName": "Delfina",
+      "lastName": "Quiroga",
+      "reason": "",
+      "ids": {
+        "userId": "1a60cb87-84d5-4dc3-8d43-f802157f6192",
+        "employeeId": "4b2e8102-25b7-45e2-bce2-13578e41c421",
+        "participantId": "7a12780f-0114-47c6-a077-2fb49f69e5a4",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Colegio San Martin",
+        "grado_ano": "5to grado",
+        "localidad": "Ramos Mejia"
+      }
+    },
+    {
+      "status": "created",
+      "email": "josefina.gonzalez.recrear0608a.026@hotmail.com",
+      "firstName": "Josefina",
+      "lastName": "Gonzalez",
+      "reason": "",
+      "ids": {
+        "userId": "0abb574f-2c2e-47bb-ac0c-f2ebb0aeabeb",
+        "employeeId": "fd3f6545-9f76-4b82-a2b1-4ee8302c5763",
+        "participantId": "d363c888-1c7b-4769-a1a4-1f90b24761d6",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Colegio San Jose",
+        "grado_ano": "5to ano",
+        "localidad": "Lomas de Zamora"
+      }
+    },
+    {
+      "status": "created",
+      "email": "vicente.arce.recrear0608a.027@outlook.com",
+      "firstName": "Vicente",
+      "lastName": "Arce",
+      "reason": "",
+      "ids": {
+        "userId": "6b7fbcdb-06d5-447d-ad5a-5b8d4fb12bc3",
+        "employeeId": "6db8a23e-d9a7-4fa4-b1dd-db08d73d667e",
+        "participantId": "0c0122f9-6add-4974-87e3-de0cd37d397b",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Instituto Belgrano",
+        "grado_ano": "6to grado",
+        "localidad": "Adrogue"
+      }
+    },
+    {
+      "status": "created",
+      "email": "josefina.ponce.recrear0608a.028@gmail.com",
+      "firstName": "Josefina",
+      "lastName": "Ponce",
+      "reason": "",
+      "ids": {
+        "userId": "d8a0d81e-f92e-45a7-a3f2-480771011a37",
+        "employeeId": "b5e64d35-0b80-4f0a-a807-bf9616329db1",
+        "participantId": "52bb480f-8816-42ce-8f2d-29ca56c983b7",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Colegio Nuestra Tierra",
+        "grado_ano": "3er ano",
+        "localidad": "San Vicente"
+      }
+    },
+    {
+      "status": "created",
+      "email": "pilar.correa.recrear0608a.029@hotmail.com",
+      "firstName": "Pilar",
+      "lastName": "Correa",
+      "reason": "",
+      "ids": {
+        "userId": "3c8c121d-b9de-4dd5-995d-7d74bf1c7780",
+        "employeeId": "9ee686f1-10cc-4c37-946d-41a0acc19464",
+        "participantId": "bca9d54c-cd15-4af8-bf2d-0b8ed85f7717",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Instituto Belgrano",
+        "grado_ano": "4to ano",
+        "localidad": "Lanus"
+      }
+    },
+    {
+      "status": "created",
+      "email": "delfina.bustos.recrear0608a.030@outlook.com",
+      "firstName": "Delfina",
+      "lastName": "Bustos",
+      "reason": "",
+      "ids": {
+        "userId": "42395fc6-aadd-468b-a39d-26d7d6ed7516",
+        "employeeId": "cee43420-96a2-49df-991c-2f347c9e0eca",
+        "participantId": "d77ca768-53f7-43f7-9353-12036cc89fa7",
+        "predictionCount": 72
+      },
+      "extraData": {
+        "colegio": "Instituto Nuestra Senora de la Merced",
+        "grado_ano": "3er ano",
+        "localidad": "Ramos Mejia"
+      }
+    }
+  ]
+}

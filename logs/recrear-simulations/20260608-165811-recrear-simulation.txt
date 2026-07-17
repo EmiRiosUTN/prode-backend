@@ -1,0 +1,192 @@
+Empresa: Turismo Recrear (recrear)
+Area: Administración (1ab6476e-88a3-4fe5-87e8-0e75d3f7b3a8)
+Prode: Mundial 2026 (f3d5c87b-09ce-4b49-81ce-207a5832756d)
+Competencia: Mundial 2026
+Partidos futuros con prediccion: 54
+Dry run: si
+Count objetivo: 172
+Batch tag: recrear0608a
+Seed: 260608
+Password: ********026@
+
+Resumen:
+- requested: 172
+- created: 0
+- ready_in_dry_run: 172
+- skipped_existing_email: 0
+- errors: 0
+- total_predictions_created: 9288
+
+Detalle:
+- dry_run_ready | brisa.herrera.recrear0608a.001@gmail.com | Brisa Herrera | Listo para crear con 54 predicciones
+- dry_run_ready | julieta.castro.recrear0608a.002@hotmail.com | Julieta Castro | Listo para crear con 54 predicciones
+- dry_run_ready | elena.campos.recrear0608a.003@outlook.com | Elena Campos | Listo para crear con 54 predicciones
+- dry_run_ready | bruno.peralta.recrear0608a.004@gmail.com | Bruno Peralta | Listo para crear con 54 predicciones
+- dry_run_ready | nahuel.silva.recrear0608a.005@hotmail.com | Nahuel Silva | Listo para crear con 54 predicciones
+- dry_run_ready | lorenzo.mansilla.recrear0608a.006@outlook.com | Lorenzo Mansilla | Listo para crear con 54 predicciones
+- dry_run_ready | valentina.aguirre.recrear0608a.007@gmail.com | Valentina Aguirre | Listo para crear con 54 predicciones
+- dry_run_ready | ignacio.aguirre.recrear0608a.008@hotmail.com | Ignacio Aguirre Castro | Listo para crear con 54 predicciones
+- dry_run_ready | valentina.ruiz.recrear0608a.009@outlook.com | Valentina Ruiz | Listo para crear con 54 predicciones
+- dry_run_ready | olivia.correa.recrear0608a.010@gmail.com | Olivia Correa | Listo para crear con 54 predicciones
+- dry_run_ready | tiziano.roldan.recrear0608a.011@hotmail.com | Tiziano Roldan | Listo para crear con 54 predicciones
+- dry_run_ready | lorenzo.peralta.recrear0608a.012@outlook.com | Lorenzo Peralta | Listo para crear con 54 predicciones
+- dry_run_ready | milagros.acosta.recrear0608a.013@gmail.com | Milagros Acosta | Listo para crear con 54 predicciones
+- dry_run_ready | ignacio.roldan.recrear0608a.014@hotmail.com | Ignacio Roldan | Listo para crear con 54 predicciones
+- dry_run_ready | facundo.godoy.recrear0608a.015@outlook.com | Facundo Godoy | Listo para crear con 54 predicciones
+- dry_run_ready | victoria.torres.recrear0608a.016@gmail.com | Victoria Torres Ortiz | Listo para crear con 54 predicciones
+- dry_run_ready | joaquin.villalba.recrear0608a.017@hotmail.com | Joaquin Villalba | Listo para crear con 54 predicciones
+- dry_run_ready | tiziano.lopez.recrear0608a.018@outlook.com | Tiziano Lopez | Listo para crear con 54 predicciones
+- dry_run_ready | malena.martinez.recrear0608a.019@gmail.com | Malena Martinez | Listo para crear con 54 predicciones
+- dry_run_ready | julieta.leiva.recrear0608a.020@hotmail.com | Julieta Leiva | Listo para crear con 54 predicciones
+- dry_run_ready | ramiro.benitez.recrear0608a.021@outlook.com | Ramiro Benitez | Listo para crear con 54 predicciones
+- dry_run_ready | lorenzo.alvarez.recrear0608a.022@gmail.com | Lorenzo Alvarez | Listo para crear con 54 predicciones
+- dry_run_ready | clara.lopez.recrear0608a.023@hotmail.com | Clara Lopez Paz | Listo para crear con 54 predicciones
+- dry_run_ready | santino.ortiz.recrear0608a.024@outlook.com | Santino Ortiz | Listo para crear con 54 predicciones
+- dry_run_ready | camila.gomez.recrear0608a.025@gmail.com | Camila Gomez Herrera | Listo para crear con 54 predicciones
+- dry_run_ready | tiziano.rodriguez.recrear0608a.026@hotmail.com | Tiziano Rodriguez | Listo para crear con 54 predicciones
+- dry_run_ready | pilar.paz.recrear0608a.027@outlook.com | Pilar Paz | Listo para crear con 54 predicciones
+- dry_run_ready | nahuel.lopez.recrear0608a.028@gmail.com | Nahuel Lopez Molina | Listo para crear con 54 predicciones
+- dry_run_ready | agustina.aguirre.recrear0608a.029@hotmail.com | Agustina Aguirre | Listo para crear con 54 predicciones
+- dry_run_ready | benjamin.medina.recrear0608a.030@outlook.com | Benjamin Medina | Listo para crear con 54 predicciones
+- dry_run_ready | olivia.villalba.recrear0608a.031@gmail.com | Olivia Villalba | Listo para crear con 54 predicciones
+- dry_run_ready | santiago.ruiz.recrear0608a.032@hotmail.com | Santiago Ruiz | Listo para crear con 54 predicciones
+- dry_run_ready | thiago.mansilla.recrear0608a.033@outlook.com | Thiago Mansilla | Listo para crear con 54 predicciones
+- dry_run_ready | martina.sosa.recrear0608a.034@gmail.com | Martina Sosa | Listo para crear con 54 predicciones
+- dry_run_ready | candela.paz.recrear0608a.035@hotmail.com | Candela Paz | Listo para crear con 54 predicciones
+- dry_run_ready | sofia.castro.recrear0608a.036@outlook.com | Sofia Castro | Listo para crear con 54 predicciones
+- dry_run_ready | tomas.ledesma.recrear0608a.037@gmail.com | Tomas Ledesma | Listo para crear con 54 predicciones
+- dry_run_ready | santiago.diaz.recrear0608a.038@hotmail.com | Santiago Diaz | Listo para crear con 54 predicciones
+- dry_run_ready | juan.cardozo.recrear0608a.039@outlook.com | Juan Cardozo | Listo para crear con 54 predicciones
+- dry_run_ready | valentina.castro.recrear0608a.040@gmail.com | Valentina Castro | Listo para crear con 54 predicciones
+- dry_run_ready | juan.rodriguez.recrear0608a.041@hotmail.com | Juan Rodriguez | Listo para crear con 54 predicciones
+- dry_run_ready | tomas.acosta.recrear0608a.042@outlook.com | Tomas Acosta | Listo para crear con 54 predicciones
+- dry_run_ready | santino.ojeda.recrear0608a.043@gmail.com | Santino Ojeda | Listo para crear con 54 predicciones
+- dry_run_ready | delfina.leiva.recrear0608a.044@hotmail.com | Delfina Leiva Ortiz | Listo para crear con 54 predicciones
+- dry_run_ready | milagros.herrera.recrear0608a.045@outlook.com | Milagros Herrera | Listo para crear con 54 predicciones
+- dry_run_ready | camila.mendez.recrear0608a.046@gmail.com | Camila Mendez | Listo para crear con 54 predicciones
+- dry_run_ready | pilar.acosta.recrear0608a.047@hotmail.com | Pilar Acosta | Listo para crear con 54 predicciones
+- dry_run_ready | olivia.suarez.recrear0608a.048@outlook.com | Olivia Suarez | Listo para crear con 54 predicciones
+- dry_run_ready | delfina.arce.recrear0608a.049@gmail.com | Delfina Arce | Listo para crear con 54 predicciones
+- dry_run_ready | gael.ortiz.recrear0608a.050@hotmail.com | Gael Ortiz | Listo para crear con 54 predicciones
+- dry_run_ready | santiago.ojeda.recrear0608a.051@outlook.com | Santiago Ojeda | Listo para crear con 54 predicciones
+- dry_run_ready | benjamin.gonzalez.recrear0608a.052@gmail.com | Benjamin Gonzalez Peralta | Listo para crear con 54 predicciones
+- dry_run_ready | ignacio.gonzalez.recrear0608a.053@hotmail.com | Ignacio Gonzalez | Listo para crear con 54 predicciones
+- dry_run_ready | julieta.fernandez.recrear0608a.054@outlook.com | Julieta Fernandez Arce | Listo para crear con 54 predicciones
+- dry_run_ready | sofia.molina.recrear0608a.055@gmail.com | Sofia Molina | Listo para crear con 54 predicciones
+- dry_run_ready | camila.vera.recrear0608a.056@hotmail.com | Camila Vera | Listo para crear con 54 predicciones
+- dry_run_ready | milagros.campos.recrear0608a.057@outlook.com | Milagros Campos | Listo para crear con 54 predicciones
+- dry_run_ready | victoria.acosta.recrear0608a.058@gmail.com | Victoria Acosta Silva | Listo para crear con 54 predicciones
+- dry_run_ready | lola.navarro.recrear0608a.059@hotmail.com | Lola Navarro | Listo para crear con 54 predicciones
+- dry_run_ready | lola.cabrera.recrear0608a.060@outlook.com | Lola Cabrera Suarez | Listo para crear con 54 predicciones
+- dry_run_ready | tiziano.ramos.recrear0608a.061@gmail.com | Tiziano Ramos Ponce | Listo para crear con 54 predicciones
+- dry_run_ready | emilia.campos.recrear0608a.062@hotmail.com | Emilia Campos | Listo para crear con 54 predicciones
+- dry_run_ready | amparo.acosta.recrear0608a.063@outlook.com | Amparo Acosta | Listo para crear con 54 predicciones
+- dry_run_ready | nahuel.rojas.recrear0608a.064@gmail.com | Nahuel Rojas | Listo para crear con 54 predicciones
+- dry_run_ready | bautista.ponce.recrear0608a.065@hotmail.com | Bautista Ponce | Listo para crear con 54 predicciones
+- dry_run_ready | dylan.ledesma.recrear0608a.066@outlook.com | Dylan Ledesma | Listo para crear con 54 predicciones
+- dry_run_ready | catalina.arce.recrear0608a.067@gmail.com | Catalina Arce | Listo para crear con 54 predicciones
+- dry_run_ready | thiago.alvarez.recrear0608a.068@hotmail.com | Thiago Alvarez Juarez | Listo para crear con 54 predicciones
+- dry_run_ready | candela.barrios.recrear0608a.069@outlook.com | Candela Barrios | Listo para crear con 54 predicciones
+- dry_run_ready | ignacio.acosta.recrear0608a.070@gmail.com | Ignacio Acosta | Listo para crear con 54 predicciones
+- dry_run_ready | gael.miranda.recrear0608a.071@hotmail.com | Gael Miranda | Listo para crear con 54 predicciones
+- dry_run_ready | santiago.peralta.recrear0608a.072@outlook.com | Santiago Peralta | Listo para crear con 54 predicciones
+- dry_run_ready | catalina.alvarez.recrear0608a.073@gmail.com | Catalina Alvarez | Listo para crear con 54 predicciones
+- dry_run_ready | franco.correa.recrear0608a.074@hotmail.com | Franco Correa | Listo para crear con 54 predicciones
+- dry_run_ready | gael.ruiz.recrear0608a.075@outlook.com | Gael Ruiz | Listo para crear con 54 predicciones
+- dry_run_ready | dylan.torres.recrear0608a.076@gmail.com | Dylan Torres | Listo para crear con 54 predicciones
+- dry_run_ready | lorenzo.rodriguez.recrear0608a.077@hotmail.com | Lorenzo Rodriguez | Listo para crear con 54 predicciones
+- dry_run_ready | julieta.aguirre.recrear0608a.078@outlook.com | Julieta Aguirre Peralta | Listo para crear con 54 predicciones
+- dry_run_ready | lorenzo.ponce.recrear0608a.079@gmail.com | Lorenzo Ponce | Listo para crear con 54 predicciones
+- dry_run_ready | elena.rojas.recrear0608a.080@hotmail.com | Elena Rojas | Listo para crear con 54 predicciones
+- dry_run_ready | malena.arce.recrear0608a.081@outlook.com | Malena Arce | Listo para crear con 54 predicciones
+- dry_run_ready | dylan.ramos.recrear0608a.082@gmail.com | Dylan Ramos | Listo para crear con 54 predicciones
+- dry_run_ready | ariana.arce.recrear0608a.083@hotmail.com | Ariana Arce | Listo para crear con 54 predicciones
+- dry_run_ready | paula.farias.recrear0608a.084@outlook.com | Paula Farias | Listo para crear con 54 predicciones
+- dry_run_ready | ariana.benitez.recrear0608a.085@gmail.com | Ariana Benitez Tevez | Listo para crear con 54 predicciones
+- dry_run_ready | candela.miranda.recrear0608a.086@hotmail.com | Candela Miranda | Listo para crear con 54 predicciones
+- dry_run_ready | benjamin.villalba.recrear0608a.087@outlook.com | Benjamin Villalba | Listo para crear con 54 predicciones
+- dry_run_ready | mora.farias.recrear0608a.088@gmail.com | Mora Farias | Listo para crear con 54 predicciones
+- dry_run_ready | ramiro.correa.recrear0608a.089@hotmail.com | Ramiro Correa | Listo para crear con 54 predicciones
+- dry_run_ready | josefina.rojas.recrear0608a.090@outlook.com | Josefina Rojas | Listo para crear con 54 predicciones
+- dry_run_ready | clara.ledesma.recrear0608a.091@gmail.com | Clara Ledesma Cardozo | Listo para crear con 54 predicciones
+- dry_run_ready | bautista.campos.recrear0608a.092@hotmail.com | Bautista Campos | Listo para crear con 54 predicciones
+- dry_run_ready | tiziano.godoy.recrear0608a.093@outlook.com | Tiziano Godoy | Listo para crear con 54 predicciones
+- dry_run_ready | brisa.herrera.recrear0608a.094@gmail.com | Brisa Herrera | Listo para crear con 54 predicciones
+- dry_run_ready | amparo.castro.recrear0608a.095@hotmail.com | Amparo Castro Correa | Listo para crear con 54 predicciones
+- dry_run_ready | lautaro.roldan.recrear0608a.096@outlook.com | Lautaro Roldan | Listo para crear con 54 predicciones
+- dry_run_ready | juan.paz.recrear0608a.097@gmail.com | Juan Paz | Listo para crear con 54 predicciones
+- dry_run_ready | felipe.gonzalez.recrear0608a.098@hotmail.com | Felipe Gonzalez | Listo para crear con 54 predicciones
+- dry_run_ready | nina.godoy.recrear0608a.099@outlook.com | Nina Godoy | Listo para crear con 54 predicciones
+- dry_run_ready | bautista.vera.recrear0608a.100@gmail.com | Bautista Vera | Listo para crear con 54 predicciones
+- dry_run_ready | bautista.alvarez.recrear0608a.101@hotmail.com | Bautista Alvarez | Listo para crear con 54 predicciones
+- dry_run_ready | bianca.martinez.recrear0608a.102@outlook.com | Bianca Martinez | Listo para crear con 54 predicciones
+- dry_run_ready | mia.rojas.recrear0608a.103@gmail.com | Mia Rojas | Listo para crear con 54 predicciones
+- dry_run_ready | elena.quiroga.recrear0608a.104@hotmail.com | Elena Quiroga | Listo para crear con 54 predicciones
+- dry_run_ready | vicente.romero.recrear0608a.105@outlook.com | Vicente Romero | Listo para crear con 54 predicciones
+- dry_run_ready | vicente.navarro.recrear0608a.106@gmail.com | Vicente Navarro | Listo para crear con 54 predicciones
+- dry_run_ready | tiziano.navarro.recrear0608a.107@hotmail.com | Tiziano Navarro Villalba | Listo para crear con 54 predicciones
+- dry_run_ready | valentina.quiroga.recrear0608a.108@outlook.com | Valentina Quiroga | Listo para crear con 54 predicciones
+- dry_run_ready | facundo.tevez.recrear0608a.109@gmail.com | Facundo Tevez | Listo para crear con 54 predicciones
+- dry_run_ready | mateo.fernandez.recrear0608a.110@hotmail.com | Mateo Fernandez | Listo para crear con 54 predicciones
+- dry_run_ready | elena.miranda.recrear0608a.111@outlook.com | Elena Miranda | Listo para crear con 54 predicciones
+- dry_run_ready | delfina.ojeda.recrear0608a.112@gmail.com | Delfina Ojeda Correa | Listo para crear con 54 predicciones
+- dry_run_ready | bruno.aguirre.recrear0608a.113@hotmail.com | Bruno Aguirre | Listo para crear con 54 predicciones
+- dry_run_ready | nicolas.cardozo.recrear0608a.114@outlook.com | Nicolas Cardozo | Listo para crear con 54 predicciones
+- dry_run_ready | tomas.lopez.recrear0608a.115@gmail.com | Tomas Lopez | Listo para crear con 54 predicciones
+- dry_run_ready | emilia.acosta.recrear0608a.116@hotmail.com | Emilia Acosta | Listo para crear con 54 predicciones
+- dry_run_ready | pilar.campos.recrear0608a.117@outlook.com | Pilar Campos | Listo para crear con 54 predicciones
+- dry_run_ready | mora.campos.recrear0608a.118@gmail.com | Mora Campos | Listo para crear con 54 predicciones
+- dry_run_ready | bautista.cabrera.recrear0608a.119@hotmail.com | Bautista Cabrera | Listo para crear con 54 predicciones
+- dry_run_ready | felipe.rojas.recrear0608a.120@outlook.com | Felipe Rojas | Listo para crear con 54 predicciones
+- dry_run_ready | camila.ponce.recrear0608a.121@gmail.com | Camila Ponce | Listo para crear con 54 predicciones
+- dry_run_ready | ailen.ortiz.recrear0608a.122@hotmail.com | Ailen Ortiz | Listo para crear con 54 predicciones
+- dry_run_ready | joaquin.cabrera.recrear0608a.123@outlook.com | Joaquin Cabrera | Listo para crear con 54 predicciones
+- dry_run_ready | zoe.ledesma.recrear0608a.124@gmail.com | Zoe Ledesma | Listo para crear con 54 predicciones
+- dry_run_ready | amparo.ojeda.recrear0608a.125@hotmail.com | Amparo Ojeda | Listo para crear con 54 predicciones
+- dry_run_ready | josefina.suarez.recrear0608a.126@outlook.com | Josefina Suarez | Listo para crear con 54 predicciones
+- dry_run_ready | salvador.diaz.recrear0608a.127@gmail.com | Salvador Diaz | Listo para crear con 54 predicciones
+- dry_run_ready | ignacio.arce.recrear0608a.128@hotmail.com | Ignacio Arce Villalba | Listo para crear con 54 predicciones
+- dry_run_ready | agustina.quiroga.recrear0608a.129@outlook.com | Agustina Quiroga | Listo para crear con 54 predicciones
+- dry_run_ready | juan.suarez.recrear0608a.130@gmail.com | Juan Suarez | Listo para crear con 54 predicciones
+- dry_run_ready | simon.lopez.recrear0608a.131@hotmail.com | Simón Lopez | Listo para crear con 54 predicciones
+- dry_run_ready | mora.aguirre.recrear0608a.132@outlook.com | Mora Aguirre Correa | Listo para crear con 54 predicciones
+- dry_run_ready | nahuel.vera.recrear0608a.133@gmail.com | Nahuel Vera | Listo para crear con 54 predicciones
+- dry_run_ready | amparo.barrios.recrear0608a.134@hotmail.com | Amparo Barrios | Listo para crear con 54 predicciones
+- dry_run_ready | gael.miranda.recrear0608a.135@outlook.com | Gael Miranda | Listo para crear con 54 predicciones
+- dry_run_ready | benjamin.silva.recrear0608a.136@gmail.com | Benjamin Silva | Listo para crear con 54 predicciones
+- dry_run_ready | malena.martinez.recrear0608a.137@hotmail.com | Malena Martinez Rojas | Listo para crear con 54 predicciones
+- dry_run_ready | uma.aguirre.recrear0608a.138@outlook.com | Uma Aguirre | Listo para crear con 54 predicciones
+- dry_run_ready | agustina.villalba.recrear0608a.139@gmail.com | Agustina Villalba Godoy | Listo para crear con 54 predicciones
+- dry_run_ready | emilia.miranda.recrear0608a.140@hotmail.com | Emilia Miranda | Listo para crear con 54 predicciones
+- dry_run_ready | dylan.campos.recrear0608a.141@outlook.com | Dylan Campos | Listo para crear con 54 predicciones
+- dry_run_ready | delfina.gonzalez.recrear0608a.142@gmail.com | Delfina Gonzalez | Listo para crear con 54 predicciones
+- dry_run_ready | vicente.torres.recrear0608a.143@hotmail.com | Vicente Torres | Listo para crear con 54 predicciones
+- dry_run_ready | candela.tevez.recrear0608a.144@outlook.com | Candela Tevez | Listo para crear con 54 predicciones
+- dry_run_ready | facundo.villalba.recrear0608a.145@gmail.com | Facundo Villalba | Listo para crear con 54 predicciones
+- dry_run_ready | santiago.aguirre.recrear0608a.146@hotmail.com | Santiago Aguirre | Listo para crear con 54 predicciones
+- dry_run_ready | uma.suarez.recrear0608a.147@outlook.com | Uma Suarez | Listo para crear con 54 predicciones
+- dry_run_ready | franco.gomez.recrear0608a.148@gmail.com | Franco Gomez | Listo para crear con 54 predicciones
+- dry_run_ready | lucia.ortiz.recrear0608a.149@hotmail.com | Lucia Ortiz | Listo para crear con 54 predicciones
+- dry_run_ready | olivia.gomez.recrear0608a.150@outlook.com | Olivia Gomez Silva | Listo para crear con 54 predicciones
+- dry_run_ready | gael.diaz.recrear0608a.151@gmail.com | Gael Diaz | Listo para crear con 54 predicciones
+- dry_run_ready | benjamin.juarez.recrear0608a.152@hotmail.com | Benjamin Juarez Castro | Listo para crear con 54 predicciones
+- dry_run_ready | ailen.ojeda.recrear0608a.153@outlook.com | Ailen Ojeda | Listo para crear con 54 predicciones
+- dry_run_ready | bautista.benitez.recrear0608a.154@gmail.com | Bautista Benitez | Listo para crear con 54 predicciones
+- dry_run_ready | amparo.farias.recrear0608a.155@hotmail.com | Amparo Farias | Listo para crear con 54 predicciones
+- dry_run_ready | zoe.aguirre.recrear0608a.156@outlook.com | Zoe Aguirre | Listo para crear con 54 predicciones
+- dry_run_ready | ramiro.barrios.recrear0608a.157@gmail.com | Ramiro Barrios | Listo para crear con 54 predicciones
+- dry_run_ready | tomas.suarez.recrear0608a.158@hotmail.com | Tomas Suarez | Listo para crear con 54 predicciones
+- dry_run_ready | franco.rodriguez.recrear0608a.159@outlook.com | Franco Rodriguez | Listo para crear con 54 predicciones
+- dry_run_ready | uma.villalba.recrear0608a.160@gmail.com | Uma Villalba | Listo para crear con 54 predicciones
+- dry_run_ready | julieta.lopez.recrear0608a.161@hotmail.com | Julieta Lopez | Listo para crear con 54 predicciones
+- dry_run_ready | josefina.ponce.recrear0608a.162@outlook.com | Josefina Ponce | Listo para crear con 54 predicciones
+- dry_run_ready | sofia.lopez.recrear0608a.163@gmail.com | Sofia Lopez | Listo para crear con 54 predicciones
+- dry_run_ready | nina.mansilla.recrear0608a.164@hotmail.com | Nina Mansilla Leiva | Listo para crear con 54 predicciones
+- dry_run_ready | clara.fernandez.recrear0608a.165@outlook.com | Clara Fernandez | Listo para crear con 54 predicciones
+- dry_run_ready | bautista.medina.recrear0608a.166@gmail.com | Bautista Medina | Listo para crear con 54 predicciones
+- dry_run_ready | bautista.romero.recrear0608a.167@hotmail.com | Bautista Romero | Listo para crear con 54 predicciones
+- dry_run_ready | paula.gomez.recrear0608a.168@outlook.com | Paula Gomez | Listo para crear con 54 predicciones
+- dry_run_ready | paula.aguirre.recrear0608a.169@gmail.com | Paula Aguirre | Listo para crear con 54 predicciones
+- dry_run_ready | amparo.perez.recrear0608a.170@hotmail.com | Amparo Perez | Listo para crear con 54 predicciones
+- dry_run_ready | brisa.ledesma.recrear0608a.171@outlook.com | Brisa Ledesma Farias | Listo para crear con 54 predicciones
+- dry_run_ready | valentino.aguirre.recrear0608a.172@gmail.com | Valentino Aguirre | Listo para crear con 54 predicciones

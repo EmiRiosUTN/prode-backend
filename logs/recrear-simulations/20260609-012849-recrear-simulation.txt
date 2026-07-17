@@ -1,0 +1,50 @@
+Empresa: Turismo Recrear (recrear)
+Area: Administración (1ab6476e-88a3-4fe5-87e8-0e75d3f7b3a8)
+Prode: Mundial 2026 (f3d5c87b-09ce-4b49-81ce-207a5832756d)
+Competencia: Mundial 2026
+Partidos futuros con prediccion: 72
+Dry run: no
+Count objetivo: 30
+Batch tag: recrear20260609a
+Seed: 260608
+Password: ********026@
+
+Resumen:
+- requested: 30
+- created: 30
+- ready_in_dry_run: 0
+- skipped_existing_email: 0
+- errors: 0
+- total_predictions_created: 2160
+
+Detalle:
+- created | brisa.herrera@gmail.com | Brisa Herrera | ok
+- created | clara.ramos9@hotmail.com | Clara Ramos Ledesma | ok
+- created | felipegonzalez@outlook.com | Felipe Gonzalez | ok
+- created | brisa.fernandez78@gmail.com | Brisa Fernandez | ok
+- created | brisa.miranda19@hotmail.com | Brisa Miranda | ok
+- created | julietajuarez.bustos@outlook.com | Julieta Juarez Bustos | ok
+- created | mora_ojeda_58@gmail.com | Mora Ojeda | ok
+- created | gael.gonzalez28@hotmail.com | Gael Gonzalez | ok
+- created | ccorrea@outlook.com | Catalina Correa Ojeda | ok
+- created | ledesmar@gmail.com | Ramiro Ledesma | ok
+- created | valentina.medina70@hotmail.com | Valentina Medina | ok
+- created | a.bustos@outlook.com | Agustina Bustos Gonzalez | ok
+- created | arianam498@gmail.com | Ariana Molina | ok
+- created | saguirre@hotmail.com | Sofia Aguirre | ok
+- created | arianag521@outlook.com | Ariana Godoy Sosa | ok
+- created | zoer937@gmail.com | Zoe Rojas | ok
+- created | tomas14@hotmail.com | Tomas Ledesma Farias | ok
+- created | bautista_ponce_78@outlook.com | Bautista Ponce | ok
+- created | silva.ailen@gmail.com | Ailen Silva | ok
+- created | perez.abril@hotmail.com | Abril Perez | ok
+- created | camila21@outlook.com | Camila Ledesma | ok
+- created | emiliacardozo94@gmail.com | Emilia Cardozo | ok
+- created | godoyb@hotmail.com | Bruno Godoy | ok
+- created | renata.mendez4@outlook.com | Renata Mendez | ok
+- created | cardozor@gmail.com | Ramiro Cardozo | ok
+- created | ramiro26@hotmail.com | Ramiro Benitez | ok
+- created | julieta6004@outlook.com | Julieta Silva | ok
+- created | vicente_romero@gmail.com | Vicente Romero | ok
+- created | bgonzalez973@hotmail.com | Benjamin Gonzalez | ok
+- created | bianca30@outlook.com | Bianca Paz | ok

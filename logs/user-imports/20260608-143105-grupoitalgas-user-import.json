@@ -1,0 +1,409 @@
+{
+  "generatedAt": "2026-06-08T17:31:05.265Z",
+  "company": {
+    "id": "81194a04-7616-4dae-bd29-15e8c88b1303",
+    "name": "Grupo Italgas",
+    "slug": "grupoitalgas"
+  },
+  "area": {
+    "id": "f46cd76a-fee2-48d2-aadb-170a5e66ffb9",
+    "name": "Grupo Italgas"
+  },
+  "csvPath": "D:\\Trabajo\\Prode\\back-produ\\prode-backend\\Cuentas prodemax Italgas - Hoja 1.csv",
+  "options": {
+    "dryRun": false,
+    "forceVerified": false,
+    "passwordMasked": "*********026@"
+  },
+  "summary": {
+    "total": 29,
+    "created": 16,
+    "dry_run_ready": 0,
+    "duplicate_in_csv": 0,
+    "already_exists": 13,
+    "invalid": 0,
+    "error": 0
+  },
+  "results": [
+    {
+      "rowNumber": 2,
+      "rawName": "AVENDAÑO NADIA DANIELA",
+      "email": "nadia.avendano@gmail.com",
+      "status": "already_exists",
+      "reason": "El email ya existe en el sistema",
+      "details": {
+        "nameStrategy": "first-token-last-name"
+      },
+      "firstName": "Nadia Daniela",
+      "lastName": "Avendaño"
+    },
+    {
+      "rowNumber": 3,
+      "rawName": "DIAZ FRANCO NICOLAS",
+      "email": "aronemanuelperalta@gmail.com",
+      "status": "already_exists",
+      "reason": "El email ya existe en el sistema",
+      "details": {
+        "nameStrategy": "first-token-last-name"
+      },
+      "firstName": "Franco Nicolas",
+      "lastName": "Diaz"
+    },
+    {
+      "rowNumber": 4,
+      "rawName": "MARKIEWICZ MIGUEL SIMON",
+      "email": "markiewiczmiguelsimon@gmail.com",
+      "status": "already_exists",
+      "reason": "El email ya existe en el sistema",
+      "details": {
+        "nameStrategy": "first-token-last-name"
+      },
+      "firstName": "Miguel Simon",
+      "lastName": "Markiewicz"
+    },
+    {
+      "rowNumber": 5,
+      "rawName": "VERA LAUTARO DARIO",
+      "email": "veralautrox@gmail.com",
+      "status": "already_exists",
+      "reason": "El email ya existe en el sistema",
+      "details": {
+        "nameStrategy": "first-token-last-name"
+      },
+      "firstName": "Lautaro Dario",
+      "lastName": "Vera"
+    },
+    {
+      "rowNumber": 6,
+      "rawName": "BARRAL JESUS MAXIMILIANO NICOLAS",
+      "email": "barralmaximiliano2@gmail.com",
+      "status": "created",
+      "reason": "",
+      "details": {
+        "nameStrategy": "first-token-last-name",
+        "userId": "b35abc4e-6171-44be-86be-86cb2224d900",
+        "employeeId": "f6b91d8f-4949-4a5e-a83b-20427b39c905"
+      },
+      "firstName": "Jesus Maximiliano Nicolas",
+      "lastName": "Barral"
+    },
+    {
+      "rowNumber": 7,
+      "rawName": "TOLEDO MARCELO EMMANUEL",
+      "email": "toledomarceloemmanuel@gmail.com",
+      "status": "created",
+      "reason": "",
+      "details": {
+        "nameStrategy": "first-token-last-name",
+        "userId": "9ed36574-7741-433f-9c70-c07fe63c4b63",
+        "employeeId": "086cb527-2763-47e8-bce0-c8e3caad1a38"
+      },
+      "firstName": "Marcelo Emmanuel",
+      "lastName": "Toledo"
+    },
+    {
+      "rowNumber": 8,
+      "rawName": "PATTERER DAVID IGNACIO",
+      "email": "davidpatterer14@gmail.com",
+      "status": "already_exists",
+      "reason": "El email ya existe en el sistema",
+      "details": {
+        "nameStrategy": "first-token-last-name"
+      },
+      "firstName": "David Ignacio",
+      "lastName": "Patterer"
+    },
+    {
+      "rowNumber": 9,
+      "rawName": "SIMON JULIAN TELMO",
+      "email": "juliansimon96@hotmail.com",
+      "status": "already_exists",
+      "reason": "El email ya existe en el sistema",
+      "details": {
+        "nameStrategy": "first-token-last-name"
+      },
+      "firstName": "Julian Telmo",
+      "lastName": "Simon"
+    },
+    {
+      "rowNumber": 10,
+      "rawName": "TARDIVO MARCELO EMILIANO",
+      "email": "marcelotardivo@hotmail.com",
+      "status": "already_exists",
+      "reason": "El email ya existe en el sistema",
+      "details": {
+        "nameStrategy": "first-token-last-name"
+      },
+      "firstName": "Marcelo Emiliano",
+      "lastName": "Tardivo"
+    },
+    {
+      "rowNumber": 11,
+      "rawName": "FAZZINI ESTEBAN OSCAR",
+      "email": "estebanfazzini64@gmail.com",
+      "status": "already_exists",
+      "reason": "El email ya existe en el sistema",
+      "details": {
+        "nameStrategy": "first-token-last-name"
+      },
+      "firstName": "Esteban Oscar",
+      "lastName": "Fazzini"
+    },
+    {
+      "rowNumber": 12,
+      "rawName": "QUIÑONES JULIAN IGNACIO",
+      "email": "julianignacio2296@gmail.com",
+      "status": "already_exists",
+      "reason": "El email ya existe en el sistema",
+      "details": {
+        "nameStrategy": "first-token-last-name"
+      },
+      "firstName": "Julian Ignacio",
+      "lastName": "Quiñones"
+    },
+    {
+      "rowNumber": 13,
+      "rawName": "CAVALLERO BRAIAN ALEJANDRO",
+      "email": "braiancavallero@gmail.com",
+      "status": "already_exists",
+      "reason": "El email ya existe en el sistema",
+      "details": {
+        "nameStrategy": "first-token-last-name"
+      },
+      "firstName": "Braian Alejandro",
+      "lastName": "Cavallero"
+    },
+    {
+      "rowNumber": 14,
+      "rawName": "AIASSA ALEXIS ARIEL",
+      "email": "aleshi3436@gmail.com",
+      "status": "already_exists",
+      "reason": "El email ya existe en el sistema",
+      "details": {
+        "nameStrategy": "first-token-last-name"
+      },
+      "firstName": "Alexis Ariel",
+      "lastName": "Aiassa"
+    },
+    {
+      "rowNumber": 15,
+      "rawName": "TORRES LUCAS EZEQUIEL",
+      "email": "lucastorres89080@gmail.com",
+      "status": "already_exists",
+      "reason": "El email ya existe en el sistema",
+      "details": {
+        "nameStrategy": "first-token-last-name"
+      },
+      "firstName": "Lucas Ezequiel",
+      "lastName": "Torres"
+    },
+    {
+      "rowNumber": 16,
+      "rawName": "SILVA DIEGO EDUARDO",
+      "email": "diegogianna21@gmail.com",
+      "status": "already_exists",
+      "reason": "El email ya existe en el sistema",
+      "details": {
+        "nameStrategy": "first-token-last-name"
+      },
+      "firstName": "Diego Eduardo",
+      "lastName": "Silva"
+    },
+    {
+      "rowNumber": 17,
+      "rawName": "GALLARDO LUIS HERNAN",
+      "email": "gallardoluishernan28@gmail.com",
+      "status": "created",
+      "reason": "",
+      "details": {
+        "nameStrategy": "first-token-last-name",
+        "userId": "390bf88e-4f84-48a5-a723-0dc441905f75",
+        "employeeId": "f8123ddc-aef4-4825-8a22-3efe76e599b4"
+      },
+      "firstName": "Luis Hernan",
+      "lastName": "Gallardo"
+    },
+    {
+      "rowNumber": 18,
+      "rawName": "GOMEZ MARTIN NICOLAS",
+      "email": "tinchogomez7@gmail.com",
+      "status": "created",
+      "reason": "",
+      "details": {
+        "nameStrategy": "first-token-last-name",
+        "userId": "c4a9189f-8e34-40ba-9812-ca015fcb28b5",
+        "employeeId": "e57831d9-b641-46e4-b78a-858fc65f9bdc"
+      },
+      "firstName": "Martin Nicolas",
+      "lastName": "Gomez"
+    },
+    {
+      "rowNumber": 19,
+      "rawName": "RODRIGUEZ SERGIO ROBERTO",
+      "email": "rr0092289@gmail.com",
+      "status": "created",
+      "reason": "",
+      "details": {
+        "nameStrategy": "first-token-last-name",
+        "userId": "6c12e5d7-40ba-4b34-ad09-fe4cb251626c",
+        "employeeId": "baf9460b-3385-4ceb-be31-7b6201d56d7c"
+      },
+      "firstName": "Sergio Roberto",
+      "lastName": "Rodriguez"
+    },
+    {
+      "rowNumber": 20,
+      "rawName": "GOMEZ AGUSTIN DANTE",
+      "email": "agustingomez6908@gmail.com",
+      "status": "created",
+      "reason": "",
+      "details": {
+        "nameStrategy": "first-token-last-name",
+        "userId": "dbc981f5-944d-47f7-bfa3-e57a0fd65b40",
+        "employeeId": "672fc446-5494-4a20-9fd6-4dfce5625a5a"
+      },
+      "firstName": "Agustin Dante",
+      "lastName": "Gomez"
+    },
+    {
+      "rowNumber": 21,
+      "rawName": "FERNANDEZ CRISTIAN MATIAS",
+      "email": "gitano3226@gmail.com",
+      "status": "created",
+      "reason": "",
+      "details": {
+        "nameStrategy": "first-token-last-name",
+        "userId": "10a7d442-5bcd-4053-8fe4-d32bafd77c23",
+        "employeeId": "40093e93-237f-4a74-8971-e550849624f8"
+      },
+      "firstName": "Cristian Matias",
+      "lastName": "Fernandez"
+    },
+    {
+      "rowNumber": 22,
+      "rawName": "BARRIOS AGUSTIN HERNAN",
+      "email": "barriosagus210618@gmail.com",
+      "status": "created",
+      "reason": "",
+      "details": {
+        "nameStrategy": "first-token-last-name",
+        "userId": "f0ee7e50-cbe9-42dc-ad88-32d0b3a54bc7",
+        "employeeId": "79e9b8e6-6e45-4f6c-9ad7-8f12ed345c17"
+      },
+      "firstName": "Agustin Hernan",
+      "lastName": "Barrios"
+    },
+    {
+      "rowNumber": 23,
+      "rawName": "GARCIA MATIAS SEBASTIAN",
+      "email": "matiasgarcia1994.mg@gmail.com",
+      "status": "created",
+      "reason": "",
+      "details": {
+        "nameStrategy": "first-token-last-name",
+        "userId": "8e9ecd70-6255-471a-9618-7d8c915fb57c",
+        "employeeId": "7e01e279-0606-4fd6-bbc0-e6d050138b61"
+      },
+      "firstName": "Matias Sebastian",
+      "lastName": "Garcia"
+    },
+    {
+      "rowNumber": 24,
+      "rawName": "GONZALEZ JUAN CARLOS",
+      "email": "juangonza2103@gmail.com",
+      "status": "created",
+      "reason": "",
+      "details": {
+        "nameStrategy": "first-token-last-name",
+        "userId": "8739f80a-f7f6-4e7a-8954-5fe751ace7f6",
+        "employeeId": "f88c9b2f-98b5-4375-b930-0d0e0451e10b"
+      },
+      "firstName": "Juan Carlos",
+      "lastName": "Gonzalez"
+    },
+    {
+      "rowNumber": 25,
+      "rawName": "VALENZUELA JOSÉ MARTÍN",
+      "email": "valenzuelajosemartin02@gmail.com",
+      "status": "created",
+      "reason": "",
+      "details": {
+        "nameStrategy": "first-token-last-name",
+        "userId": "5afdd910-6012-4e26-a953-7458d6f745e5",
+        "employeeId": "484a9a8d-901c-4ea3-92d7-6803f8a2a70b"
+      },
+      "firstName": "José Martín",
+      "lastName": "Valenzuela"
+    },
+    {
+      "rowNumber": 26,
+      "rawName": "LARRABURU LEONEL NICOLAS",
+      "email": "lnob73@gmail.com",
+      "status": "created",
+      "reason": "",
+      "details": {
+        "nameStrategy": "first-token-last-name",
+        "userId": "ecf9ab48-5e69-439f-b44a-0a6dfa4f0ae3",
+        "employeeId": "b400516a-f1fe-4fa4-8fd7-7133098e6a4e"
+      },
+      "firstName": "Leonel Nicolas",
+      "lastName": "Larraburu"
+    },
+    {
+      "rowNumber": 27,
+      "rawName": "CARNERO NICOLAS EMILIANO",
+      "email": "ncarnero41@gmail.com",
+      "status": "created",
+      "reason": "",
+      "details": {
+        "nameStrategy": "first-token-last-name",
+        "userId": "11839e57-4108-4082-b516-647962a3e0cb",
+        "employeeId": "dcdcec80-9947-4aeb-8ea4-88eb87b9db45"
+      },
+      "firstName": "Nicolas Emiliano",
+      "lastName": "Carnero"
+    },
+    {
+      "rowNumber": 28,
+      "rawName": "RISODÉ NAHUEL ALEJANDRO",
+      "email": "nahuelalejandro94@gmail.com",
+      "status": "created",
+      "reason": "",
+      "details": {
+        "nameStrategy": "first-token-last-name",
+        "userId": "4467dc83-f938-41ef-b8f0-aa3f7e1516c6",
+        "employeeId": "4914c620-f736-4406-9f53-6500010904f4"
+      },
+      "firstName": "Nahuel Alejandro",
+      "lastName": "Risodé"
+    },
+    {
+      "rowNumber": 29,
+      "rawName": "KOVALCZYK LUCAS HERNAN",
+      "email": "lucaskovalczyk73@gmail.com",
+      "status": "created",
+      "reason": "",
+      "details": {
+        "nameStrategy": "first-token-last-name",
+        "userId": "f6251b8b-7b09-49ee-aa59-76e1d9951371",
+        "employeeId": "62e09a39-25a4-4db2-96df-012dc22d8aef"
+      },
+      "firstName": "Lucas Hernan",
+      "lastName": "Kovalczyk"
+    },
+    {
+      "rowNumber": 30,
+      "rawName": "CARRIZO ARIEL LEONARDO",
+      "email": "arielcarrizo527@gmail.com",
+      "status": "created",
+      "reason": "",
+      "details": {
+        "nameStrategy": "first-token-last-name",
+        "userId": "43541971-239f-4d4b-8dcc-a3fbe9fda476",
+        "employeeId": "e501d118-420d-4279-baca-4617fe0ed0f1"
+      },
+      "firstName": "Ariel Leonardo",
+      "lastName": "Carrizo"
+    }
+  ]
+}

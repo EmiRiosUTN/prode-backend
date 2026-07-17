@@ -1,0 +1,71 @@
+Empresa: Turismo Recrear (recrear)
+Area: Administración (1ab6476e-88a3-4fe5-87e8-0e75d3f7b3a8)
+Prode: Mundial 2026 (f3d5c87b-09ce-4b49-81ce-207a5832756d)
+Competencia: Mundial 2026
+Partidos futuros con prediccion: 72
+Dry run: si
+Count objetivo: 50
+Batch tag: recrear20260610a
+Seed: 260610
+Profile: batch2
+Password: ********026@
+
+Resumen:
+- requested: 50
+- created: 0
+- ready_in_dry_run: 50
+- skipped_existing_email: 0
+- errors: 0
+- total_predictions_created: 3600
+
+Detalle:
+- dry_run_ready | vera722@gmail.com | Brisa Vera | Listo para crear con 72 predicciones
+- dry_run_ready | ailen_78@hotmail.com | Ailen Rojas | Listo para crear con 72 predicciones
+- dry_run_ready | sosa2001@outlook.com | Ariana Sosa | Listo para crear con 72 predicciones
+- dry_run_ready | ruizsantiago@gmail.com | Santiago Ruiz | Listo para crear con 72 predicciones
+- dry_run_ready | rodriguezl06@hotmail.com | Lorenzo Rodriguez | Listo para crear con 72 predicciones
+- dry_run_ready | lopezmilagros@outlook.com | Milagros Lopez Ramos | Listo para crear con 72 predicciones
+- dry_run_ready | l.cabrera13@gmail.com | Lucia Cabrera | Listo para crear con 72 predicciones
+- dry_run_ready | torres.lucia@hotmail.com | Lucia Torres | Listo para crear con 72 predicciones
+- dry_run_ready | cabrera.josefina2@outlook.com | Josefina Cabrera | Listo para crear con 72 predicciones
+- dry_run_ready | ruiz.santino46@gmail.com | Santino Ruiz Suarez | Listo para crear con 72 predicciones
+- dry_run_ready | bustos_julieta@hotmail.com | Julieta Bustos | Listo para crear con 72 predicciones
+- dry_run_ready | rojas_653@outlook.com | Martina Rojas | Listo para crear con 72 predicciones
+- dry_run_ready | malena_89@gmail.com | Malena Acosta | Listo para crear con 72 predicciones
+- dry_run_ready | torressantino@hotmail.com | Santino Torres | Listo para crear con 72 predicciones
+- dry_run_ready | pfelipe502@outlook.com | Felipe Ponce | Listo para crear con 72 predicciones
+- dry_run_ready | ramosl21@gmail.com | Lorenzo Ramos | Listo para crear con 72 predicciones
+- dry_run_ready | paz.cabreram@hotmail.com | Mateo Paz Cabrera | Listo para crear con 72 predicciones
+- dry_run_ready | memilia764@outlook.com | Emilia Mansilla | Listo para crear con 72 predicciones
+- dry_run_ready | bruno.silva_10@gmail.com | Bruno Silva | Listo para crear con 72 predicciones
+- dry_run_ready | ledesmam1@hotmail.com | Martina Ledesma | Listo para crear con 72 predicciones
+- dry_run_ready | leiva21@outlook.com | Dylan Leiva | Listo para crear con 72 predicciones
+- dry_run_ready | torres22@gmail.com | Amparo Torres | Listo para crear con 72 predicciones
+- dry_run_ready | mora.miranda_31@hotmail.com | Mora Miranda | Listo para crear con 72 predicciones
+- dry_run_ready | miranda_2262@outlook.com | Camila Miranda | Listo para crear con 72 predicciones
+- dry_run_ready | ponce.agustina@gmail.com | Agustina Ponce | Listo para crear con 72 predicciones
+- dry_run_ready | t.cardozo793@hotmail.com | Thiago Cardozo | Listo para crear con 72 predicciones
+- dry_run_ready | u.mansilla89@outlook.com | Uma Mansilla | Listo para crear con 72 predicciones
+- dry_run_ready | godoy.abril@gmail.com | Abril Godoy | Listo para crear con 72 predicciones
+- dry_run_ready | ajosefina825@hotmail.com | Josefina Arce | Listo para crear con 72 predicciones
+- dry_run_ready | villalba_5115@outlook.com | Pilar Villalba | Listo para crear con 72 predicciones
+- dry_run_ready | romero_tiziano@gmail.com | Tiziano Romero | Listo para crear con 72 predicciones
+- dry_run_ready | tomasleiva09@hotmail.com | Tomas Leiva | Listo para crear con 72 predicciones
+- dry_run_ready | godoy.delfina@outlook.com | Delfina Godoy | Listo para crear con 72 predicciones
+- dry_run_ready | dylan.ruiz_75@gmail.com | Dylan Ruiz | Listo para crear con 72 predicciones
+- dry_run_ready | torres_22@hotmail.com | Tiziano Torres | Listo para crear con 72 predicciones
+- dry_run_ready | emilia_91@outlook.com | Emilia Campos | Listo para crear con 72 predicciones
+- dry_run_ready | rojas89@gmail.com | Bianca Rojas | Listo para crear con 72 predicciones
+- dry_run_ready | herrerai3@hotmail.com | Ignacio Herrera | Listo para crear con 72 predicciones
+- dry_run_ready | villalbai9@outlook.com | Ignacio Villalba | Listo para crear con 72 predicciones
+- dry_run_ready | perez_facundo@gmail.com | Facundo Perez | Listo para crear con 72 predicciones
+- dry_run_ready | fernandez.t4@hotmail.com | Tiziano Fernandez | Listo para crear con 72 predicciones
+- dry_run_ready | lopez.e3@outlook.com | Emilia Lopez | Listo para crear con 72 predicciones
+- dry_run_ready | bustos_47@gmail.com | Paula Bustos | Listo para crear con 72 predicciones
+- dry_run_ready | milagros96q@hotmail.com | Milagros Quiroga | Listo para crear con 72 predicciones
+- dry_run_ready | ortiz.bianca@outlook.com | Bianca Perez Ortiz | Listo para crear con 72 predicciones
+- dry_run_ready | lautarovillalba93@gmail.com | Lautaro Villalba | Listo para crear con 72 predicciones
+- dry_run_ready | poncesofia@hotmail.com | Sofia Ponce | Listo para crear con 72 predicciones
+- dry_run_ready | camposmilagros@outlook.com | Milagros Campos Mendez | Listo para crear con 72 predicciones
+- dry_run_ready | gomez.dylan@gmail.com | Dylan Gomez | Listo para crear con 72 predicciones
+- dry_run_ready | renata.correa_49@hotmail.com | Renata Correa Peralta | Listo para crear con 72 predicciones

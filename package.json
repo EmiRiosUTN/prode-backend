@@ -19,7 +19,12 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "prisma:seed": "ts-node prisma/seed.ts",
-    "db:clean": "npx prisma db execute --file scripts/clean-database.sql --schema prisma/schema.prisma"
+    "db:clean": "npx prisma db execute --file scripts/clean-database.sql --schema prisma/schema.prisma",
+    "import:users": "node scripts/import-company-users.js",
+    "create:users:emails": "node scripts/create-users-from-emails.js",
+    "simulate:recrear": "node scripts/simulate-recrear-participants.js",
+    "rollback:simulation": "node scripts/rollback-simulation-batch.js",
+    "rollback:email-pattern": "node scripts/rollback-users-by-email-pattern.js"
   },
   "prisma": {
     "seed": "ts-node prisma/seed.ts"

@@ -1,9 +1,9 @@
 import { IsNotEmpty, IsString, Matches, MinLength } from 'class-validator';
 
-export class ResetPasswordDto {
-    @IsNotEmpty({ message: 'El token es requerido' })
+export class ChangePasswordDto {
+    @IsNotEmpty({ message: 'La contrasena actual es requerida' })
     @IsString()
-    token!: string;
+    currentPassword!: string;
 
     @IsNotEmpty({ message: 'La nueva contrasena es requerida' })
     @IsString()

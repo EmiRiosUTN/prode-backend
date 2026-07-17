@@ -1,8 +1,17 @@
-import { Controller, Post, Body, HttpCode, HttpStatus, Req } from '@nestjs/common';
+import { Body, Controller, HttpCode, HttpStatus, Post, Req, UseGuards } from '@nestjs/common';
 import type { Request } from 'express';
+import { CurrentTenant, CurrentUser } from '../../common/decorators';
+import { JwtAuthGuard } from '../../common/guards';
 import { AuthService } from './auth.service';
-import { LoginDto, RegisterDto, VerifyEmailDto, ResendVerificationDto, ForgotPasswordDto, ResetPasswordDto } from './dto';
-import { CurrentTenant } from '../../common/decorators';
+import {
+    ChangePasswordDto,
+    ForgotPasswordDto,
+    LoginDto,
+    RegisterDto,
+    ResendVerificationDto,
+    ResetPasswordDto,
+    VerifyEmailDto,
+} from './dto';
 
 @Controller('auth')
 export class AuthController {
@@ -44,7 +53,7 @@ export class AuthController {
     @Post('forgot-password')
     @HttpCode(HttpStatus.OK)
     async forgotPassword(
-        @Body() forgotPasswordDto: ForgotPasswordDto, 
+        @Body() forgotPasswordDto: ForgotPasswordDto,
         @CurrentTenant() tenant: { id: string } | undefined,
         @Req() req: Request
     ) {
@@ -56,5 +65,15 @@ export class AuthController {
     @HttpCode(HttpStatus.OK)
     async resetPassword(@Body() resetPasswordDto: ResetPasswordDto) {
         return this.authService.resetPassword(resetPasswordDto);
+    }
+
+    @UseGuards(JwtAuthGuard)
+    @Post('change-password')
+    @HttpCode(HttpStatus.OK)
+    async changePassword(
+        @CurrentUser('id') userId: string,
+        @Body() changePasswordDto: ChangePasswordDto,
+    ) {
+        return this.authService.changePassword(userId, changePasswordDto);
     }
 }

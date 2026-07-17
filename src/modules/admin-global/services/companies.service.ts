@@ -118,10 +118,14 @@ export class CompaniesService {
                     slug,
                     corporate_domain: dtoData.corporateDomain,
                     require_corporate_email: dtoData.requireCorporateEmail ?? false,
+                    require_email_confirmation: dtoData.requireEmailConfirmation ?? true,
                     logo_url: dtoData.logoUrl,
                     primary_color: dtoData.primaryColor ?? '#1976d2',
                     secondary_color: dtoData.secondaryColor ?? '#424242',
                     ai_enabled: createCompanyDto.aiEnabled ?? true,
+                    registration_fields: createCompanyDto.registrationFields
+                        ? (createCompanyDto.registrationFields as any)
+                        : undefined,
                     admin_user_id: adminUser.id,
                 },
             });
@@ -228,11 +232,15 @@ export class CompaniesService {
                 slug: updateCompanyDto.slug,
                 corporate_domain: updateCompanyDto.corporateDomain,
                 require_corporate_email: updateCompanyDto.requireCorporateEmail,
+                require_email_confirmation: updateCompanyDto.requireEmailConfirmation,
                 logo_url: updateCompanyDto.logoUrl,
                 primary_color: updateCompanyDto.primaryColor,
                 secondary_color: updateCompanyDto.secondaryColor,
                 ai_enabled: updateCompanyDto.aiEnabled,
                 is_active: updateCompanyDto.isActive,
+                registration_fields: updateCompanyDto.registrationFields !== undefined
+                    ? (updateCompanyDto.registrationFields as any)
+                    : undefined,
             },
             include: {
                 admin_user: {

@@ -1,4 +1,6 @@
-import { IsOptional, IsString, IsUrl } from 'class-validator';
+import { IsOptional, IsString, IsUrl, IsArray, ValidateNested } from 'class-validator';
+import { Type } from 'class-transformer';
+import { RegistrationFieldConfig } from '../../admin-global/dto/create-company.dto';
 
 export class UpdateCompanyConfigDto {
     @IsUrl()
@@ -13,6 +15,9 @@ export class UpdateCompanyConfigDto {
     @IsOptional()
     secondaryColor?: string;
 
+    @IsArray()
+    @ValidateNested({ each: true })
+    @Type(() => RegistrationFieldConfig)
     @IsOptional()
-    aiEnabled?: boolean;
+    registrationFields?: RegistrationFieldConfig[];
 }

@@ -4,7 +4,7 @@ import { PrismaService } from '../../prisma/prisma.service';
 import { EmailService } from '../email/email.service';
 import * as bcrypt from 'bcrypt';
 import * as crypto from 'crypto';
-import { LoginDto, RegisterDto, VerifyEmailDto, ResendVerificationDto, ForgotPasswordDto, ResetPasswordDto } from './dto';
+import { ChangePasswordDto, LoginDto, RegisterDto, VerifyEmailDto, ResendVerificationDto, ForgotPasswordDto, ResetPasswordDto } from './dto';
 
 @Injectable()
 export class AuthService {
@@ -110,7 +110,7 @@ export class AuthService {
     }
 
     async register(registerDto: RegisterDto, companyId: string, originUrl: string) {
-        const { email, password, firstName, lastName, phone, companyAreaId } = registerDto;
+        const { email, password, firstName, lastName, phone, companyAreaId, extraData } = registerDto;
 
         // Check if user already exists
         const existingUser = await this.prisma.user.findUnique({
@@ -124,23 +124,41 @@ export class AuthService {
         // Verify company exists and is active
         const company = await this.prisma.company.findUnique({
             where: { id: companyId },
+            include: {
+                company_areas: {
+                    where: { is_active: true },
+                    orderBy: { created_at: 'asc' },
+                    take: 1,
+                },
+            },
         });
 
         if (!company || !company.is_active) {
             throw new BadRequestException('Company not found or inactive');
         }
 
-        // Verify company area exists and belongs to company
-        const companyArea = await this.prisma.companyArea.findFirst({
-            where: {
-                id: companyAreaId,
-                company_id: companyId,
-                is_active: true,
-            },
-        });
+        // Resolve company area: use provided ID or auto-assign first active area
+        let resolvedAreaId: string;
+        if (companyAreaId) {
+            // Verify company area exists and belongs to company
+            const companyArea = await this.prisma.companyArea.findFirst({
+                where: {
+                    id: companyAreaId,
+                    company_id: companyId,
+                    is_active: true,
+                },
+            });
 
-        if (!companyArea) {
-            throw new BadRequestException('Company area not found or inactive');
+            if (!companyArea) {
+                throw new BadRequestException('Company area not found or inactive');
+            }
+            resolvedAreaId = companyAreaId;
+        } else {
+            // Auto-assign first active area (for companies that hide the area field)
+            if (!company.company_areas || company.company_areas.length === 0) {
+                throw new BadRequestException('No active company areas found');
+            }
+            resolvedAreaId = company.company_areas[0].id;
         }
 
         // Validate corporate email if required
@@ -150,6 +168,25 @@ export class AuthService {
                 throw new BadRequestException(
                     `Email must be from corporate domain: @${company.corporate_domain}`,
                 );
+            }
+        }
+
+        // Validate custom required fields against registration_fields config
+        if (company.registration_fields) {
+            const fields = company.registration_fields as Array<{
+                key: string;
+                label: string;
+                visible: boolean;
+                required: boolean;
+                isCustom: boolean;
+            }>;
+
+            for (const field of fields) {
+                if (field.isCustom && field.required && field.visible) {
+                    if (!extraData || !extraData[field.key] || extraData[field.key].trim() === '') {
+                        throw new BadRequestException(`El campo "${field.label}" es obligatorio`);
+                    }
+                }
             }
         }
 
@@ -169,9 +206,9 @@ export class AuthService {
                     email,
                     password_hash: passwordHash,
                     role: 'empleado',
-                    email_verified: false,
-                    verification_token: verificationToken,
-                    token_expires_at: tokenExpiresAt,
+                    email_verified: !company.require_email_confirmation,
+                    verification_token: company.require_email_confirmation ? verificationToken : null,
+                    token_expires_at: company.require_email_confirmation ? tokenExpiresAt : null,
                 },
             });
 
@@ -179,10 +216,11 @@ export class AuthService {
                 data: {
                     user_id: user.id,
                     company_id: companyId,
-                    company_area_id: companyAreaId,
+                    company_area_id: resolvedAreaId,
                     first_name: firstName,
                     last_name: lastName,
-                    phone,
+                    phone: phone || null,
+                    extra_data: extraData ? (extraData as any) : undefined,
                 },
                 include: {
                     company: true,
@@ -194,21 +232,27 @@ export class AuthService {
         });
 
         // Send verification email
-        try {
-            await this.emailService.sendVerificationEmail(
-                email,
-                verificationToken,
-                company.name,
-                originUrl
-            );
-        } catch (error) {
-            // Log error but don't fail registration
-            console.error('Failed to send verification email:', error);
+        if (company.require_email_confirmation) {
+            try {
+                await this.emailService.sendVerificationEmail(
+                    email,
+                    verificationToken,
+                    company.name,
+                    originUrl
+                );
+            } catch (error) {
+                // Log error but don't fail registration
+                console.error('Failed to send verification email:', error);
+            }
+
+            return {
+                message: 'Registro exitoso. Por favor revisa tu email para verificar tu cuenta.',
+                email: result.user.email,
+            };
         }
 
-        // Return success message without token
         return {
-            message: 'Registro exitoso. Por favor revisa tu email para verificar tu cuenta.',
+            message: 'Registro exitoso. Ya puedes iniciar sesión.',
             email: result.user.email,
         };
     }
@@ -378,6 +422,49 @@ export class AuthService {
         });
 
         return { message: 'Tu contraseña ha sido restablecida exitosamente.' };
+    }
+
+    async changePassword(userId: string, dto: ChangePasswordDto) {
+        const { currentPassword, newPassword } = dto;
+
+        const user = await this.prisma.user.findUnique({
+            where: { id: userId },
+            include: {
+                employee: true,
+            },
+        });
+
+        if (!user || !user.is_active) {
+            throw new UnauthorizedException('Usuario no autorizado');
+        }
+
+        if (user.employee?.is_blocked) {
+            throw new UnauthorizedException('Tu cuenta de empleado esta bloqueada');
+        }
+
+        const isCurrentPasswordValid = await bcrypt.compare(currentPassword, user.password_hash);
+        if (!isCurrentPasswordValid) {
+            throw new BadRequestException('La contrasena actual es incorrecta');
+        }
+
+        const isSamePassword = await bcrypt.compare(newPassword, user.password_hash);
+        if (isSamePassword) {
+            throw new BadRequestException('La nueva contrasena debe ser distinta a la actual');
+        }
+
+        const passwordHash = await bcrypt.hash(newPassword, 10);
+
+        await this.prisma.user.update({
+            where: { id: user.id },
+            data: {
+                password_hash: passwordHash,
+                verification_token: null,
+                token_expires_at: null,
+                email_verified: true,
+            },
+        });
+
+        return { message: 'Tu contrasena fue actualizada correctamente.' };
     }
 
     async validateUser(userId: string) {

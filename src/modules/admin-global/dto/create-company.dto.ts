@@ -1,4 +1,24 @@
-import { IsString, IsNotEmpty, IsOptional, IsBoolean, IsEmail, IsUrl } from 'class-validator';
+import { IsString, IsNotEmpty, IsOptional, IsBoolean, IsEmail, IsUrl, IsArray, ValidateNested } from 'class-validator';
+import { Type } from 'class-transformer';
+
+export class RegistrationFieldConfig {
+    @IsString()
+    @IsNotEmpty()
+    key: string;
+
+    @IsString()
+    @IsNotEmpty()
+    label: string;
+
+    @IsBoolean()
+    visible: boolean;
+
+    @IsBoolean()
+    required: boolean;
+
+    @IsBoolean()
+    isCustom: boolean;
+}
 
 export class CreateCompanyDto {
     @IsString()
@@ -17,6 +37,10 @@ export class CreateCompanyDto {
     @IsOptional()
     requireCorporateEmail?: boolean;
 
+    @IsBoolean()
+    @IsOptional()
+    requireEmailConfirmation?: boolean;
+
     @IsUrl()
     @IsOptional()
     logoUrl?: string;
@@ -32,6 +56,12 @@ export class CreateCompanyDto {
     @IsBoolean()
     @IsOptional()
     aiEnabled?: boolean;
+
+    @IsArray()
+    @ValidateNested({ each: true })
+    @Type(() => RegistrationFieldConfig)
+    @IsOptional()
+    registrationFields?: RegistrationFieldConfig[];
 
     @IsEmail()
     @IsNotEmpty()

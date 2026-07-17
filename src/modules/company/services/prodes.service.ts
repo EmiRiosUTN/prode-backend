@@ -25,7 +25,30 @@ export class ProdesService {
                     },
                 },
                 prode_variable_configs: {
-                    where: { is_active: true },
+                    where: {
+                        is_active: true,
+                        prediction_variable: {
+                            NOT: [
+                                {
+                                    code: {
+                                        in: ['scorers', 'goleador', 'goleadores', 'goal_scorer', 'goal_scorers'],
+                                    },
+                                },
+                                {
+                                    name: {
+                                        contains: 'goleador',
+                                        mode: 'insensitive',
+                                    },
+                                },
+                                {
+                                    description: {
+                                        contains: 'acertar jugador',
+                                        mode: 'insensitive',
+                                    },
+                                },
+                            ],
+                        },
+                    },
                     include: {
                         prediction_variable: {
                             select: {
@@ -70,7 +93,30 @@ export class ProdesService {
                     },
                 },
                 prode_variable_configs: {
-                    where: { is_active: true },
+                    where: {
+                        is_active: true,
+                        prediction_variable: {
+                            NOT: [
+                                {
+                                    code: {
+                                        in: ['scorers', 'goleador', 'goleadores', 'goal_scorer', 'goal_scorers'],
+                                    },
+                                },
+                                {
+                                    name: {
+                                        contains: 'goleador',
+                                        mode: 'insensitive',
+                                    },
+                                },
+                                {
+                                    description: {
+                                        contains: 'acertar jugador',
+                                        mode: 'insensitive',
+                                    },
+                                },
+                            ],
+                        },
+                    },
                     include: {
                         prediction_variable: true,
                     },

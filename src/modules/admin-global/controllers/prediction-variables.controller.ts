@@ -10,7 +10,28 @@ export class PredictionVariablesController {
     @Get()
     async findAll() {
         const variables = await this.prisma.predictionVariable.findMany({
-            where: { is_active: true },
+            where: {
+                is_active: true,
+                NOT: [
+                    {
+                        code: {
+                            in: ['scorers', 'goleador', 'goleadores', 'goal_scorer', 'goal_scorers'],
+                        },
+                    },
+                    {
+                        name: {
+                            contains: 'goleador',
+                            mode: 'insensitive',
+                        },
+                    },
+                    {
+                        description: {
+                            contains: 'acertar jugador',
+                            mode: 'insensitive',
+                        },
+                    },
+                ],
+            },
             orderBy: { code: 'asc' },
         });
 

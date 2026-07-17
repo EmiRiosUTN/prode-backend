@@ -143,11 +143,13 @@ model Company {
   slug                    String        @unique
   corporate_domain        String?       @map("corporate_domain")
   require_corporate_email Boolean       @default(false) @map("require_corporate_email")
+  require_email_confirmation Boolean    @default(true) @map("require_email_confirmation")
   logo_url                String?       @map("logo_url")
   primary_color           String        @default("#1976d2") @map("primary_color")
   secondary_color         String        @default("#424242") @map("secondary_color")
   is_active               Boolean       @default(true) @map("is_active")
   ai_enabled              Boolean       @default(true) @map("ai_enabled")
+  registration_fields     Json?         @map("registration_fields")
   admin_user_id           String        @map("admin_user_id")
   created_at              DateTime      @default(now()) @map("created_at")
   updated_at              DateTime      @updatedAt @map("updated_at")
@@ -187,6 +189,8 @@ model Employee {
   first_name         String             @map("first_name")
   last_name          String             @map("last_name")
   phone              String?
+  avatar_url         String?            @map("avatar_url")
+  extra_data         Json?              @map("extra_data")
   is_blocked         Boolean            @default(false) @map("is_blocked")
   created_at         DateTime           @default(now()) @map("created_at")
   updated_at         DateTime           @updatedAt @map("updated_at")

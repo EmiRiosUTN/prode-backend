@@ -15,11 +15,13 @@ export class ConfigService {
                 slug: true,
                 corporate_domain: true,
                 require_corporate_email: true,
+                require_email_confirmation: true,
                 logo_url: true,
                 primary_color: true,
                 secondary_color: true,
                 is_active: true,
                 ai_enabled: true,
+                registration_fields: true,
                 created_at: true,
                 updated_at: true,
             },
@@ -41,9 +43,11 @@ export class ConfigService {
                 slug: true,
                 corporate_domain: true,
                 require_corporate_email: true,
+                require_email_confirmation: true,
                 logo_url: true,
                 primary_color: true,
                 secondary_color: true,
+                registration_fields: true,
                 company_areas: {
                     where: { is_active: true },
                     select: {
@@ -82,7 +86,9 @@ export class ConfigService {
                 logo_url: updateDto.logoUrl,
                 primary_color: updateDto.primaryColor,
                 secondary_color: updateDto.secondaryColor,
-                ai_enabled: updateDto.aiEnabled,
+                registration_fields: updateDto.registrationFields !== undefined
+                    ? (updateDto.registrationFields as any)
+                    : undefined,
             },
             select: {
                 id: true,
@@ -90,7 +96,7 @@ export class ConfigService {
                 logo_url: true,
                 primary_color: true,
                 secondary_color: true,
-                ai_enabled: true,
+                registration_fields: true,
                 updated_at: true,
             },
         });

@@ -98,7 +98,6 @@ async function main() {
     { code: 'goal_difference', name: 'Diferencia de Goles', description: 'Acertar la diferencia de goles', variable_type: 'numeric' },
     { code: 'yellow_cards', name: 'Tarjetas Amarillas', description: 'Acertar tarjetas amarillas', variable_type: 'numeric' },
     { code: 'red_cards', name: 'Tarjetas Rojas', description: 'Acertar tarjetas rojas', variable_type: 'numeric' },
-    { code: 'scorers', name: 'Goleadores', description: 'Acertar goleadores', variable_type: 'text' },
   ];
 
   const createdVariables: any[] = [];
